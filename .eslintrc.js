@@ -5,11 +5,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  plugins: [
-    'react',
-    'react-hooks',
-    'import',
-  ],
+  plugins: ['react', 'react-hooks', 'import'],
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -29,21 +25,24 @@ module.exports = {
     'no-multi-spaces': ['error', { ignoreEOLComments: true }],
     'no-trailing-spaces': ['error', { ignoreComments: true }],
     'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
-    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
     'react/jsx-first-prop-new-line': ['warn', 'multiline-multiprop'],
-    'react/jsx-max-props-per-line': ['warn', {
-      maximum: {
-        single: 4,
-        multi: 2,
+    'react/jsx-max-props-per-line': [
+      'warn',
+      {
+        maximum: {
+          single: 4,
+          multi: 2,
+        },
       },
-    }],
+    ],
     'react/jsx-wrap-multilines': 'off',
     'react/no-danger': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/self-closing-comp': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/button-has-type': 'off',
-    'quotes': [2, 'single'],
+    quotes: [2, 'single'],
   },
   overrides: [
     {
@@ -67,16 +66,13 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      'node': {
-        'paths': ['src'],
-        'extensions': [
-          '.js',
-          '.jsx'
-        ]
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.jsx'],
       },
       alias: {
         extensions: ['.js', '.jsx'],
       },
     },
   },
-};
+}
