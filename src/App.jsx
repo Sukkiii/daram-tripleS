@@ -7,7 +7,7 @@ import SearchPage from './pages/SearchPage'
 import SearchDetailPage from './pages/SearchDetailPage'
 
 const App = () => {
-  // 더미 데이터
+  // Dummy Data
   const lodgingData = {
     lodgingId: 1,
     destination: 'destinationId',
