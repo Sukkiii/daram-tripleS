@@ -1,11 +1,16 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
+    "source.fixAll": true
   },
-  "eslint.validate": [
-    "react",
-    "javascript",
-    "html"
-  ],
-  "editor.formatOnSave": true
+  "eslint.validate": ["react", "javascript", "html"],
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "Dongdaemun",
+    "inittitle",
+    "Insadong",
+    "Jeju",
+    "Shilla",
+    "Skypark",
+    "tripcdn"
+  ]
 }
