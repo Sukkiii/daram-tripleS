@@ -1,8 +1,14 @@
 import React from 'react'
-import Header from '../pages/main/Header'
+import Header from './main/Header'
+import HomeBody from './main/HomeBody'
 
-const MainPage = () => {
-  return <Header />
+function MainPage() {
+  return (
+    <>
+      <Header />
+      <HomeBody />
+    </>
+  )
 }
 
 export default MainPage

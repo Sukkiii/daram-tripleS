@@ -7,17 +7,19 @@ export default {
       backgroundImage: {
         'custom-bg':
           "url('https://pages.trip.com/images/home-background/head-banner-bg-new-1920.webp')",
-        'hotel-bg':
-          "url('//ak-d.tripcdn.com/images/1mc7412000am8free45B7_R_400_400_R5_D.jpg_.webp')",
       },
       borderRadius: {
-        lg: '32px',
+        lg: '4rem',
       },
       margin: {
-        '-50px': '-50px',
+        '40rem': '40rem',
+        '-1rem': '-1rem',
       },
       width: {
-        '1160px': '1160px',
+        'calc(25%-12px)': 'calc(25%-12px)',
+      },
+      inset: {
+        '-5rem': '-5rem',
       },
     },
   },

@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react'
 import { Box, Typography } from '@mui/material'
 import SouthKoreaFlag from '../../assets/img/SouthKorea.png'
 

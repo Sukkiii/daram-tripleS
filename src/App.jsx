@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import CssBaseline from '@mui/material/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material'
 import { createTheme } from '@mui/material/styles'
 import MainPage from './pages/MainPage'
