@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchPage = () => {
+function SearchPage() {
   return <div>검색 페이지</div>
 }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { Box, Typography } from '@mui/material'
 
-const ReservationModal = ({ closeModal, lodgingData, reservations }) => {
+function ReservationModal({ closeModal, lodgingData, reservations }) {
   const checkInDate = dayjs(reservations[0].checkInDate)
   const checkOutDate = dayjs(reservations[0].checkOutDate)
   const totalNights = checkOutDate.diff(checkInDate, 'day')

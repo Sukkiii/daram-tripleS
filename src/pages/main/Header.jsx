@@ -1,9 +1,11 @@
 /* eslint-disable import/no-unresolved */
+import React from 'react'
 import { Box } from '@mui/material'
 import HeaderLogo from './HeaderLogo'
 import HeaderSearchBox from './HeaderSearchBox'
 import FunctionOptions from './FunctionOptions'
 import NavigationBar from './NavigationBar'
+import Filtering from './Filtering/Filtering'
 
 function Header() {
   return (
@@ -14,8 +16,8 @@ function Header() {
         <FunctionOptions />
         <NavigationBar />
       </Box>
+      <Filtering />
     </Box>
   )
 }
-
 export default Header

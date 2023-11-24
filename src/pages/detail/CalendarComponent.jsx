@@ -5,7 +5,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import dayjs from 'dayjs' // Dayjs를 임포트합니다
 import { Box } from '@mui/material'
 
-const CalendarComponent = ({ setReservations }) => {
+function CalendarComponent({ setReservations }) {
   const [currentMonth, setCurrentMonth] = useState(dayjs())
   const [startDate, setStartDate] = useState(null) // Dayjs 객체 또는 null로 초기화
   const [endDate, setEndDate] = useState(null) // Dayjs 객체 또는 null로 초기화
@@ -27,9 +27,8 @@ const CalendarComponent = ({ setReservations }) => {
   const calendarValue = useMemo(() => {
     if (selecting) {
       return startDate ? dayjs(startDate) : null
-    } else {
-      return endDate ? dayjs(endDate) : null
     }
+    return endDate ? dayjs(endDate) : null
   }, [selecting, startDate, endDate]) // 의존성 배열에 selecting, startDate, endDate 추가
 
   const handleDateChange = (newValue) => {

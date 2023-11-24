@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 
-const DetailHeader = () => {
+function DetailHeader() {
   const navigate = useNavigate() // 필요한 경우 주석 해제
 
   const handleBack = () => {

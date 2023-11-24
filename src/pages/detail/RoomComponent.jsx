@@ -2,7 +2,7 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 
-const RoomComponent = ({ room }) => {
+function RoomComponent({ room }) {
   return (
     <Box className="max-w-sm rounded overflow-hidden shadow-lg mb-6">
       <Box className="px-6 py-4">
