@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { Box, Typography } from '@mui/material'
-import SouthKoreaFlag from '../../assets/img/SouthKorea.png'
+import SouthKoreaFlag from '../../../assets/img/SouthKorea.png'
 
 function FunctionOptions() {
   return (

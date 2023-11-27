@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
+import { useMemo } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded'
 
 function HotLodgingList({ data }) {
-  const lodgings = data && data.lodgings ? data.lodgings : []
+  const lodgings = useMemo(
+    () => (data && data.lodging ? data.lodging : []),
+    [data],
+  )
 
   return (
     <Box className="hot-container mt-4 relative text-center flex">

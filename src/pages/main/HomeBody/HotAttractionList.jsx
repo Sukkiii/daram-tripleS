@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
+import { useMemo } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 
 function HotAttractionList({ data }) {
-  const attractions = data && data.attractions ? data.attractions : []
+  const attractions = useMemo(
+    () => (data && data.attraction ? data.attraction : []),
+    [data],
+  )
 
   return (
     <Box className="hot-container mt-4 relative text-center flex">

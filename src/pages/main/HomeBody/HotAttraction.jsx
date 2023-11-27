@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
 import HotTab from './HotTab'
 import HotAttractionList from './HotAttractionList'
-import { fetchData } from '../../fetch/search'
+import { fetchData } from '../../../fetch/search'
 
 function HotAttraction() {
   const [selectedLocale, setSelectedLocale] = useState('서울')
@@ -12,7 +12,7 @@ function HotAttraction() {
   const subject = 'attraction'
 
   useEffect(() => {
-    fetchData(selectedLocale, 'attraction', 1, 3)
+    fetchData(selectedLocale, 1, 3, subject, 'rating')
       .then((data) => {
         setAttractionData(data)
       })

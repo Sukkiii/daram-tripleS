@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import Box from '@mui/material/Box'
 import { Link, Typography } from '@mui/material'
-import dummyData from '../../assets/dummyData/dummyData'
+import dummyData from '../../../assets/dummyData/dummyData'
 
 const { navCategories } = dummyData
 

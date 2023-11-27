@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 import { useState, useEffect } from 'react'
@@ -7,7 +8,7 @@ import KingBedIcon from '@mui/icons-material/KingBed'
 import BookOnlineIcon from '@mui/icons-material/BookOnline'
 import HotTab from './HotTab'
 import HotLodgingList from './HotLodgingList'
-import { fetchData } from '../../fetch/search'
+import { fetchData } from '../../../fetch/search'
 
 function HotLodging() {
   const [selectedLocale, setSelectedLocale] = useState('서울')
@@ -15,7 +16,7 @@ function HotLodging() {
   const subject = 'lodging'
 
   useEffect(() => {
-    fetchData(selectedLocale, 'lodging', 1, 3)
+    fetchData(selectedLocale, 1, 3, subject, 'rating')
       .then((data) => {
         setLodgingData(data)
       })
