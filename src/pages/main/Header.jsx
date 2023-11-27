@@ -9,8 +9,8 @@ import Filtering from './Filtering/Filtering'
 
 function Header() {
   return (
-    <Box className="main-hd-container bg-custom-bg relative w-full bg-cover bg-no-repeat bg-center flow-root pb-60">
-      <Box className="main-hd-flex-icon px-8 clear-both">
+    <Box className="main-hd-container bg-custom-bg relative w-full bg-cover bg-no-repeat bg-center pb-20">
+      <Box className="main-hd-flex-icon px-8 clear-both flow-root">
         <HeaderLogo />
         <HeaderSearchBox />
         <FunctionOptions />

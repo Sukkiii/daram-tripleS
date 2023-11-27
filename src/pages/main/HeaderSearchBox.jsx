@@ -16,12 +16,12 @@ function HeaderSearchBox() {
   }
 
   return (
-    <Box className="main-hd-search-con w-96 max-w-xs relative float-left top-4 h-9 ml-2 pr-8 bg-white rounded-md flex">
+    <Box className="main-hd-search-con w-96 max-w-xs relative float-left top-4 ml-2 pr-8 bg-white rounded-md flex">
       <ClickAwayListener onClickAway={handleClickAway}>
         <Box className="tripSearchBox-content border-solid border pr-8 flex rounded-md w-full">
           <Input
             onClick={handleClick}
-            className="tripSearchBox-input h-8 px-2 pt-1 w-full ml-0.5"
+            className="tripSearchBox-input px-2 pt-1 w-full ml-0.5"
             placeholder="여행지, 명소, 호텔 등으로 검색"
           />
           {open && (

@@ -7,7 +7,7 @@ const { navCategories } = dummyData
 
 function NavigationBar() {
   return (
-    <Box className="main-hd-navbar-row h-8 flex w-full overflow-visible float-left">
+    <Box className="main-hd-navbar-row flex w-full overflow-visible float-left">
       <ul className="main-hd-nav flex whitespace-nowrap flex-row">
         {navCategories.map((category) => (
           <li

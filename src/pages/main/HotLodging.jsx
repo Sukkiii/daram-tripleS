@@ -1,22 +1,33 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
 import PriceCheckIcon from '@mui/icons-material/PriceCheck'
 import KingBedIcon from '@mui/icons-material/KingBed'
 import BookOnlineIcon from '@mui/icons-material/BookOnline'
 import HotTab from './HotTab'
-import HotHotelList from './HotHotelList'
+import HotLodgingList from './HotLodgingList'
+import { fetchData } from '../../fetch/search'
 
-function HotHotel({ hotelData }) {
+function HotLodging() {
   const [selectedLocale, setSelectedLocale] = useState('서울')
+  const [lodgingData, setLodgingData] = useState([])
+  const subject = 'lodging'
+
+  useEffect(() => {
+    fetchData(selectedLocale, 'lodging', 1, 3)
+      .then((data) => {
+        setLodgingData(data)
+      })
+      .catch((error) => console.error('Error fetching lodging data:', error))
+  }, [selectedLocale])
 
   const handleLocaleChange = (locale) => {
     setSelectedLocale(locale)
   }
 
   return (
-    <Box className="recommend-modules p-8 rounded-md overflow-hidden bg-red-50 mb-8">
+    <Box className="recommend-modules p-8 rounded-3xl overflow-hidden bg-red-50 mb-8">
       <Typography
         sx={{
           fontSize: '28px',
@@ -67,11 +78,11 @@ function HotHotel({ hotelData }) {
         </Box>
       </Box>
       <Box className="recommend-module-things">
-        <HotTab data={hotelData} selectedLocale={handleLocaleChange} />
-        <HotHotelList selectedLocale={selectedLocale} data={hotelData} />
+        <HotTab selectedLocale={handleLocaleChange} subject={subject} />
+        <HotLodgingList selectedLocale={selectedLocale} data={lodgingData} />
       </Box>
     </Box>
   )
 }
 
-export default HotHotel
+export default HotLodging
