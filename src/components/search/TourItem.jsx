@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Box, Typography } from '@mui/material'
 
-function TourItem({ tour }) {
+function TourItem({ attraction }) {
   return (
     // 클릭시 여행지 디테일 페이지로 이동
     <Link>
@@ -19,10 +19,10 @@ function TourItem({ tour }) {
             className=" text-gray-900"
             style={{ fontWeight: 600 }}
           >
-            {tour.name}
+            {attraction.name}
           </Typography>
           <Typography variant="body1" className="-mt-1">
-            {tour.city} {tour.country}
+            {attraction.address?.city} {attraction.country}
           </Typography>
 
           <Box className="-mt-1.5">
@@ -31,7 +31,7 @@ function TourItem({ tour }) {
               className=" text-blue-500"
               style={{ display: 'inline' }}
             >
-              {tour.rating}
+              {attraction.avgRating}
             </Typography>
             <Typography
               variant="body2"
@@ -45,7 +45,7 @@ function TourItem({ tour }) {
               className="ml-2"
               style={{ marginLeft: '8px', display: 'inline' }}
             >
-              {tour.reviewCount}건의 리뷰
+              {attraction.reviewCount}건의 리뷰
             </Typography>
           </Box>
         </Box>

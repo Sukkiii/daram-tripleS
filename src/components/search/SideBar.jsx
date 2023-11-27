@@ -14,14 +14,14 @@ function SideBar({ keyword }) {
 
   useEffect(() => {
     const updateBtnClasses = () => {
-      if (path === 'tourSearchList') {
+      if (path === 'searchTourList') {
         setBtnClasses(() => ({
           tour: 'btn min-w-90 flex h-12 items-center rounded-lg border border-solid border-gray-400 py-2 pl-6 text-start bg-blue-600 text-gray-50',
           hotel:
             'btn min-w-90 flex h-12 items-center rounded-lg border border-solid border-gray-400 py-2 pl-6 text-start text-gray-900',
           all: 'btn min-w-90 flex h-12 items-center rounded-lg border border-solid border-gray-400 py-2 pl-6 text-start text-gray-900',
         }))
-      } else if (path === 'hotelSearchList') {
+      } else if (path === 'searchHotelList') {
         setBtnClasses(() => ({
           tour: 'btn min-w-90 flex h-12 items-center rounded-lg border border-solid border-gray-400 py-2 pl-6 text-start text-gray-900',
           hotel:
@@ -38,12 +38,8 @@ function SideBar({ keyword }) {
       }
     }
 
-    updateBtnClasses() // Initial call
-
-    // You might need to call this effect whenever 'path' changes
-    // For example, if 'path' is a prop, include it in the dependency array
+    updateBtnClasses()
   }, [path])
-  const check = 'forCheck'
 
   return (
     <nav className="min-w-[250px] relative my-4 flex gap-1 overflow-x-auto p-2 font-sans text-base font-normal text-gray-700 sm:flex-row md:flex-row lg:flex-col">
@@ -58,11 +54,8 @@ function SideBar({ keyword }) {
           </Typography>
         </Button>
       </Link>
-      <Link to={`/hotelSearchList/${keyword}`}>
-        <Button
-          tabIndex={-1}
-          className="{btnClasses.hotel} btn btn-hotel min-w-90 flex h-12 items-center rounded-lg border border-solid border-gray-400 py-2 pl-6 text-start text-gray-900"
-        >
+      <Link to={`/searchHotelList/${keyword}`}>
+        <Button tabIndex={-1} className={btnClasses.hotel}>
           <Typography
             variant="body1"
             className="w-[200px] leading-5"
@@ -72,31 +65,14 @@ function SideBar({ keyword }) {
           </Typography>
         </Button>
       </Link>
-      <Link to={`/tourSearchList/${keyword}`}>
-        <Button
-          tabIndex={-1}
-          className="{btnClasses.tour} btn btn-tour min-w-90 flex h-12 items-center rounded-lg border border-solid border-gray-400 py-2 pl-6 text-start text-gray-900"
-        >
+      <Link to={`/searchTourList/${keyword}`}>
+        <Button tabIndex={-1} className={btnClasses.tour}>
           <Typography
             variant="body1"
             className="w-[200px] leading-5"
             style={{ fontSize: '1.05rem' }}
           >
             여행지 (12,6372)
-          </Typography>
-        </Button>
-      </Link>
-      <Link to={`/commentList/${check}`}>
-        <Button
-          tabIndex={-1}
-          className="min-w-90 flex h-12 items-center rounded-lg border border-solid border-gray-400 py-2 pl-6 text-start active:bg-blue-600 active:text-gray-50"
-        >
-          <Typography
-            variant="body1"
-            className="w-[200px] leading-5"
-            style={{ fontSize: '1.05rem' }}
-          >
-            코멘트 (12,6372)
           </Typography>
         </Button>
       </Link>

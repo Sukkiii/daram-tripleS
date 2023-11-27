@@ -1,129 +1,45 @@
 import { useParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { Box, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
 import SideBar from './SideBar'
 import HotelItem from './HotelItem'
 import TourItem from './TourItem'
-// import fetchHotel from '../../fetch/search/fetchHotel'
-// import fetchTour from '../../fetch/search/fetchTour'
-
-const hotels = [
-  {
-    id: '1',
-    name: '그랜드워커힐',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-    price: '200,000',
-  },
-  {
-    id: '2',
-    name: '신라호텔',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-    price: '200,000',
-  },
-  {
-    id: '3',
-    name: '그랜드워커힐',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-    price: '200,000',
-  },
-  {
-    id: '4',
-    name: '신라호텔',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-    price: '200,000',
-  },
-  {
-    id: '5',
-    name: '그랜드워커힐',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-    price: '200,000',
-  },
-  {
-    id: '6',
-    name: '신라호텔',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-    price: '200,000',
-  },
-  {
-    id: '7',
-    name: '신라호텔',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-    price: '200,000',
-  },
-]
-
-const tours = [
-  {
-    id: '1',
-    name: '롯데월드',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-  },
-  {
-    id: '2',
-    name: '에버랜드',
-    city: '용인',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-  },
-  {
-    id: '3',
-    name: '에버랜드',
-    city: '용인',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-  },
-  {
-    id: '4',
-    name: '에버랜드',
-    city: '용인',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-  },
-  {
-    id: '5',
-    name: '롯데월드',
-    city: '서울',
-    country: '대한민국',
-    rating: '4.2',
-    reviewCount: '100',
-  },
-]
+import fetchSearchHotel from '../../fetch/fetchSearchHotel'
+import fetchSearchTour from '../../fetch/fetchSearchTour'
 
 function SearchCard() {
   // 검색어 useParams로 가져오기 e.g. 서울, 종로, 일본
   const { keyword } = useParams()
+  // 한 페이지에 불러 올 아이템 수
+  const items = 1
+  const [attractions, setAttractions] = useState([])
+  const [hotels, setHotels] = useState([])
 
-  // useQuery로 데이터 fetch comments는 테스트용
-  // 종합 결과 페이지에서는 페이지 데이터 x로 1페이지만 불러옴
-  // const hotelList = useQuery(['hotels', keyword], fetchHotel)
-  // const tourList = useQuery(['tours', keyword], fetchTour)
+  const hotelRes = useQuery({
+    queryKey: ['hotels', keyword, items],
+    queryFn: fetchSearchHotel,
+  })
+  const attractionRes = useQuery({
+    queryKey: ['attractions', keyword, items],
+    queryFn: fetchSearchTour,
+  })
+
+  // 위의 데이터에서 필요한 값 가져옴
+  const hotelData = hotelRes?.data?.lodging
+  const attractionData = attractionRes?.data?.attraction
+
+  useEffect(() => {
+    if (!hotelRes.isLoading && hotelData) {
+      setHotels(() => [...hotelData])
+    }
+  }, [hotelData, hotelRes.isLoading])
+
+  useEffect(() => {
+    if (!attractionRes.isLoading && attractionData) {
+      setAttractions(() => [...attractionData])
+    }
+  }, [attractionData, attractionRes.isLoading])
 
   return (
     <Box className="flex justify-center w-full" style={{ width: '100%' }}>
@@ -165,7 +81,7 @@ function SearchCard() {
               )}
             </Box>
             <Box className="flex items-end justify-end">
-              <Link to={`/hotelSearchList/${keyword}`}>
+              <Link to={`/searchHotelList/${keyword}`}>
                 <Typography variant="body1" className="text-lg text-gray-500">
                   더보기
                 </Typography>
@@ -187,8 +103,10 @@ function SearchCard() {
             </Typography>
 
             <Box className="grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 lg:grid-cols-3">
-              {tours.length ? (
-                tours.map((tour) => <TourItem key={tour.id} tour={tour} />)
+              {attractions.length ? (
+                attractions.map((attraction) => (
+                  <TourItem key={attraction.id} attraction={attraction} />
+                ))
               ) : (
                 <Typography
                   className="text-gray-900"
@@ -205,7 +123,7 @@ function SearchCard() {
               )}
             </Box>
             <Box className="flex items-end justify-end">
-              <Link to={`/tourSearchList/${keyword}`}>
+              <Link to={`/searchTourList/${keyword}`}>
                 <Typography variant="body1" className="text-lg text-gray-500">
                   더보기
                 </Typography>

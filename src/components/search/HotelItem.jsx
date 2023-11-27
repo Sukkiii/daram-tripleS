@@ -22,7 +22,7 @@ function HotelItem({ hotel }) {
             {hotel.name}
           </Typography>
           <Typography variant="body1" className="-mt-1">
-            {hotel.city} {hotel.country}
+            {hotel.address?.city} {hotel.country}
           </Typography>
 
           <Box className="-mt-1.5">
@@ -31,7 +31,7 @@ function HotelItem({ hotel }) {
               className=" text-blue-500"
               style={{ display: 'inline' }}
             >
-              {hotel.rating}
+              {hotel.avgRating}
             </Typography>
             <Typography
               variant="body2"
@@ -58,7 +58,7 @@ function HotelItem({ hotel }) {
               variant="body1"
               component="span"
             >
-              {hotel.price}원
+              {hotel.minPrice}원
             </Typography>
           </Box>
         </Box>
