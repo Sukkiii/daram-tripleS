@@ -1,4 +1,5 @@
-import { Typography, Box } from '@mui/material'
+import { CheckBox } from '@mui/icons-material'
+import { Typography, Box, TextField, Button } from '@mui/material'
 import { IoMdTrain } from 'react-icons/io'
 import { IoSearch } from 'react-icons/io5'
 
@@ -7,67 +8,47 @@ function TrainTicket() {
     <>
       <Box className="flex mb-5 text-blue-900">
         <Box className="flex items-center">
-          <input type="checkBox" className="mr-2" />
-          <Typography
-            sx={{ marginRight: 3, fontSize: '0.875rem' }}
-            className="text-sm"
-          >
-            중국
-          </Typography>
+          <CheckBox type="checkBox" className="mr-2" />
+          <Typography className="text-sm">중국</Typography>
+        </Box>
+        <Box className="flex items-center m-2">
+          <CheckBox type="checkBox" className="mr-2" />
+          <Typography className="text-sm">영국</Typography>
         </Box>
         <Box className="flex items-center">
-          <input type="checkBox" className="mr-2" />
-          <Typography
-            sx={{ marginRight: 3, fontSize: '0.875rem' }}
-            className="text-sm"
-          >
-            영국
-          </Typography>
+          <CheckBox type="checkBox" className="mr-2" />
+          <Typography className="text-sm">국내</Typography>
         </Box>
-        <Box className="flex items-center">
-          <input type="checkBox" className="mr-2" />
-          <Typography
-            sx={{ marginRight: 3, fontSize: '0.875rem' }}
-            className="text-sm"
-          >
-            국내
-          </Typography>
-        </Box>
-        <Box className="flex items-center">
-          <input type="checkBox" className="mr-2" />
-          <Typography
-            sx={{ marginRight: 3, fontSize: '0.875rem' }}
-            className="text-sm"
-          >
-            유럽
-          </Typography>
+        <Box className="flex items-center m-2">
+          <CheckBox className="mr-2" />
+          <Typography className="text-sm">유럽</Typography>
         </Box>
       </Box>
 
       {/* 출발지 */}
       <Box className="flex">
-        <Box className="border-t border-b border-l border-grey rounded-l w-200">
+        <Box className="rounded-l w-2/12">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">출발지</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
               placeholder="서울"
             />
           </Box>
         </Box>
 
-        <Box className="flex items-center border-t border-b">
+        <Box className="flex items-center mx-2.5 mt-12">
           <IoMdTrain className="text-2xl text-blue-600 border-2 border-blue-600 rounded-full p-1" />
         </Box>
 
-        <Box className="border-t border-b border-r border-grey w-200">
+        <Box className="w-2/12">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">도착지</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
               placeholder="부산"
             />
@@ -75,12 +56,12 @@ function TrainTicket() {
         </Box>
 
         {/* 출발 시간 */}
-        <Box className="border-t border-b border-r border-grey w-200">
+        <Box className="w-2/12 mx-2">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">출발 시간</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               type="date"
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
             />
@@ -88,12 +69,12 @@ function TrainTicket() {
         </Box>
 
         {/* 승객 */}
-        <Box className="border-t border-b border-r border-grey w-200">
+        <Box className="w-2/12">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">승객</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
               placeholder="5명"
             />
@@ -101,11 +82,13 @@ function TrainTicket() {
         </Box>
 
         {/* 검색 버튼 */}
-        <Box>
-          {/* eslint-disable-next-line */}
-          <button className="flex justify-center items-center text-white bg-blue-600 w-auto h-full text-3xl rounded-r-lg p-2 transition duration-300 ease-in-out hover:bg-opacity-70">
-            <IoSearch />
-          </button>
+        <Box className="mt-12 ml-1">
+          <Button
+            variant="contained"
+            className="flex items-center text-white bg-blue-600 w-auto h-14 text-xl rounded-r-lg p-2 transition duration-300 ease-in-out hover:bg-opacity-70"
+          >
+            <IoSearch className="text-2xl" />
+          </Button>
         </Box>
       </Box>
     </>

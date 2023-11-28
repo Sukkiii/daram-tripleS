@@ -1,4 +1,4 @@
-import { Typography, Box } from '@mui/material'
+import { Typography, Box, TextField, Button } from '@mui/material'
 import { FaHotel } from 'react-icons/fa6'
 import { PiAirplaneTiltFill } from 'react-icons/pi'
 import { IoMdPerson } from 'react-icons/io'
@@ -22,63 +22,59 @@ function AirHotel() {
 
       {/* 출발지 */}
       <Box className="flex">
-        <Box>
-          {/* eslint-disable-next-line */}
-          <button className="flex items-center justify-center text-white bg-blue-600 w-10 h-full rounded-l p-2">
+        <Box className="mt-12">
+          <Typography
+            className="flex w-auto
+          h-14 items-center justify-center text-white bg-blue-600 w-10 h-full rounded-l p-2"
+          >
             <PiAirplaneTiltFill className="text-xs" />
-          </button>
+          </Typography>
         </Box>
-        <Box className="border-t border-b border-l border-grey w-1/4">
+        <Box className="w-1/4">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">출발지</Typography>
           </Box>
           <Box>
-            <input
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
-              placeholder="서울"
-            />
+            <TextField placeholder="서울" />
           </Box>
         </Box>
 
-        <Box className="flex items-center border-t border-b">
+        <Box className="flex items-center mt-12 mx-2">
           <IoAirplane className="text-2xl text-blue-600 border-2 border-blue-600 rounded-full p-1" />
         </Box>
 
-        <Box className="border-t border-b border-r border-grey w-1/4 rounded-r">
+        <Box className="w-1/4">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">도착지</Typography>
           </Box>
           <Box>
-            <input
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
-              placeholder="도시명 또는 공항명"
-            />
+            <TextField placeholder="도시명 또는 공항명" />
           </Box>
         </Box>
 
         {/* 가는편 오는편 */}
-        <Box className="ml-2 border-t border-b border-l rounded-b rounded-l border-grey w-1/4">
+        <Box className="ml-2 w-1/4">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">가는편</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               type="date"
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
             />
           </Box>
         </Box>
 
-        <Box className="flex items-center border-t border-b border-grey">
+        <Box className="flex items-center mt-12 mx-1">
           <IoRemoveOutline />
         </Box>
 
-        <Box className="border-t border-b border-r border-grey w-1/4 rounded-r rounded-b">
+        <Box className="w-1/4">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">오는편</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               type="date"
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
             />
@@ -88,18 +84,17 @@ function AirHotel() {
 
       {/* 2번째 도착지 */}
       <Box className="flex mt-3">
-        <Box>
-          {/* eslint-disable-next-line */}
-          <button className="flex items-center justify-center text-white bg-blue-600 w-10 h-full rounded-l p-2">
+        <Box className="mt-12">
+          <Typography className="flex w-auto h-14 items-center justify-center text-white bg-blue-600 w-10 h-full rounded-l p-2">
             <FaHotel className="text-xs" />
-          </button>
+          </Typography>
         </Box>
-        <Box className="border-t border rounded-r border-grey w-2/5">
+        <Box className="w-2/5">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">도착지</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
               placeholder="도시"
             />
@@ -107,30 +102,30 @@ function AirHotel() {
         </Box>
 
         {/* 체크인 체크아웃 */}
-        <Box className="ml-2 border-t border-b border-l rounded-b rounded-l border-grey w-1/4">
+        <Box className="ml-2 w-1/4">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">체크인</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               type="date"
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
             />
           </Box>
         </Box>
 
-        <Box className="flex items-center border-t border-b border-gre w-8">
+        <Box className="flex items-center mx-2 mt-12">
           <Typography className="text-xs flex items-center text-center">
             박
           </Typography>
         </Box>
 
-        <Box className="border-t border-b border-r border-grey w-3/12 rounded-r rounded-b">
+        <Box className="w-3/12">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">체크아웃</Typography>
           </Box>
           <Box>
-            <input
+            <TextField
               type="date"
               className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
             />
@@ -138,11 +133,13 @@ function AirHotel() {
         </Box>
 
         {/* 검색 버튼 */}
-        <Box className="flex justify-center items-center ml-2 w-2/12">
-          <button className="flex items-center justify-center text-white bg-blue-600 w-full h-full text-xl rounded-r rounded-l p-5 transition duration-300 ease-in-out hover:bg-opacity-70">
-            <IoSearch />
-            검색
-          </button>
+        <Box className="flex items-center w-2/12 mt-12 ml-2">
+          <Button
+            variant="contained"
+            className="flex items-center justify-center text-white bg-blue-600 w-auto h-14 text-lg rounded-r-lg rounded-l-lg p-2 transition duration-300 ease-in-out hover:bg-opacity-80"
+          >
+            <IoSearch className="text-xl" />
+          </Button>
         </Box>
       </Box>
     </>

@@ -1,22 +1,20 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, Typography } from '@mui/material'
+import { Box, Link, Typography, List, ListItem, Avatar } from '@mui/material'
 
 function ItemFooter({ Links, title }) {
   return (
-    <ul>
+    <List>
       <Typography style={{ marginBottom: '1rem', fontWeight: 'bold' }}>
         {title}
       </Typography>
 
       {Links.map((link) => (
-        <li className="mb-3" key={link.name || link.image}>
+        <ListItem key={link.name || link.image}>
           <Link
             style={{
               color: '#172554',
               textDecoration: 'none',
               fontSize: '0.875rem',
-              lineHeight: '1.5',
             }}
             className="cursor-pointer"
             href={link.link}
@@ -30,17 +28,18 @@ function ItemFooter({ Links, title }) {
             }}
           >
             {link.image && (
-              <img
-                src={link.image}
-                alt={link.name}
-                className="w-12 h-15 border border-solid border-blue-900 rounded-md mt-3"
-              />
+              <Box
+                className="border
+              rounded-md px-0.5 border-blue-900 mt-3"
+              >
+                <Avatar src={link.image} alt={link.name} />
+              </Box>
             )}
             {link.name}
           </Link>
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   )
 }
 

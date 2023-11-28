@@ -58,7 +58,7 @@ export default function Filtering() {
   }
 
   return (
-    <Box className="flex mx-auto p-10 bg-white w-4/5 h-auto rounded-tl-lg rounded-l-lg rounded-r-lg rounded-b-lg">
+    <Box className="flex mx-auto p-2 bg-white w-3/5 h-2/4 rounded-t-md rounded-l-md rounded-r-md rounded-b-md mt-24 mb-12">
       <Box className="w-full">
         <Box sx={{ borderColor: 'Boxider' }}>
           <Tabs
