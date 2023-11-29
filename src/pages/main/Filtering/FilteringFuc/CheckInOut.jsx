@@ -8,13 +8,12 @@ import { Typography, Box } from '@mui/material'
 
 export default function CheckInOut() {
   const initialCheckInDate = dayjs('2022-04-17')
-  const initialCheckOutDate = dayjs('2022-04-18') // Set to the next day for 1 night
+  const initialCheckOutDate = dayjs('2022-04-18')
 
   const [checkInDate, setCheckInDate] = useState(initialCheckInDate)
   const [checkOutDate, setCheckOutDate] = useState(initialCheckOutDate)
   const [nightCount, setNightCount] = useState(1)
 
-  // 날짜 변경에 따른 몇 박 몇 일 계산
   useEffect(() => {
     const nights = dayjs(checkOutDate).diff(dayjs(checkInDate), 'day')
     setNightCount(nights >= 0 ? nights : 0)
@@ -31,7 +30,7 @@ export default function CheckInOut() {
         ]}
       >
         <Box className="flex">
-          <Box className="w-full">
+          <Box className="w-2/6">
             <DemoItem label="체크인">
               <DatePicker
                 value={checkInDate}
@@ -41,13 +40,13 @@ export default function CheckInOut() {
             </DemoItem>
           </Box>
 
-          <Box className="flex mt-10 ml-2 whitespace-nowrap">
+          <Box className="flex mt-10 whitespace-nowrap mx-4">
             <Typography className="text-xs">
               {nightCount} 박 {nightCount + 1} 일
             </Typography>
           </Box>
 
-          <Box className="ml-2">
+          <Box>
             <DemoItem label="체크아웃">
               <DatePicker
                 value={checkOutDate}

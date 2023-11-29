@@ -6,6 +6,7 @@ import HeaderSearchBox from './Header/HeaderSearchBox'
 import FunctionOptions from './Header/FunctionOptions'
 import NavigationBar from './Header/NavigationBar'
 import Filtering from './Filtering/Filtering'
+import LogoWriting from './LogoWriting'
 
 function Header() {
   return (
@@ -16,6 +17,7 @@ function Header() {
         <FunctionOptions />
         <NavigationBar />
       </Box>
+      <LogoWriting />
       <Filtering />
     </Box>
   )

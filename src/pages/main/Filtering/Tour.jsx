@@ -4,7 +4,6 @@ import { IoSearch } from 'react-icons/io5'
 function Tour() {
   return (
     <Box className="flex">
-      {/* 여행지 */}
       <Box className="rounded-l w-2/5 mr-2">
         <Box className="flex text-grey-700 p-3">
           <Typography className="text-xs">여행지</Typography>
@@ -17,7 +16,6 @@ function Tour() {
         </Box>
       </Box>
 
-      {/* 승객 */}
       <Box className="w-3/5">
         <Box className="flex text-grey-700 p-3">
           <Typography className="text-xs">키워드 (선택 사항)</Typography>
@@ -30,7 +28,6 @@ function Tour() {
         </Box>
       </Box>
 
-      {/* 검색 버튼 */}
       <Box className="w-3/5 mt-12 ml-2">
         <Button
           variant="contained"

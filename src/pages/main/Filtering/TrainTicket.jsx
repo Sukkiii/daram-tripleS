@@ -25,7 +25,6 @@ function TrainTicket() {
         </Box>
       </Box>
 
-      {/* 출발지 */}
       <Box className="flex">
         <Box className="rounded-l w-2/12">
           <Box className="flex text-grey-700 p-3">
@@ -55,7 +54,6 @@ function TrainTicket() {
           </Box>
         </Box>
 
-        {/* 출발 시간 */}
         <Box className="w-2/12 mx-2">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">출발 시간</Typography>
@@ -68,7 +66,6 @@ function TrainTicket() {
           </Box>
         </Box>
 
-        {/* 승객 */}
         <Box className="w-2/12">
           <Box className="flex text-grey-700 p-3">
             <Typography className="text-xs">승객</Typography>
@@ -81,7 +78,6 @@ function TrainTicket() {
           </Box>
         </Box>
 
-        {/* 검색 버튼 */}
         <Box className="mt-12 ml-1">
           <Button
             variant="contained"
