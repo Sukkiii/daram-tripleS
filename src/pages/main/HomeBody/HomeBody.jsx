@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { Box } from '@mui/material'
 import HotAttraction from './HotAttraction'
 import HotLodging from './HotLodging'

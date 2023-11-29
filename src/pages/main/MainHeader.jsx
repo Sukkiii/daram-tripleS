@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-import React from 'react'
 import { Box } from '@mui/material'
 import HeaderLogo from './Header/HeaderLogo'
 import HeaderSearchBox from './Header/HeaderSearchBox'
@@ -8,18 +6,20 @@ import NavigationBar from './Header/NavigationBar'
 import Filtering from './Filtering/Filtering'
 import LogoWriting from './LogoWriting'
 
-function Header() {
+function MainHeader() {
   return (
-    <Box className="main-hd-container bg-custom-bg relative w-full bg-cover bg-no-repeat bg-center pb-20">
+    <Box className="main-hd-container relative bg-custom-bg bg-cover bg-top-15 pb-20">
       <Box className="main-hd-flex-icon px-8 clear-both flow-root">
         <HeaderLogo />
         <HeaderSearchBox />
         <FunctionOptions />
-        <NavigationBar />
+        <Box className="main-hd-navbar-row w-full flex items-center overflow-visible float-left">
+          <NavigationBar />
+        </Box>
       </Box>
       <LogoWriting />
       <Filtering />
     </Box>
   )
 }
-export default Header
+export default MainHeader

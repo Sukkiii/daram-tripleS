@@ -1,10 +1,9 @@
-/* eslint-disable import/no-unresolved */
 import Box from '@mui/material/Box'
 import { Link } from '@mui/material'
 
 function HeaderLogo() {
   return (
-    <Box className="main-hd-logo-icon px-2 py-4 float-left">
+    <Box className="main-hd-logo-icon p-4 float-left">
       <Link
         underline="none"
         sx={{

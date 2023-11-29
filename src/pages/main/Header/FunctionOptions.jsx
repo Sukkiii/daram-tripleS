@@ -1,52 +1,25 @@
-/* eslint-disable import/no-unresolved */
 import { Box, Typography } from '@mui/material'
 import SouthKoreaFlag from '../../../assets/img/SouthKorea.png'
 
 function FunctionOptions() {
   return (
-    <Box className="main-hd-func-con float-right flex text-white">
-      <Box className="main-hd-option float-left block mx-1 my-4 leading-5 box-border text-sm cursor-pointer">
-        <Box className="main-hd-mobile-click cursor-pointer relative inline-block p-2">
-          <Box className="main-hd-a-tag text-white cursor-pointer leading-5 inline-block">
-            <Typography className="main-hd-mobile-App">앱</Typography>
-          </Box>
-        </Box>
+    <Box className="float-right flex text-white cursor-pointer items-center m-3 mr-8 absolute right-0 gap-4">
+      <Typography>앱</Typography>
+      <Typography>고객센터</Typography>
+      <Box className="main-hd-a-tag">
+        <img
+          src={SouthKoreaFlag}
+          alt="South Korea Flag"
+          className="flag-ko-KR block w-7 bg-no-repeat"
+        />
       </Box>
-      <Box className="main-hd-option float-left block mx-1 my-4 leading-5 box-border text-sm cursor-pointer">
-        <Box className="main-hd-help cursor-pointer relative inline-block p-2">
-          <Typography className="main-hd-a-tag text-white cursor-pointer leading-5 inline-block">
-            고객센터
-          </Typography>
-        </Box>
-      </Box>
-      <Box className="main-hd-option main-hd-option-locale float-left block mx-1 my-4 leading-5 box-border text-sm cursor-pointer">
-        <Box className="main-hd-country cursor-pointer relative inline-block p-1">
-          <Box className="main-hd-a-tag text-white cursor-pointer leading-5 inline-block">
-            <img
-              src={SouthKoreaFlag}
-              alt="South Korea Flag"
-              className="flag-ko-KR block w-7 bg-no-repeat"
-            />
-          </Box>
-        </Box>
-      </Box>
-      <Box className="main-hd-option float-left block mx-1 my-4 leading-5 box-border text-sm cursor-pointer">
-        <Box className="main-hd-currency cursor-pointer relative inline-block p-2">
-          <Typography className="main-hd-currency-cur text-white cursor-pointer leading-5 inline-block">
-            KRW
-          </Typography>
-        </Box>
-      </Box>
-      <Box className="main-hd-search-booking float-left block mx-2 my-4 leading-5 box-border text-sm cursor-pointer">
-        <Typography className="main-hd-search-booking-a-tag cursor-pointer relative flex p-2 rounded-md font-medium bg-opacity-30 bg-slate-50 items-center">
-          예약 검색
-        </Typography>
-      </Box>
-      <Box className="main-hd-account float-left block mx-2 my-4 leading-5 box-border text-sm cursor-pointer">
-        <Typography className="main-hd-search-booking-a-tag cursor-pointer relative flex p-2 rounded-md font-medium bg-slate-50 items-center text-black">
-          로그인 / 회원가입
-        </Typography>
-      </Box>
+      <Typography>KRW</Typography>
+      <Typography className="relative p-2 rounded-md bg-opacity-30 bg-slate-50">
+        예약 검색
+      </Typography>
+      <Typography className="relative p-2 rounded-md bg-slate-50 text-black">
+        로그인 / 회원가입
+      </Typography>
     </Box>
   )
 }

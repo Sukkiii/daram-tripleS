@@ -13,14 +13,14 @@ function HotAttractionList({ data }) {
     <Box className="hot-container mt-4 relative text-center flex">
       {attractions.map((attraction) => (
         <Box
-          key={attraction.name}
+          key={attraction.attractionId}
           className="hot-hotel-item mr-4 box-content w-[calc(25%-12px)] rounded-md shadow-md overflow-hidden flex flex-col cursor-pointer bg-slate-50"
         >
           <Box className="rounded-md overflow-hidden">
             <img
               className="hot-hotel-img hover:scale-110 hover:transition"
               src={attraction.mainImage}
-              alt={`Attractions ${attraction.name}`}
+              alt={`Attraction ${attraction.attractionId}`}
             />
           </Box>
           <Box className="hot-hotel-content flex-1 p-4 flex flex-col">
