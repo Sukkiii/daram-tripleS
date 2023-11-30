@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-array-index-key */
 import { useState, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
 import HotTab from './HotTab'

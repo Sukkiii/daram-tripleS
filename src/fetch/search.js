@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 export const fetchData = async (keyword, page, item, type, sort) => {
   try {
     const response = await fetch(
