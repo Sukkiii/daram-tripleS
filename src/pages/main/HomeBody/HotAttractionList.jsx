@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Box, Typography, Button } from '@mui/material'
+import { Box, Typography, Button, Link } from '@mui/material'
 
 function HotAttractionList({ data }) {
   const attractions = useMemo(
@@ -10,9 +10,12 @@ function HotAttractionList({ data }) {
   return (
     <Box className="hot-container mt-4 relative text-center flex">
       {attractions.map((attraction) => (
-        <Box
+        <Link
           key={attraction.attractionId}
+          color="inherit"
+          underline="none"
           className="hot-hotel-item mr-4 box-content w-[calc(25%-12px)] rounded-md shadow-md overflow-hidden flex flex-col cursor-pointer bg-slate-50"
+          href={`/tourDetail/${attraction.attractionId}`}
         >
           <Box className="rounded-md overflow-hidden">
             <img
@@ -56,7 +59,7 @@ function HotAttractionList({ data }) {
               </Typography>
             </Box>
           </Box>
-        </Box>
+        </Link>
       ))}
       <Box className="hot-hotel-item-hi mr-4 box-content w-[calc(25%-12px)] rounded-md shadow-md overflow-hidden flex flex-col cursor-pointer">
         <img

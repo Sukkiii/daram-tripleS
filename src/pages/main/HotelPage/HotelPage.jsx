@@ -1,10 +1,10 @@
-import CommonHeader from '../CommonHeader'
+import HotelPageHeader from './HotelPageHeader'
 import HomeSideBar from '../HomeBody/HomeSideBar'
 
 function HotelPage() {
   return (
     <>
-      <CommonHeader />
+      <HotelPageHeader />
       <HomeSideBar />
     </>
   )

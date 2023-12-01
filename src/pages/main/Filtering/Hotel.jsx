@@ -7,7 +7,7 @@ import RoomCount from './FilteringFuc/RoomCount'
 
 function Hotel() {
   return (
-    <Box className="flex">
+    <Box className="flex w-full">
       <Box className="w-2/6 h-fit">
         <Travel />
       </Box>

@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import HeaderLogo from './Header/HeaderLogo'
 import FunctionOptions from './Header/FunctionOptions'
 import NavigationBar from './Header/NavigationBar'
-import Filtering from './Filtering/Filtering'
+import Hotel from './Filtering/Hotel'
 
 function CommonHeader() {
   return (
@@ -14,7 +14,9 @@ function CommonHeader() {
         </Box>
         <FunctionOptions />
       </Box>
-      <Filtering />
+      <Box className="flex mx-auto p-5 bg-white w-4/5 h-2/4 rounded-xl mt-4 mb-12">
+        <Hotel />
+      </Box>
     </Box>
   )
 }
