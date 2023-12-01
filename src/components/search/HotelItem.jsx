@@ -1,15 +1,21 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Box, Typography } from '@mui/material'
 
 function HotelItem({ hotel }) {
+  const city = useMemo(
+    () => (hotel?.address ? hotel.address.split(' ')[0] : ''),
+    [hotel],
+  )
+
   return (
     // 클릭시 숙소 디테일 페이지로 이동
-    <Link>
+    <Link to="/hotelDetail/{hotel.id}">
       <Box className="h-29 group relative mb-6 flex overflow-hidden border border-solid border-gray-200 bg-white hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100">
-        <Box className="h-[126px] w-[126px] overflow-hidden">
+        <Box className="h-[8rem] w-[8rem] overflow-hidden">
           <img
             src="https://p1.pxfuel.com/preview/778/373/101/nature-landscape-rocks-formation-cave-beauty.jpg"
-            className="h-[126px] w-[126px] object-cover duration-1000 group-hover:scale-125 "
+            className="h-[8rem] w-[8rem] object-cover duration-1000 group-hover:scale-125 "
             alt="Nature"
           />
         </Box>
@@ -22,7 +28,7 @@ function HotelItem({ hotel }) {
             {hotel.name}
           </Typography>
           <Typography variant="body1" className="-mt-1">
-            {hotel.address?.city} {hotel.country}
+            {city}
           </Typography>
 
           <Box className="-mt-1.5">
@@ -43,7 +49,7 @@ function HotelItem({ hotel }) {
             <Typography
               variant="body1"
               className="ml-2"
-              style={{ marginLeft: '8px', display: 'inline' }}
+              style={{ marginLeft: '0.5rem', display: 'inline' }}
             >
               {hotel.reviewCount}건의 리뷰
             </Typography>

@@ -42,7 +42,7 @@ function SideBar({ keyword }) {
   }, [path])
 
   return (
-    <nav className="min-w-[250px] relative my-4 flex gap-1 overflow-x-auto p-2 font-sans text-base font-normal text-gray-700 sm:flex-row md:flex-row lg:flex-col">
+    <nav className="min-w-[250px] relative flex gap-1 overflow-x-auto p-2 font-sans text-base font-normal text-gray-700 sm:flex-row md:flex-row lg:flex-col">
       <Link to={`/searchList/${keyword}`}>
         <Button tabIndex={-1} className={btnClasses.all}>
           <Typography

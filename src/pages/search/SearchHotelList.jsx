@@ -2,29 +2,36 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { Box, Typography } from '@mui/material'
-import fetchSearchHotel from '../../fetch/fetchSearchHotel.jsx'
+import fetchSearchHotel from '../../fetch/fetchSearchHotel'
 import useIntersect from '../../components/search/useIntersect'
 import HotelItem from '../../components/search/HotelItem'
 import SideBar from '../../components/search/SideBar'
 
 function SearchHotelList() {
+  const [page, setPage] = useState(1)
+  const items = 2
+  const [hotels, setHotels] = useState([])
+  const { keyword } = useParams()
+
   useEffect(
     () => () => {
       setHotels([])
     },
     [],
   )
-  const [page, setPage] = useState(1)
-  const items = 10
-  const [hotels, setHotels] = useState([])
-  const { keyword } = useParams()
 
   const hotelRes = useQuery({
-    queryKey: ['hotels', keyword, items, page],
+    queryKey: {
+      type: 'hotels',
+      keyword,
+      items,
+      page,
+    },
     queryFn: fetchSearchHotel,
   })
 
-  const hotelData = hotelRes?.data?.lodgings
+  const hotelData = hotelRes?.data?.lodging
+
   useEffect(() => {
     if (!hotelRes.isLoading && hotelData && hotelData.length > 0) {
       setHotels((prevHotels) => [...prevHotels, ...hotelData])
@@ -34,7 +41,7 @@ function SearchHotelList() {
   const [intersectRef] = useIntersect(
     async (entry, observer) => {
       observer.unobserve(entry.target)
-      if (!hotelRes.isLoading && hotelData.length === items)
+      if (!hotelRes.isLoading && hotelData?.length === items)
         setPage((prevPage) => prevPage + 1)
       observer.observe(entry.target)
     },

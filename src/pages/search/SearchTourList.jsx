@@ -9,7 +9,7 @@ import SideBar from '../../components/search/SideBar'
 
 function SearchTourList() {
   const [page, setPage] = useState(1)
-  const items = 10
+  const items = 2
   const [attractions, setAttractions] = useState([])
   const { keyword } = useParams()
 
@@ -20,11 +20,16 @@ function SearchTourList() {
     [],
   )
   const attractionRes = useQuery({
-    queryKey: ['attractions', keyword, items, page],
+    queryKey: {
+      type: 'attractions',
+      keyword,
+      items,
+      page,
+    },
     queryFn: fetchSearchTour,
   })
 
-  const attractionData = attractionRes?.data?.attractions
+  const attractionData = attractionRes?.data?.attraction
 
   useEffect(() => {
     if (!attractionRes.isLoading && attractionData) {
@@ -38,7 +43,7 @@ function SearchTourList() {
   const [intersectRef] = useIntersect(
     async (entry, observer) => {
       observer.unobserve(entry.target)
-      if (!attractionRes.isLoading && attractionData.length === items)
+      if (!attractionRes.isLoading && attractionData?.length === items)
         setPage((prevPage) => prevPage + 1)
       observer.observe(entry.target)
     },
