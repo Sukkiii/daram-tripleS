@@ -36,13 +36,36 @@ function SignupForm({ onSwitchToLogin, onClose }) {
 function FunctionOptions() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isLoginForm, setIsLoginForm] = useState(true)
-  const navigate = useNavigate()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const navigate = useNavigate()
+
+  async function showSwal(title, icon) {
+    await Swal.fire({
+      title,
+      icon,
+      confirmButtonText: '확인',
+    })
+  }
+
+  function getCookie(name) {
+    const cookies = document.cookie.split(';')
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim()
+      if (cookie.startsWith(`${name}=`)) {
+        return cookie.substring(name.length + 1)
+      }
+    }
+    return null
+  }
 
   useEffect(() => {
-    const loginToken = localStorage.getItem('login-token')
+    const loginToken = getCookie('accessToken')
     setIsLoggedIn(!!loginToken)
   }, [])
+
+  function deleteCookie(name) {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+  }
 
   const handleLogout = async (e) => {
     e.preventDefault()
@@ -50,27 +73,15 @@ function FunctionOptions() {
       const result = await fetchLogout()
 
       if (result) {
-        localStorage.removeItem('login-token')
+        deleteCookie('accessToken')
         setIsLoggedIn(false)
-        await Swal.fire({
-          title: '로그아웃 되었습니다',
-          icon: 'success',
-          confirmButtonText: '확인',
-        })
+        showSwal('이용해주셔서 감사합니다 :)', 'success')
         navigate('/')
       } else {
-        await Swal.fire({
-          title: '로그아웃 실패',
-          icon: 'error',
-          confirmButtonText: '확인',
-        })
+        showSwal('로그아웃 실패!', 'error')
       }
     } catch (error) {
-      await Swal.fire({
-        title: '로그아웃 중 오류가 발생했습니다',
-        icon: 'error',
-        confirmButtonText: '확인',
-      })
+      showSwal('로그아웃 중 오류가 발생했습니다!', 'error')
     }
   }
 
@@ -84,6 +95,11 @@ function FunctionOptions() {
 
   const switchForm = () => {
     setIsLoginForm((prev) => !prev)
+  }
+
+  const handleMyPage = (e) => {
+    e.preventDefault()
+    // navigate('/myPage') 마이페이지로 이동
   }
 
   return (
@@ -107,6 +123,14 @@ function FunctionOptions() {
       >
         {isLoggedIn ? '로그아웃' : '로그인 / 회원가입'}
       </Typography>
+      {isLoggedIn && (
+        <Typography
+          className="relative p-2 rounded-md bg-slate-50 text-black"
+          onClick={handleMyPage}
+        >
+          마이페이지
+        </Typography>
+      )}
       <AuthModal open={isModalOpen} onClose={closeModal}>
         {isLoginForm ? (
           <LoginForm onSwitchToSignup={switchForm} onClose={closeModal} />

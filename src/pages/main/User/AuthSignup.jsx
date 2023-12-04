@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material'
 import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router'
 import fetchSignup from '../../../fetch/fetchSignup'
 import {
   isValidEmailFormat,
@@ -15,13 +14,10 @@ function AuthSignup() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [address, setAddress] = useState('')
-
   const [isValidEmail, setIsValidEmail] = useState(true)
   const [isValidName, setIsValidName] = useState(true)
   const [isValidPassword, setIsValidPassword] = useState(true)
   const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true)
-
-  const navigate = useNavigate()
 
   const handleEmailChange = (e) => {
     const inputEmail = e.target.value
@@ -64,28 +60,26 @@ function AuthSignup() {
       isValidPasswordFormat(password) &&
       confirmPassword === password
 
-    try {
-      if (isValidInput) {
-        await fetchSignup(email, name, password, address, false)
-        await Swal.fire({
-          title: '환영합니다!',
-          icon: 'success',
-          confirmButtonText: '확인',
-        })
-        navigate('/hotel')
-      } else {
-        await Swal.fire({
-          title: '이메일, 이름, 비밀번호, 주소를 확인해주세요!',
-          icon: 'error',
-          confirmButtonText: '확인',
-        })
-      }
-    } catch (error) {
+    async function showSwal(title, icon) {
       await Swal.fire({
-        title: '회원가입 중 오류가 발생했습니다',
-        icon: 'error',
+        title,
+        icon,
         confirmButtonText: '확인',
       })
+    }
+
+    try {
+      if (isValidInput) {
+        const result = await fetchSignup(email, name, password, address, false)
+
+        if (result) {
+          showSwal('환영합니다! 로그인을 해주세요!', 'success')
+        }
+      } else {
+        showSwal('이메일, 이름, 비밀번호, 주소를 확인해주세요!', 'error')
+      }
+    } catch (error) {
+      showSwal('회원가입 중 오류가 발생했습니다', 'error')
     }
   }
 
@@ -146,7 +140,7 @@ function AuthSignup() {
           onChange={handlePasswordChange}
         />
         {!isValidPassword && password.length > 0 && (
-          <Box style={{ color: 'red' }}>
+          <Box className="text-red-500">
             비밀번호는 6자 이상이어야 하며, 대문자, 소문자, 숫자, 특수 문자를
             모두 포함해야 합니다.
           </Box>
@@ -162,7 +156,7 @@ function AuthSignup() {
           onChange={handleConfirmPasswordChange}
         />
         {!isValidConfirmPassword && confirmPassword.length > 0 && (
-          <Box style={{ color: 'red' }}>비밀번호가 일치하지 않습니다.</Box>
+          <Box className="text-red-500">비밀번호가 일치하지 않습니다.</Box>
         )}
         <TextField
           type="text"

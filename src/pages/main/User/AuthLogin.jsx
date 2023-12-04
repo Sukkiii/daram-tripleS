@@ -10,15 +10,23 @@ import {
   isValidEmailFormat,
   isValidPasswordFormat,
 } from '../../../assets/validation/validationSingup'
+import AuthFindPwd from './AuthFindPwd'
 
 function AuthLogin() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
   const [isValidEmail, setIsValidEmail] = useState(true)
   const [isValidPassword, setIsValidPassword] = useState(true)
-
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const navigate = useNavigate()
+
+  const handleFindPwd = () => {
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
 
   const handleEmailChange = (e) => {
     const inputEmail = e.target.value
@@ -34,38 +42,41 @@ function AuthLogin() {
     setIsValidPassword(isValid)
   }
 
+  function setCookie(name, value, days) {
+    const expires = new Date(
+      Date.now() + days * 24 * 60 * 60 * 1000,
+    ).toUTCString()
+    document.cookie = `${name}=${value}; expires=${expires}; path=/`
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     const isValidInput =
       isValidEmailFormat(email) && isValidPasswordFormat(password)
 
+    async function showSwal(title, icon) {
+      await Swal.fire({
+        title,
+        icon,
+        confirmButtonText: '확인',
+      })
+    }
+
     try {
       if (isValidInput) {
         const result = await fetchLogin(email, password)
 
         if (result) {
-          await Swal.fire({
-            title: '환영합니다!',
-            icon: 'success',
-            confirmButtonText: '확인',
-          })
-          localStorage.setItem('login-token', JSON.stringify(result))
+          setCookie('accessToken', JSON.stringify(result.data), 7)
+          showSwal('반갑습니다 :)', 'success')
           navigate('/hotel')
         }
       } else {
-        await Swal.fire({
-          title: '이메일, 비밀번호를 확인해주세요!',
-          icon: 'error',
-          confirmButtonText: '확인',
-        })
+        showSwal('이메일, 비밀번호를 확인해주세요!', 'error')
       }
     } catch (error) {
-      await Swal.fire({
-        title: '로그인 중 오류가 발생했습니다',
-        icon: 'error',
-        confirmButtonText: '확인',
-      })
+      showSwal('로그인 중 오류가 발생했습니다', 'error')
     }
   }
 
@@ -113,7 +124,7 @@ function AuthLogin() {
           onChange={handlePasswordChange}
         />
         {!isValidPassword && password.length > 0 && (
-          <Box style={{ color: 'red' }}>
+          <Box className="text-red-500">
             비밀번호는 6자 이상이어야 하며, 대문자, 소문자, 숫자, 특수 문자를
             모두 포함해야 합니다.
           </Box>
@@ -128,6 +139,20 @@ function AuthLogin() {
           로그인
         </Button>
       </Box>
+      <Typography
+        variant="body2"
+        color="textSecondary"
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '1rem',
+          cursor: 'pointer',
+        }}
+        onClick={handleFindPwd}
+      >
+        비밀번호 찾기
+      </Typography>
+      <AuthFindPwd open={isModalOpen} onClose={handleCloseModal} />
       <Box className="flex justify-center mt-6 relative">
         <Divider
           orientation="horizontal"
@@ -152,18 +177,12 @@ function AuthLogin() {
         </Typography>
       </Box>
       <Box className="flex justify-center m-6">
-        <Typography>
-          <SiNaver class="text-4xl text-white  rounded-full bg-green-500 p-2.5 cursor-pointer" />
-        </Typography>
-        <Typography>
-          <RiKakaoTalkFill class="text-4xl rounded-full bg-yellow-300 p-2 ml-6 cursor-pointer" />
-        </Typography>
-        <Typography>
-          <FcGoogle class="text-4xl ml-6 rounded-full bg-white-500 p-2 border cursor-pointer" />
-        </Typography>
+        <SiNaver className="text-4xl text-white rounded-full bg-green-500 p-2.5 cursor-pointer" />
+        <RiKakaoTalkFill className="text-4xl rounded-full bg-yellow-300 p-2 ml-6 cursor-pointer" />
+        <FcGoogle className="text-4xl ml-6 rounded-full bg-white-500 p-2 border cursor-pointer" />
       </Box>
       <Typography
-        sx={{ marginTop: '6rem' }}
+        sx={{ marginTop: '3rem' }}
         variant="caption"
         color="textSecondary"
       >

@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 import { styled, lighten, darken } from '@mui/system'
 import { FormControl } from '@mui/base'
 import { InputLabel, List } from '@mui/material'
-import travelListData from '../../../../assets/dummyData/travelListData'
+import fetchLocation from '../../../../fetch/fetchLocation'
 
 const GroupHeader = styled('div')(({ theme }) => ({
   position: 'sticky',
@@ -21,15 +22,28 @@ const GroupItems = styled('ul')({
 })
 
 export default function RenderGroup() {
-  const { travelList } = travelListData
+  const [locationList, setLocationList] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const locationData = await fetchLocation()
+        setLocationList(locationData)
+      } catch (error) {
+        console.error('Error setting location data:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return (
     <Autocomplete
       className="w-3/4 mt-3"
       id="grouped-demo"
-      options={travelList}
-      groupBy={(option) => option.genre}
-      getOptionLabel={(option) => option.title}
+      options={locationList}
+      groupBy={(option) => option.country}
+      getOptionLabel={(option) => option.city}
       renderInput={(params) => (
         <FormControl>
           <InputLabel htmlFor="travel-search">여행지</InputLabel>

@@ -1,20 +1,78 @@
-import React, { useEffect, useState } from 'react'
-import { Box } from '@mui/material'
-import fetchMypage from '../../../../fetch/fetchMypage'
+import { useState } from 'react'
+import PropTypes from 'prop-types'
+import { Tabs, Tab, Typography, Box } from '@mui/material'
 
-function Mypage() {
-  const [data, setData] = useState()
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    fetchMypage().then((res) => setData(res), setLoading(false))
-  }, [])
-  if (loading) return <Box>로딩중...</Box>
+function TabPanel(props) {
+  const { children, value, index, ...other } = props
+
   return (
-    <Box>
-      <Box>{data?.name}</Box>
-      <Box>{data?.age}</Box>
-    </Box>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
   )
 }
 
-export default Mypage
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+}
+
+function a11yProps(index) {
+  return {
+    id: `vertical-tab-${index}`,
+    'aria-controls': `vertical-tabpanel-${index}`,
+  }
+}
+
+export default function MyPage() {
+  const [value, setValue] = useState(0)
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        flexGrow: 1,
+        bgcolor: 'background.paper',
+        display: 'flex',
+        height: '100%',
+      }}
+    >
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        value={value}
+        onChange={handleChange}
+        aria-label="Vertical tabs example"
+        sx={{ borderRight: 1, borderColor: 'divider' }}
+      >
+        <Tab label="Item One" {...a11yProps(0)} />
+        <Tab label="Item Two" {...a11yProps(1)} />
+        <Tab label="Item Three" {...a11yProps(2)} />
+      </Tabs>
+      <TabPanel value={value} index={0}>
+        Item One
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Item Two
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+    </Box>
+  )
+}

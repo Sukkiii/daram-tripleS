@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-const fetchLogin = async (email, password) => {
+const fetchFindUser = async (email, name) => {
   try {
     const response = await axios.post(
-      'http://15.165.25.34:3000/api/findUser',
+      'http://15.165.25.34:3000/api/users',
       {
         email,
-        password,
+        name,
       },
       {
         headers: {
@@ -14,12 +14,10 @@ const fetchLogin = async (email, password) => {
         },
       },
     )
-    return response
+    return response.data
   } catch (error) {
-    return {
-      error: 'FindUser failed',
-    }
+    throw new Error('fetchFindUser Error')
   }
 }
 
-export default fetchLogin
+export default fetchFindUser

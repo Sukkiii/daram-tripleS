@@ -20,8 +20,7 @@ const fetchLogin = async (email, name, password, address) => {
     )
     return result.data
   } catch (error) {
-    console.log('Signup failed:', error)
-    throw error
+    throw new Error('fetchSignup Error')
   }
 }
 
