@@ -13,7 +13,10 @@ export default {
         lg: '4rem',
       },
       width: {
-        'calc(25%-12px)': 'calc(25%-12px)',
+        '-webkit': '-webkit-fill-available',
+      },
+      height: {
+        '-webkit': '-webkit-fill-available',
       },
     },
   },
