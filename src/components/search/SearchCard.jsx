@@ -119,7 +119,7 @@ function SearchCard({ hotels, attractions, keyword }) {
                 여행지
               </Typography>
 
-              <Box className="grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 lg:grid-cols-3">
+              <Box className="grid w-full max-w-6xl  sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 xl:grid-cols-3">
                 {attractions.length ? (
                   attractions.map((attraction) => (
                     <TourItem key={attraction.id} attraction={attraction} />

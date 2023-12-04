@@ -9,14 +9,13 @@ function HotelItem({ hotel }) {
   )
 
   return (
-    // 클릭시 숙소 디테일 페이지로 이동
-    <Link to="/hotelDetail/{hotel.id}">
+    <Link to={`/hotelDetail/${hotel.lodgingId}`}>
       <Box className="h-29 group relative mb-6 flex overflow-hidden border border-solid border-gray-200 bg-white hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100">
         <Box className="h-[8rem] w-[8rem] overflow-hidden">
           <img
             src="https://p1.pxfuel.com/preview/778/373/101/nature-landscape-rocks-formation-cave-beauty.jpg"
             className="h-[8rem] w-[8rem] object-cover duration-1000 group-hover:scale-125 "
-            alt="Nature"
+            alt={`Lodging ${hotel.lodgingId}`}
           />
         </Box>
         <Box className=" flex flex-col items-start justify-start gap-1 px-2 py-1.5 text-gray-500">

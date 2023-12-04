@@ -6,10 +6,8 @@ import fetchSearchTour from '../../fetch/fetchSearchTour'
 import fetchSearchHotel from '../../fetch/fetchSearchHotel'
 
 function SearchPage() {
-  // 검색어 useParams로 가져오기 e.g. 서울, 종로, 일본
   const { keyword } = useParams()
-  // 한 페이지에 불러 올 아이템 수
-  const items = 1
+  const items = 10
   const page = 1
   let hotels = []
   let attractions = []
@@ -33,7 +31,6 @@ function SearchPage() {
     queryFn: fetchSearchTour,
   })
 
-  // 위의 데이터에서 필요한 값 가져옴
   const hotelData = hotelRes?.data?.lodging
   const attractionData = attractionRes?.data?.attraction
 
