@@ -11,6 +11,7 @@ import SearchPage from './pages/search/SearchPage'
 import SearchHotelList from './pages/search/SearchHotelList'
 import SearchTourList from './pages/search/SearchTourList'
 import TourDetail from './pages/tour/tourDetail'
+import MyPage from './pages/main/Mypage/Mypage'
 
 function App() {
   const theme = createTheme()
@@ -33,6 +34,7 @@ function App() {
               <Route element={<Outlet />}>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/hotel" element={<HotelPage />} />
+                <Route path="/myPage" element={<MyPage />} />
                 {/* 통합검색, 호텔리스트, 여행지리스트 */}
                 <Route path="/searchList/:keyword" element={<SearchPage />} />
                 <Route

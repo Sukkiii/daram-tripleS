@@ -1,11 +1,12 @@
 import axios from 'axios'
 
-const fetchFindUser = async (email, name) => {
+const fetchFindUser = async (email, password, name) => {
   try {
-    const response = await axios.post(
-      'http://15.165.25.34:3000/api/findUser',
+    const response = await axios.put(
+      'http://15.165.25.34:3000/api/users',
       {
         email,
+        password,
         name,
       },
       {
@@ -16,7 +17,7 @@ const fetchFindUser = async (email, name) => {
     )
     return response.data
   } catch (error) {
-    throw new Error('fetchFindUser Error')
+    throw new Error('fetchUpdateUser Error')
   }
 }
 

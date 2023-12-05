@@ -99,7 +99,7 @@ function FunctionOptions() {
 
   const handleMyPage = (e) => {
     e.preventDefault()
-    // navigate('/myPage') 마이페이지로 이동
+    navigate('/myPage')
   }
 
   return (

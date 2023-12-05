@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Tabs, Tab, Typography, Box } from '@mui/material'
+import MemberInfo from './MemberInfo'
+import Reservation from './Reservation'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
@@ -14,11 +16,18 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'center',
+            p: 3,
+          }}
+        >
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </Box>
   )
 }
 
@@ -35,7 +44,7 @@ function a11yProps(index) {
   }
 }
 
-export default function MyPage() {
+function MypageBody() {
   const [value, setValue] = useState(0)
 
   const handleChange = (event, newValue) => {
@@ -43,15 +52,7 @@ export default function MyPage() {
   }
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        flexGrow: 1,
-        bgcolor: 'background.paper',
-        display: 'flex',
-        height: '100%',
-      }}
-    >
+    <Box className="flex w-full h-full my-[10rem] mx-[2rem]">
       <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -60,19 +61,17 @@ export default function MyPage() {
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: 'divider' }}
       >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
+        <Tab label="예약확인" {...a11yProps(0)} />
+        <Tab label="내 정보" {...a11yProps(1)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        <Reservation />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
+        <MemberInfo />
       </TabPanel>
     </Box>
   )
 }
+
+export default MypageBody
