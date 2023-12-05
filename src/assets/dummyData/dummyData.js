@@ -14,7 +14,7 @@ const navCategories = [
   {
     categoryCode: '3',
     title: '투어&티켓',
-    categoryName: 'tour-and-tickets',
+    categoryName: 'tour',
     newCategory: 'false',
   },
   {
@@ -38,7 +38,7 @@ const navCategories = [
   {
     categoryCode: '7',
     title: '트립 가이드',
-    categoryName: 'travel-guide',
+    categoryName: 'searchList',
     newCategory: 'false',
   },
   {

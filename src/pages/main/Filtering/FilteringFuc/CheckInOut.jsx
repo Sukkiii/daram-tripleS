@@ -6,7 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { Typography, Box } from '@mui/material'
 
-export default function CheckInOut() {
+export default function CheckInOut({ filterCheckInOutDate }) {
   const initialCheckInDate = dayjs('2022-04-17')
   const initialCheckOutDate = dayjs('2022-04-18')
 
@@ -15,9 +15,17 @@ export default function CheckInOut() {
   const [nightCount, setNightCount] = useState(1)
 
   useEffect(() => {
+    filterCheckInOutDate('checkInDate', initialCheckInDate)
+    filterCheckInOutDate('checkOutDate', initialCheckOutDate)
+  }, [filterCheckInOutDate, initialCheckInDate, initialCheckOutDate])
+
+  useEffect(() => {
     const nights = dayjs(checkOutDate).diff(dayjs(checkInDate), 'day')
     setNightCount(nights >= 0 ? nights : 0)
-  }, [checkInDate, checkOutDate])
+
+    filterCheckInOutDate('checkInDate', checkInDate)
+    filterCheckInOutDate('checkOutDate', checkOutDate)
+  }, [checkInDate, checkOutDate, filterCheckInOutDate])
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Button,
   Popover,
@@ -9,7 +9,7 @@ import {
   ListItemText,
 } from '@mui/material'
 
-function MyHeader() {
+function MyHeader({ filterGuestChange }) {
   const [open, setOpen] = useState(false)
   const [quantityRoom, setQuantityRoom] = useState(1)
   const [quantityAdult, setQuantityAdult] = useState(1)
@@ -32,6 +32,11 @@ function MyHeader() {
   const increaseQuantity = (setter) => {
     setter((prev) => (prev < 100 ? prev + 1 : prev))
   }
+
+  useEffect(() => {
+    filterGuestChange('quantityAdult', quantityAdult)
+    filterGuestChange('quantityChild', quantityChild)
+  }, [quantityAdult, quantityChild, filterGuestChange])
 
   return (
     <>
