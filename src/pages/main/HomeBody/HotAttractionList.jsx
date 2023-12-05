@@ -65,13 +65,13 @@ function HotAttractionList({ data }) {
           </Box>
         </Link>
       ))}
-      <Box className="hot-hotel-item-hi w-1/4 rounded-md shadow-md overflow-hidden flex flex-col cursor-pointer">
+      <Box className="hot-hotel-item-hi w-1/4 rounded-md shadow-md overflow-hidden cursor-pointer relative">
         <img
-          className="hot-attraction-img h-80 object-cover"
+          className="hot-attraction-img h-80 object-cover w-full"
           src="src/assets/img/jejuExample.jpeg"
           alt="src/assets/img/jejuExample.jpeg"
         />
-        <Box className="world-hot-hotel-content bg-[#07080B] p-4 text-white relative text-left flex flex-col bottom-0 rounded-md">
+        <Box className="bg-[#07080B] p-4 text-white text-left flex flex-col bottom-0 rounded-md absolute h-max w-full">
           <Typography
             style={{
               fontWeight: 'bold',

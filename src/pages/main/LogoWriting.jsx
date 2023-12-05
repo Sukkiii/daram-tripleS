@@ -6,7 +6,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 function LogoWriting() {
   return (
     <>
-      <Box className="flex justify-center text-white mt-24">
+      <Box className="flex justify-center text-white mt-16">
         <Typography variant="h4" fontWeight="bold">
           여행의 시작, TripleS 함께
         </Typography>

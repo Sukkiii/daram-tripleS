@@ -25,21 +25,19 @@ function HotLodgingList({ data }) {
               alt={`Lodging ${lodging.lodgingId}`}
             />
           </Box>
-          <Box className="hot-hotel-content-review align-middle my-auto relative text-left ml-4 top-[-1rem] rounded-xl w-fit bg-white pr-3 border-blue-800 border-2">
-            <Box className="hot-hotel-content-score bg-blue-800 rounded-xl rounded-tr-none text-white py-0.5 px-1.5 inline-block mx-[-1px]">
-              <Typography className="leading-4 flex">
-                {lodging.avgRating}
-                <Typography
-                  style={{
-                    fontSize: '0.9rem',
-                    opacity: '50%',
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    alignContent: 'flex-end',
-                  }}
-                >
-                  /5
-                </Typography>
+          <Box className="hot-hotel-content-review align-middle my-auto relative text-left ml-4 top-[-1rem] rounded-2xl w-fit bg-white pr-3 flex border-blue-800 border-2 overflow-hidden">
+            <Box className="bg-blue-800 rounded-br-xl text-white py-0.5 px-1.5 flex">
+              <Typography>{lodging.avgRating}</Typography>
+              <Typography
+                style={{
+                  fontSize: '0.9rem',
+                  opacity: '50%',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  alignContent: 'flex-end',
+                }}
+              >
+                /5
               </Typography>
             </Box>
             <Typography

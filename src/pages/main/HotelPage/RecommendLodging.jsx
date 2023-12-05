@@ -10,7 +10,7 @@ function RecommendLodging() {
   const subject = 'lodging'
 
   useEffect(() => {
-    fetchData(selectedLocale, 1, 3, subject, 'rating')
+    fetchData(selectedLocale, 1, 10, subject, 'rating')
       .then((data) => {
         setLodgingData(data)
       })
@@ -21,7 +21,7 @@ function RecommendLodging() {
     setSelectedLocale(locale)
   }
   return (
-    <Box className="recommend-modules p-8 rounded-3xl overflow-hidden mb-8">
+    <Box className="recommend-modules py-8 overflow-hidden mb-8">
       <Typography
         sx={{
           fontSize: '28px',

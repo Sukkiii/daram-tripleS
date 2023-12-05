@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Box, Typography } from '@mui/material'
 import HeaderLogo from '../Header/HeaderLogo'
 import FunctionOptions from '../Header/FunctionOptions'
@@ -7,10 +7,11 @@ import Hotel from '../Filtering/Hotel'
 
 function HotelPageHeader() {
   const [scrolled, setScrolled] = useState(false)
+  const scrollTarget = useRef(null)
 
   useEffect(() => {
     const handleFiltering = () => {
-      const isFixFiltering = window.scrollY > 170
+      const isFixFiltering = window.scrollY > scrollTarget.current.offsetTop
       setScrolled(isFixFiltering)
     }
 
@@ -22,7 +23,7 @@ function HotelPageHeader() {
   }, [])
 
   return (
-    <Box className="main-hd-container relative bg-hotel-bg bg-cover h-[28rem] pb-20">
+    <Box className="main-hd-container relative bg-hotel-bg bg-cover h-[30rem] pb-20">
       <Box className="main-hd-flex-icon px-8 flex">
         <HeaderLogo />
         <Box className="flex items-center ml-4">
@@ -48,10 +49,11 @@ function HotelPageHeader() {
           </Typography>
         </Box>
         <Box
-          className={`p-5 bg-white rounded-xl ${
+          ref={scrollTarget}
+          className={`p-5 bg-white ${
             scrolled
-              ? 'fixed top-0 right-0 left-0 rounded-none z-[9999] h-30 shadow-sm'
-              : 'w-full h-2/4 p-5'
+              ? 'fixed top-0 right-0 left-0 rounded-none z-[9999] h-30 shadow-sm px-[10%]'
+              : 'h-2/4 p-5 rounded-xl'
           }`}
         >
           <Hotel />

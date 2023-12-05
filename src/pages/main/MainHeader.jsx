@@ -8,7 +8,10 @@ import LogoWriting from './LogoWriting'
 
 function MainHeader() {
   return (
-    <Box className="main-hd-container relative bg-cover bg-custom-bg pb-20">
+    <Box
+      sx={{ backgroundPositionY: '-15rem' }}
+      className="main-hd-container relative bg-cover bg-custom-bg pb-20"
+    >
       <Box className="main-hd-flex-icon px-8 clear-both flow-root">
         <HeaderLogo />
         <HeaderSearchBox />
