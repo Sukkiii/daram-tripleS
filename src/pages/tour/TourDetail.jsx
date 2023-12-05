@@ -56,6 +56,10 @@ function TourDetail() {
     return [...attractions]
   }, [attractions, attractionData, attractionRes.isLoading])
 
+  if (mainAttractionRes.isLoading || attractionRes.isLoading) {
+    return <Box>Loading...</Box>
+  }
+
   return (
     <Box className="container flex flex-col items-center gap-3">
       <Box className="w-[70rem]">

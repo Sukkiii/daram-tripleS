@@ -23,7 +23,7 @@ function TourItem({ attraction, smallCard }) {
           `}
         >
           <img
-            src="https://p1.pxfuel.com/preview/778/373/101/nature-landscape-rocks-formation-cave-beauty.jpg"
+            src={`/src/assets/img/attraction/${attraction.mainImage}`}
             className={`object-cover 
               ${
                 smallCard

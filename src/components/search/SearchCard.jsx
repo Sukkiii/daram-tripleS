@@ -80,7 +80,7 @@ function SearchCard({ hotels, attractions, keyword }) {
               <Box className="grid w-full max-w-6xl  sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 xl:grid-cols-3">
                 {hotels.length ? (
                   hotels.map((hotel) => (
-                    <HotelItem key={hotel.id} hotel={hotel} />
+                    <HotelItem key={hotel.lodgingId} hotel={hotel} />
                   ))
                 ) : (
                   <Typography
@@ -122,7 +122,10 @@ function SearchCard({ hotels, attractions, keyword }) {
               <Box className="grid w-full max-w-6xl  sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 xl:grid-cols-3">
                 {attractions.length ? (
                   attractions.map((attraction) => (
-                    <TourItem key={attraction.id} attraction={attraction} />
+                    <TourItem
+                      key={attraction.attractionId}
+                      attraction={attraction}
+                    />
                   ))
                 ) : (
                   <Typography

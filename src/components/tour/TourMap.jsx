@@ -11,10 +11,6 @@ import markerMain from '../../assets/img/attraction/markerMain.png'
 import markerOthers from '../../assets/img/attraction/markerOthers.png'
 
 export default function TourMap({ attractions, mainAttraction }) {
-  if (!mainAttraction || attractions?.length === 0) {
-    return <Box>Loading...</Box>
-  }
-
   const markerRef = useRef(null)
   const [hoveredattractionId, setHoveredattractionId] = useState(null)
 
@@ -32,7 +28,7 @@ export default function TourMap({ attractions, mainAttraction }) {
     <Box className="flex gap-2 max-h-145 w-full p-3 border shadow-md shadow-gray-200">
       <MapContainer
         style={{ width: 750, height: 650 }}
-        center={[mainAttraction.map.latitude, mainAttraction.map.longitude]}
+        center={[mainAttraction.map?.latitude, mainAttraction.map?.longitude]}
         zoom={11}
         className={styles.map}
       >
@@ -42,7 +38,10 @@ export default function TourMap({ attractions, mainAttraction }) {
         />
         <Marker
           key={mainAttraction.attractionId}
-          position={[mainAttraction.map.latitude, mainAttraction.map.longitude]}
+          position={[
+            mainAttraction.map?.latitude,
+            mainAttraction.map?.longitude,
+          ]}
           icon={
             new L.Icon({
               iconUrl: markerMain,
@@ -55,7 +54,7 @@ export default function TourMap({ attractions, mainAttraction }) {
         {attractions.map((attraction) => (
           <Marker
             key={attraction.attractionId}
-            position={[attraction.map.latitude, attraction.map.longitude]}
+            position={[attraction.map?.latitude, attraction.map?.longitude]}
             ref={
               hoveredattractionId === attraction.attractionId ? markerRef : null
             }

@@ -7,6 +7,8 @@ import { Box, fontWeight } from '@mui/system'
 import { Typography } from '@mui/material'
 import { Button } from '@mui/base'
 import moment from 'moment/moment'
+import { shallow } from 'zustand/shallow'
+import { useStore } from '../store/store'
 
 export default function TourDetailHeader({ mainAttraction, city }) {
   const maxRating = 5
@@ -50,6 +52,25 @@ export default function TourDetailHeader({ mainAttraction, city }) {
     return '영업종료'
   }
 
+  const likedAttractions = useStore((store) => store.likedAttractions)
+  const setAttractionLiked = useStore((store) => store.setAttractionLiked)
+
+  const isAttractionLiked = useStore((store) => store.isAttractionLiked)
+
+  const addLikedAttraction = useStore((store) => store.addLikedAttraction)
+  const deleteLikedAttraction = useStore((store) => store.deleteLikedAttraction)
+
+  const handleLikedAttraction = () => {
+    setAttractionLiked(mainAttraction.attractionId)
+    if (isAttractionLiked) {
+      deleteLikedAttraction(mainAttraction.attractionId)
+    } else {
+      // 여기서 로그인 체크 필요
+      addLikedAttraction(mainAttraction)
+    }
+    setAttractionLiked(mainAttraction.attractionId)
+  }
+
   return (
     <Box className="flex flex-col gap-2 p-3">
       <Typography className="text-gray-900" variant="body2" component="span">
@@ -72,9 +93,23 @@ export default function TourDetailHeader({ mainAttraction, city }) {
         >
           {mainAttraction.name}
         </Typography>
-        {/* 추후 버튼 클릭하면 찜하기 리스트에 담기 */}
+        {/* 추후 버튼 클릭하면 로그인 체크하고 FaHeart보여주기 */}
         <Button>
-          <CiHeart className="w-9 h-9" />
+          {isAttractionLiked ? (
+            <FaHeart
+              onClick={() => {
+                handleLikedAttraction()
+              }}
+              className="w-7 h-7 mr-1 text-blue-700"
+            />
+          ) : (
+            <CiHeart
+              onClick={() => {
+                handleLikedAttraction()
+              }}
+              className="w-9 h-9"
+            />
+          )}
         </Button>
       </Box>
 
