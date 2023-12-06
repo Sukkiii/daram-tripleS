@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const fetchGetUserInfo = async () => {
+const fetchReservationList = async () => {
   function getCookie(name) {
     const cookies = document.cookie.split(';')
     for (let i = 0; i < cookies.length; i++) {
@@ -19,7 +19,7 @@ const fetchGetUserInfo = async () => {
     }
     const accessTokenObject = JSON.parse(accessToken)
     const tokenValue = accessTokenObject.token
-    const response = await axios.get('http://15.165.25.34:3000/api/users', {
+    const response = await axios.get('http://15.165.25.34:3000/api/orders', {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${tokenValue}`,
@@ -31,4 +31,4 @@ const fetchGetUserInfo = async () => {
   }
 }
 
-export default fetchGetUserInfo
+export default fetchReservationList

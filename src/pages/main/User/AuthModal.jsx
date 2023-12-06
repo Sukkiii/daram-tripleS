@@ -1,5 +1,4 @@
 import { Dialog, DialogContent } from '@mui/material'
-import PropTypes from 'prop-types'
 
 function AuthModal({ open, onClose, children }) {
   return (
@@ -16,12 +15,6 @@ function AuthModal({ open, onClose, children }) {
       <DialogContent>{children}</DialogContent>
     </Dialog>
   )
-}
-
-AuthModal.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
 }
 
 export default AuthModal

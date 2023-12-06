@@ -4,7 +4,7 @@ import Autocomplete from '@mui/material/Autocomplete'
 import { styled, lighten, darken } from '@mui/system'
 import { FormControl } from '@mui/base'
 import { InputLabel, List } from '@mui/material'
-import fetchLocation from '../../../../fetch/fetchLocation'
+import FetchLocation from '../../../../fetch/fetchLocation'
 
 const GroupHeader = styled('div')(({ theme }) => ({
   position: 'sticky',
@@ -27,7 +27,7 @@ export default function RenderGroup({ filterLocationId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const locationData = await fetchLocation()
+        const locationData = await FetchLocation()
         setLocationList(locationData)
       } catch (error) {
         console.error('Error setting location data:', error)

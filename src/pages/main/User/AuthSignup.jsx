@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material'
-import Swal from 'sweetalert2'
+import showSwal from '../../../assets/util/showSwal'
 import fetchSignup from '../../../fetch/fetchSignup'
 import {
   isValidEmailFormat,
@@ -59,14 +59,6 @@ function AuthSignup() {
       isValidNameFormat(name) &&
       isValidPasswordFormat(password) &&
       confirmPassword === password
-
-    async function showSwal(title, icon) {
-      await Swal.fire({
-        title,
-        icon,
-        confirmButtonText: '확인',
-      })
-    }
 
     try {
       if (isValidInput) {

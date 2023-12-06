@@ -3,14 +3,15 @@ import { Box, Typography, TextField, Button, Divider } from '@mui/material'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
-import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router'
-import fetchLogin from '../../../fetch/fetchLogin'
+import FetchLogin from '../../../fetch/fetchLogin'
 import {
   isValidEmailFormat,
   isValidPasswordFormat,
 } from '../../../assets/validation/validationSingup'
 import AuthFindPwd from './AuthFindPwd'
+import FetchGetUserInfo from '../../../fetch/fetchGetUserInfo'
+import showSwal from '../../../assets/util/showSwal'
 
 function AuthLogin() {
   const [email, setEmail] = useState('')
@@ -51,26 +52,21 @@ function AuthLogin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     const isValidInput =
       isValidEmailFormat(email) && isValidPasswordFormat(password)
 
-    async function showSwal(title, icon) {
-      await Swal.fire({
-        title,
-        icon,
-        confirmButtonText: '확인',
-      })
-    }
-
     try {
       if (isValidInput) {
-        const result = await fetchLogin(email, password)
+        const result = await FetchLogin(email, password)
 
         if (result) {
           setCookie('accessToken', JSON.stringify(result.data), 7)
           showSwal('반갑습니다 :)', 'success')
-          navigate('/hotel')
+
+          const fetchGetIUserInfo = await FetchGetUserInfo()
+          if (fetchGetIUserInfo) {
+            navigate('/hotel')
+          }
         }
       } else {
         showSwal('이메일, 비밀번호를 확인해주세요!', 'error')

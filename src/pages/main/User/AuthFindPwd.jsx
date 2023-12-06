@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Modal, Typography, Box, TextField, Button } from '@mui/material'
-import PropTypes from 'prop-types'
-import fetchFindUser from '../../../fetch/fetchFindUser'
+import FetchFindUser from '../../../fetch/fetchFindUser'
 
 function AuthFindPwd({ open, onClose }) {
   const [email, setEmail] = useState('')
@@ -18,7 +17,7 @@ function AuthFindPwd({ open, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetchFindUser(email, name)
+    const response = await FetchFindUser(email, name)
     if (response) {
       setTemporaryPassword(response.password)
     }
@@ -76,10 +75,6 @@ function AuthFindPwd({ open, onClose }) {
       </Box>
     </Modal>
   )
-}
-AuthFindPwd.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
 }
 
 export default AuthFindPwd

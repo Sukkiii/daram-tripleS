@@ -21,8 +21,8 @@ export const SERVICE = [
   { name: '보안', link: '#' },
 ]
 export const PAYMENT = [
-  { image: '/src/assets/FooterImg/pay1.png' },
-  { image: '/src/assets/FooterImg/pay2.png' },
-  { image: '/src/assets/FooterImg/pay3.png' },
-  { image: '/src/assets/FooterImg/pay4.png' },
+  { image: '/src/assets/img/FooterImg/pay1.png' },
+  { image: '/src/assets/img/FooterImg/pay2.png' },
+  { image: '/src/assets/img/FooterImg/pay3.png' },
+  { image: '/src/assets/img/FooterImg/pay4.png' },
 ]

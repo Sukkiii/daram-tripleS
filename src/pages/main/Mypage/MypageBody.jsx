@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import PropTypes from 'prop-types'
 import { Tabs, Tab, Typography, Box } from '@mui/material'
 import MemberInfo from './MemberInfo'
 import Reservation from './Reservation'
+import WishlistTravel from './WishlistTravel'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -31,12 +31,6 @@ function TabPanel(props) {
   )
 }
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-}
-
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
@@ -52,7 +46,7 @@ function MypageBody() {
   }
 
   return (
-    <Box className="flex w-full h-full my-[10rem] mx-[2rem]">
+    <Box className="flex w-full h-full my-[10rem] mx-[10rem]">
       <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -61,14 +55,18 @@ function MypageBody() {
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: 'divider' }}
       >
-        <Tab label="예약확인" {...a11yProps(0)} />
-        <Tab label="내 정보" {...a11yProps(1)} />
+        <Tab label="내 정보" {...a11yProps(0)} />
+        <Tab label="예약확인" {...a11yProps(1)} />
+        <Tab label="찜한여행지" {...a11yProps(2)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <Reservation />
+        <MemberInfo />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <MemberInfo />
+        <Reservation />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <WishlistTravel />
       </TabPanel>
     </Box>
   )

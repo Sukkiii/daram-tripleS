@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { Box, Link, Typography, List, ListItem, Avatar } from '@mui/material'
 
 function ItemFooter({ Links, title }) {
@@ -41,16 +40,6 @@ function ItemFooter({ Links, title }) {
       ))}
     </List>
   )
-}
-
-ItemFooter.propTypes = {
-  Links: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  title: PropTypes.string.isRequired,
 }
 
 export default ItemFooter
