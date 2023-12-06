@@ -44,7 +44,7 @@ export default function RenderGroup({ filterLocationId }) {
           filterLocationId(value.locationId)
         }
       }}
-      className="w-3/4 mt-3"
+      className="mr-10 mt-3"
       id="grouped-demo"
       options={locationList}
       groupBy={(option) => option.country}

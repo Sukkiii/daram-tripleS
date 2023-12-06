@@ -48,7 +48,7 @@ function HotelSearchPage() {
     <>
       <HotelSearchHeader />
       <HomeSideBar />
-      <HotelSearchBody />
+      <HotelSearchBody searchResults={searchResults} />
     </>
   )
 }

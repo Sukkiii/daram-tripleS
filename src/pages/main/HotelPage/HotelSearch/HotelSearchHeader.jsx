@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Box } from '@mui/material'
 import HeaderLogo from '../../Header/HeaderLogo'
 import FunctionOptions from '../../Header/FunctionOptions'
@@ -7,10 +7,11 @@ import Hotel from '../../Filtering/Hotel'
 
 function HotelSearchHeader({ searchData, setSearchData, handleSearch }) {
   const [scrolled, setScrolled] = useState(false)
+  const scrollTarget = useRef(null)
 
   useEffect(() => {
     const handleFiltering = () => {
-      const isFixFiltering = window.scrollY > 170
+      const isFixFiltering = window.scrollY > scrollTarget.current.offsetTop
       setScrolled(isFixFiltering)
     }
 
@@ -30,12 +31,13 @@ function HotelSearchHeader({ searchData, setSearchData, handleSearch }) {
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className="flex flex-col w-4/5 mx-auto my-12">
+      <Box className="flex flex-col w-4/5 mx-auto my-2">
         <Box
-          className={`p-5 bg-white rounded-xl ${
+          ref={scrollTarget}
+          className={`p-5 py-2 bg-white z-[9999] shadow-lg ${
             scrolled
-              ? 'fixed top-0 right-0 left-0 rounded-none z-[9999] h-30 shadow-sm'
-              : 'w-full h-2/4 p-5'
+              ? 'fixed top-0 right-0 left-0 rounded-none h-30 px-[10%]'
+              : 'h-2/4 p-5 rounded-xl'
           }`}
         >
           <Hotel />
