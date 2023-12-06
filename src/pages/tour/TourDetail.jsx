@@ -9,6 +9,7 @@ import TourMap from '../../components/tour/TourMap'
 import TourPhoto from '../../components/tour/TourPhoto'
 import TourDetailCard from '../../components/tour/tourDetailCard'
 import TourDetailHeader from '../../components/tour/TourDetailHeader'
+import CommonHeader from '../main/CommonHeader'
 
 function TourDetail() {
   const { tourId } = useParams()
@@ -61,24 +62,29 @@ function TourDetail() {
   }
 
   return (
-    <Box className="container flex flex-col items-center gap-3">
-      <Box className="w-[70rem]">
-        <TourDetailHeader mainAttraction={mainAttraction} city={city} />
-        <Box className="flex w-full p-3 gap-3">
-          <TourDetailCard
-            attractionName={mainAttraction.name}
-            attractionDescription={mainAttraction.description}
-            recommendTourTime={mainAttraction.recommendTourTime}
+    <Box className="flex flex-col items-center">
+      <Box className="w-full">
+        <CommonHeader />
+      </Box>
+      <Box className="container flex flex-col items-center gap-3">
+        <Box className="w-[70rem]">
+          <TourDetailHeader mainAttraction={mainAttraction} city={city} />
+          <Box className="flex w-full p-3 gap-3">
+            <TourDetailCard
+              attractionName={mainAttraction.name}
+              attractionDescription={mainAttraction.description}
+              recommendTourTime={mainAttraction.recommendTourTime}
+            />
+            <TourPhoto images={mainAttraction.image} />
+          </Box>
+          <TourMap
+            mainAttraction={mainAttraction}
+            attractions={attractions.filter(
+              (attraction) =>
+                attraction.attractionId !== mainAttraction.attractionId,
+            )}
           />
-          <TourPhoto images={mainAttraction.image} />
         </Box>
-        <TourMap
-          mainAttraction={mainAttraction}
-          attractions={attractions.filter(
-            (attraction) =>
-              attraction.attractionId !== mainAttraction.attractionId,
-          )}
-        />
       </Box>
     </Box>
   )

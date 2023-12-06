@@ -7,7 +7,7 @@ import TourItem from './TourItem'
 
 function SearchCard({ hotels, attractions, keyword }) {
   return (
-    <Box className="flex flex-col items-center gap-3">
+    <Box className="flex flex-col items-center gap-3 mt-5">
       <Typography
         className="text-gray-900 w-[84rem]"
         style={{
@@ -119,7 +119,7 @@ function SearchCard({ hotels, attractions, keyword }) {
                 여행지
               </Typography>
 
-              <Box className="grid w-full max-w-6xl  sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 xl:grid-cols-3">
+              <Box className="grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 xl:grid-cols-3">
                 {attractions.length ? (
                   attractions.map((attraction) => (
                     <TourItem

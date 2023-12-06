@@ -1,9 +1,11 @@
 import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
+import { Box } from '@mui/material'
 import SearchCard from '../../components/search/SearchCard'
 import fetchSearchTour from '../../fetch/fetchSearchTour'
 import fetchSearchHotel from '../../fetch/fetchSearchHotel'
+import CommonHeader from '../main/CommonHeader'
 
 function SearchPage() {
   const { keyword } = useParams()
@@ -49,7 +51,10 @@ function SearchPage() {
   }, [attractions, attractionData, attractionRes.isLoading])
 
   return (
-    <SearchCard hotels={hotels} attractions={attractions} keyword={keyword} />
+    <Box>
+      <CommonHeader />
+      <SearchCard hotels={hotels} attractions={attractions} keyword={keyword} />
+    </Box>
   )
 }
 

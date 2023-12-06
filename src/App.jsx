@@ -13,6 +13,7 @@ import SearchHotelList from './pages/search/SearchHotelList'
 import SearchTourList from './pages/search/SearchTourList'
 import TourDetail from './pages/tour/tourDetail'
 import MyPage from './pages/main/Mypage/Mypage'
+import LikedAttractions from './pages/main/Mypage/LikedAttractions'
 
 function App() {
   const theme = createTheme()
@@ -37,7 +38,9 @@ function App() {
                 <Route path="/hotel" element={<HotelPage />} />
                 <Route path="/hotel/search" element={<HotelSearchPage />} />
                 <Route path="/myPage" element={<MyPage />} />
-                {/* 통합검색, 호텔리스트, 여행지리스트 */}
+                {/* 마이페이지에 아울렛으로 넣어야 할것같은데 확인 위해 일단 빼 두었습니다 */}
+                <Route path="/like" element={<LikedAttractions />} />
+
                 <Route path="/searchList/:keyword" element={<SearchPage />} />
                 <Route
                   path="/searchHotelList/:keyword"
