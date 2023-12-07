@@ -6,6 +6,7 @@ import SearchCard from '../../components/search/SearchCard'
 import fetchSearchTour from '../../fetch/fetchSearchTour'
 import fetchSearchHotel from '../../fetch/fetchSearchHotel'
 import CommonHeader from '../main/CommonHeader'
+import Footer from '../main/Footer/Footer'
 
 function SearchPage() {
   const { keyword } = useParams()
@@ -54,6 +55,7 @@ function SearchPage() {
     <Box>
       <CommonHeader />
       <SearchCard hotels={hotels} attractions={attractions} keyword={keyword} />
+      <Footer />
     </Box>
   )
 }

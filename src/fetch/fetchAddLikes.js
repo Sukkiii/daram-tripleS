@@ -11,7 +11,7 @@ function getCookie(name) {
   return null
 }
 
-const fetchAddLikes = async (attraction) => {
+const fetchAddLikes = async (attractionId) => {
   try {
     const accessToken = getCookie('accessToken')
     if (!accessToken) {
@@ -23,7 +23,7 @@ const fetchAddLikes = async (attraction) => {
     const response = await axios.post(
       'http://15.165.25.34:3000/api/users/favorites',
       {
-        attraction,
+        attraction: attractionId,
       },
       {
         headers: {

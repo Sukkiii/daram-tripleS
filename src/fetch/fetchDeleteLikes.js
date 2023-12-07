@@ -23,13 +23,12 @@ const fetchDeleteLikes = async (attraction) => {
     const response = await axios.delete(
       'http://15.165.25.34:3000/api/users/favorites',
       {
-        attraction,
-      },
-      {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${tokenValue}`,
         },
+        data: { attraction: attraction._id },
+        withCredentials: true,
       },
     )
     return response.data

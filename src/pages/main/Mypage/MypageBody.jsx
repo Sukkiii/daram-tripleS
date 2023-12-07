@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Tabs, Tab, Typography, Box } from '@mui/material'
 import MemberInfo from './MemberInfo'
 import Reservation from './Reservation'
-import WishlistTravel from './WishlistTravel'
+import LikedAttractions from './LikedAttractions'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -66,7 +66,7 @@ function MypageBody() {
         <Reservation />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <WishlistTravel />
+        <LikedAttractions />
       </TabPanel>
     </Box>
   )

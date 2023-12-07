@@ -18,7 +18,7 @@ function TourItem({ attraction, smallCard, likedPage }) {
 
   const handleLikedAttraction = () => {
     if (isAttractionLiked) {
-      deleteLikedAttraction(attraction.attractionId)
+      deleteLikedAttraction(attraction)
     } else {
       addLikedAttraction(attraction)
     }
@@ -26,9 +26,7 @@ function TourItem({ attraction, smallCard, likedPage }) {
 
   useEffect(() => {
     setIsAttractionLiked(
-      likedAttractions?.some(
-        (attr) => attr.attractionId === attraction.attractionId,
-      ),
+      likedAttractions?.some((attr) => attr._id === attraction._id),
     )
   }, [attraction, likedAttractions])
 

@@ -12,7 +12,7 @@ function TourPopupItem({ attraction }) {
     <Link>
       <Box className="w-full">
         <img
-          src="https://p1.pxfuel.com/preview/778/373/101/nature-landscape-rocks-formation-cave-beauty.jpg"
+          src={`/src/assets/img/attraction/${attraction.mainImage}`}
           className="w-full h-1/2 object-cover"
           alt={`attraction ${attraction.attractionId}`}
         />

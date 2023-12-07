@@ -9,33 +9,26 @@ export default function LikedAttractions() {
   const { deleteLikedAttraction } = useStore()
   const [checkItems, setCheckItems] = useState([])
 
-  const handleChange = (e) => {
-    if (e.target.checked) {
-      setCheckItems((prev) => [...prev, attraction.attractionId])
-    } else {
-      setCheckItems(checkItems.filter((el) => el !== attraction.attractionId))
-    }
-  }
-  const handleSingleCheck = (checked, attractionId) => {
+  const handleSingleCheck = (checked, attraction) => {
     if (checked) {
-      setCheckItems((prev) => [...prev, attractionId])
+      setCheckItems((prev) => [...prev, attraction])
     } else {
-      setCheckItems(checkItems.filter((id) => id !== attractionId))
+      setCheckItems(
+        checkItems.filter((attraction) => attraction._id !== attraction._id),
+      )
     }
   }
 
   const handleAllCheck = (checked) => {
     if (checked) {
-      setCheckItems([
-        ...attractions.map((attraction) => attraction.attractionId),
-      ])
+      setCheckItems(attractions)
     } else {
       setCheckItems([])
     }
   }
 
   const handelDelete = () => {
-    checkItems.map((attractionId) => deleteLikedAttraction(attractionId))
+    checkItems.map((attraction) => deleteLikedAttraction(attraction))
   }
 
   return (
@@ -83,9 +76,9 @@ export default function LikedAttractions() {
           attractions.map((attraction) => (
             <Box key={attraction.attractionId} className="felx">
               <Checkbox
-                checked={!!checkItems.includes(attraction.attractionId)}
+                checked={!!checkItems.includes(attraction)}
                 onChange={(e) =>
-                  handleSingleCheck(e.target.checked, attraction.attractionId)
+                  handleSingleCheck(e.target.checked, attraction)
                 }
                 sx={{
                   fontSize: 28,

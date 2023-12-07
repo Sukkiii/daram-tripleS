@@ -56,7 +56,7 @@ function SearchCard({ hotels, attractions, keyword }) {
           variant="body1"
           component="span"
         >
-          : 1000개
+          : {hotels.length + attractions.length}개
         </Typography>
       </Box>
       <Box className="flex justify-center w-full" style={{ width: '100%' }}>

@@ -10,6 +10,7 @@ import TourPhoto from '../../components/tour/TourPhoto'
 import TourDetailCard from '../../components/tour/tourDetailCard'
 import TourDetailHeader from '../../components/tour/TourDetailHeader'
 import CommonHeader from '../main/CommonHeader'
+import Footer from '../main/Footer/Footer'
 
 function TourDetail() {
   const { tourId } = useParams()
@@ -86,6 +87,7 @@ function TourDetail() {
           />
         </Box>
       </Box>
+      <Footer />
     </Box>
   )
 }

@@ -50,7 +50,7 @@ function SideBar({ keyword }) {
             className="w-[200px] leading-5"
             style={{ fontSize: '1.05rem' }}
           >
-            전체 (12,6372)
+            전체
           </Typography>
         </Button>
       </Link>
@@ -61,7 +61,7 @@ function SideBar({ keyword }) {
             className="w-[200px] leading-5"
             style={{ fontSize: '1.05rem' }}
           >
-            호텔 (12,6372)
+            호텔
           </Typography>
         </Button>
       </Link>
@@ -72,7 +72,7 @@ function SideBar({ keyword }) {
             className="w-[200px] leading-5"
             style={{ fontSize: '1.05rem' }}
           >
-            여행지 (12,6372)
+            여행지
           </Typography>
         </Button>
       </Link>
