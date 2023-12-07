@@ -7,8 +7,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { Typography, Box } from '@mui/material'
 
 export default function CheckInOut({ filterCheckInOutDate }) {
-  const initialCheckInDate = dayjs('2022-04-17')
-  const initialCheckOutDate = dayjs('2022-04-18')
+  const initialCheckInDate = dayjs()
+  const initialCheckOutDate = dayjs().add(1, 'day')
 
   const [checkInDate, setCheckInDate] = useState(initialCheckInDate)
   const [checkOutDate, setCheckOutDate] = useState(initialCheckOutDate)
