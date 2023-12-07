@@ -12,6 +12,7 @@ import SearchPage from './pages/search/SearchPage'
 import SearchHotelList from './pages/search/SearchHotelList'
 import SearchTourList from './pages/search/SearchTourList'
 import MyPage from './pages/main/Mypage/Mypage'
+import TourDetail from './pages/tour/TourDetail'
 
 function App() {
   const theme = createTheme()
@@ -49,6 +50,7 @@ function App() {
                   path="/hotelDetail/:lodgingId"
                   element={<HotelDetailPage />}
                 />
+                <Route path="/tourDetail/:tourId" element={<TourDetail />} />
               </Route>
             </Routes>
           </QueryClientProvider>
