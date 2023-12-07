@@ -1,17 +1,17 @@
 import axios from 'axios'
 
-const fetchGetUserInfo = async () => {
-  function getCookie(name) {
-    const cookies = document.cookie.split(';')
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim()
-      if (cookie.startsWith(`${name}=`)) {
-        return cookie.substring(name.length + 1)
-      }
+function getCookie(name) {
+  const cookies = document.cookie.split(';')
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim()
+    if (cookie.startsWith(`${name}=`)) {
+      return cookie.substring(name.length + 1)
     }
-    return null
   }
+  return null
+}
 
+const fetchGetUserInfo = async () => {
   try {
     const accessToken = getCookie('accessToken')
     if (!accessToken) {

@@ -63,9 +63,9 @@ function AuthLogin() {
           setCookie('accessToken', JSON.stringify(result.data), 7)
           showSwal('반갑습니다 :)', 'success')
 
-          const fetchGetIUserInfo = await FetchGetUserInfo()
-          if (fetchGetIUserInfo) {
-            navigate('/hotel')
+          const fetchGetUserInfo = await FetchGetUserInfo()
+          if (fetchGetUserInfo) {
+            navigate('/myPage')
           }
         }
       } else {

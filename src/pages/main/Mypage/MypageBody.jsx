@@ -46,7 +46,7 @@ function MypageBody() {
   }
 
   return (
-    <Box className="flex w-full h-full my-[10rem] mx-[10rem]">
+    <Box className="flex">
       <Tabs
         orientation="vertical"
         variant="scrollable"

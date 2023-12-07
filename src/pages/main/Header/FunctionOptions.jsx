@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Box, Typography, Button } from '@mui/material'
-import PropTypes from 'prop-types'
-import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router'
+import showSwal from '../../../assets/util/showSwal'
 import SouthKoreaFlag from '../../../assets/img/SouthKorea.png'
 import AuthModal from '../User/AuthModal'
 import AuthLogin from '../User/AuthLogin'
 import AuthSignup from '../User/AuthSignup'
-import fetchLogout from '../../../fetch/fetchLogout'
+import FetchLogout from '../../../fetch/fetchLogout'
 
 function LoginForm({ onSwitchToSignup, onClose }) {
   return (
@@ -39,14 +38,6 @@ function FunctionOptions() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const navigate = useNavigate()
 
-  async function showSwal(title, icon) {
-    await Swal.fire({
-      title,
-      icon,
-      confirmButtonText: '확인',
-    })
-  }
-
   function getCookie(name) {
     const cookies = document.cookie.split(';')
     for (let i = 0; i < cookies.length; i++) {
@@ -70,7 +61,7 @@ function FunctionOptions() {
   const handleLogout = async (e) => {
     e.preventDefault()
     try {
-      const result = await fetchLogout()
+      const result = await FetchLogout()
 
       if (result) {
         deleteCookie('accessToken')
@@ -140,16 +131,6 @@ function FunctionOptions() {
       </AuthModal>
     </Box>
   )
-}
-
-LoginForm.propTypes = {
-  onSwitchToSignup: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
-}
-
-SignupForm.propTypes = {
-  onSwitchToLogin: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
 }
 
 export default FunctionOptions
