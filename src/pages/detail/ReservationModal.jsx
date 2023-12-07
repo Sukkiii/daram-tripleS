@@ -1,96 +1,212 @@
 import React, { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
-import { Box, Typography } from '@mui/material'
+import {
+  Modal,
+  Box,
+  Typography,
+  Button,
+  TextField,
+  FormControl,
+  Select,
+  MenuItem,
+  TextareaAutosize,
+} from '@mui/material'
+import { makeReservation } from '../../fetch/fetchLodging'
+import { getUser } from '../../fetch/fetchLodging'
+import Swal from 'sweetalert2'
 
-function ReservationModal({ closeModal, lodgingData, reservations }) {
-  const checkInDate = dayjs(reservations[0].checkInDate)
-  const checkOutDate = dayjs(reservations[0].checkOutDate)
+const ReservationModal = ({
+  lodgingData,
+  selectedRoom,
+  selectedRoomType,
+  startDate,
+  endDate,
+}) => {
+  const checkInDate = dayjs(startDate || new Date())
+  const checkOutDate = dayjs(endDate || new Date())
   const totalNights = checkOutDate.diff(checkInDate, 'day')
-  const pricePerNight = lodgingData.rooms[0].price // Assume this is already a number
+  const pricePerNight = selectedRoomType?.price || 0
   const totalPrice = pricePerNight * totalNights
 
   const [isReserved, setIsReserved] = useState(false)
+  const [userData, setUserData] = useState(null)
 
-  const handleReservation = () => {
-    setIsReserved(true)
+  const [adults, setAdults] = useState(0)
+  const [children, setChildren] = useState(0)
+
+  const handleAdultsChange = (e) => {
+    setAdults(parseInt(e.target.value))
+  }
+
+  const handleChildrenChange = (e) => {
+    setChildren(parseInt(e.target.value))
+  }
+
+  const fetchUserData = async () => {
+    try {
+      const userData = await getUser()
+      setUserData(userData)
+    } catch (error) {
+      console.error('Failed to fetch user data:', error)
+    }
   }
 
   useEffect(() => {
-    // 모달이 열릴 때
-    document.body.style.overflow = 'hidden'
-
-    // 클린업 함수: 모달이 닫힐 때
-    return () => {
-      document.body.style.overflow = 'visible'
-    }
+    fetchUserData()
   }, [])
 
+  const handleReservation = async () => {
+    if (!selectedRoom || !startDate || !endDate) {
+      Swal.fire({
+        title: '선택 필요',
+        text: '객실과 일정을 먼저 선택하세요.',
+        icon: 'warning',
+      })
+      return
+    }
+
+    const { value: confirm } = await Swal.fire({
+      title: '예약 확인',
+      text: '예약을 진행하시겠습니까?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: '예, 예약합니다',
+      cancelButtonText: '아니오',
+    })
+
+    if (confirm) {
+      const reservationData = {
+        lodging: lodgingData.lodging._id,
+        room: selectedRoomType._id,
+        status: false,
+        checkInDate: startDate,
+        checkOutDate: endDate,
+        adults: adults,
+        children: children,
+        request: specialRequest,
+      }
+
+      try {
+        const reservationResult = await makeReservation(reservationData)
+
+        if (reservationResult) {
+          setIsReserved(true)
+          Swal.fire({
+            title: '예약 완료',
+            text: '예약이 성공적으로 완료되었습니다.',
+            icon: 'success',
+          })
+        }
+      } catch (error) {
+        Swal.fire({
+          title: '예약 실패',
+          text: '예약을 처리하는 중에 오류가 발생했습니다.',
+          icon: 'error',
+        })
+      }
+    }
+  }
+
+  const selectedRoomTypeData = selectedRoomType || { price: 0, capacity: 1 }
+
+  const [specialRequest, setSpecialRequest] = useState('')
+
   return (
-    <Box className="fixed inset-0 bg-black bg-opacity-50 overflow-y-hidden h-full w-full flex justify-center items-center z-50">
-      <Box className="bg-white p-4 md:p-8 rounded-lg shadow-2xl max-w-md mx-auto">
-        <Box className="text-center space-y-4">
-          <Typography className="text-3xl font-bold text-gray-900">
-            ₩{pricePerNight.toLocaleString()} /박
+    <Box
+      class="max-w-sm mx-auto overflow-hidden bg-white shadow-md"
+      style={{ marginTop: '20px', marginBottom: '20px' }}
+    >
+      <Box class="p-5">
+        <Box class="flex justify-between items-center">
+          <Typography class="text-3xl font-bold text-gray-900">
+            ₩{selectedRoomTypeData.price}
           </Typography>
-          <Typography className="text-lg text-gray-500">
-            총 {totalNights}박
+          <Typography class="text-xl font-semibold text-gray-800">
+            {selectedRoomTypeData.types}
           </Typography>
-          <Box className="space-y-2">
-            <Box>
-              <Typography className="text-gray-500">체크인</Typography>
-              <Typography className="text-gray-800">
-                {checkInDate.format('YYYY.MM.DD')}
-              </Typography>
-            </Box>
-            <Box>
-              <Typography className="text-gray-500">체크아웃</Typography>
-              <Typography className="text-gray-800">
-                {checkOutDate.format('YYYY.MM.DD')}
-              </Typography>
-            </Box>
-          </Box>
-          {!isReserved ? (
-            <button
-              onClick={handleReservation}
-              className="w-full bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300 ease-in-out hover:bg-pink-700 focus:outline-none focus:ring focus:ring-pink-300"
-            >
-              예약하기
-            </button>
-          ) : (
-            <Box className="text-lg text-green-700 bg-green-100 py-2 px-4 rounded-md border border-green-200">
-              예약되었습니다!
-            </Box>
-          )}
-          <Typography className="text-sm text-gray-500">
-            예약 확정 전에는 요금이 청구되지 않습니다.
+        </Box>
+        <Box>
+          <Typography class="block text-sm text-gray-600">체크인</Typography>
+          <Typography class="block text-lg text-gray-800">
+            {startDate}
           </Typography>
-          <Box className="pt-4 border-t-2">
-            <Typography className="text-lg font-semibold">
-              ₩{pricePerNight.toLocaleString()} x {totalNights}박
-            </Typography>
-            <Typography className="text-xl font-bold">
-              총합계 ₩{totalPrice.toLocaleString()}
-            </Typography>
-          </Box>
-          <button
-            onClick={closeModal}
-            className="absolute top-0 right-0 mt-4 mr-4 text-gray-400 hover:text-gray-600"
+        </Box>
+        <Box>
+          <Typography class="block text-sm text-gray-600">체크아웃</Typography>
+          <Typography class="block text-lg text-gray-800">{endDate}</Typography>
+        </Box>
+
+        <Box class="mt-4">
+          <label for="adults" class="text-sm text-gray-600">
+            아이
+          </label>
+          <select
+            id="adults"
+            value={adults}
+            onChange={handleAdultsChange}
+            class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+            <option value={0}>0 어른</option>
+            <option value={1}>1 어른</option>
+            <option value={2}>2 어른</option>
+            <option value={3}>3 어른</option>
+            <option value={4}>4 어른</option>
+            <option value={5}>5 어른</option>
+          </select>
+        </Box>
+
+        <Box class="mt-4">
+          <label for="children" class="text-sm text-gray-600">
+            아이
+          </label>
+          <select
+            id="children"
+            value={children}
+            onChange={handleChildrenChange}
+            class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          >
+            <option value={0}>0 아이</option>
+            <option value={1}>1 아이</option>
+            <option value={2}>2 아이</option>
+            <option value={3}>3 아이</option>
+            <option value={4}>4 아이</option>
+            <option value={5}>5 아이</option>
+          </select>
+        </Box>
+        <Box className="mt-4">
+          <label htmlFor="specialRequest" className="text-sm text-gray-600">
+            요청사항
+          </label>
+          <textarea
+            id="specialRequest"
+            value={specialRequest}
+            onChange={(e) => setSpecialRequest(e.target.value)}
+            className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            rows="4"
+            placeholder="특별한 요청사항을 입력하세요"
+          ></textarea>
+        </Box>
+        <button
+          onClick={handleReservation}
+          className="w-full px-4 py-3 mt-8 text-sm font-bold text-white uppercase bg-blue-500 rounded"
+        >
+          예약하기
+        </button>
+
+        <p class="mt-4 text-xs text-center text-gray-600">
+          예약 확정 전에는 요금이 청구되지 않습니다.
+        </p>
+      </Box>
+      <Box class="px-5 py-4 bg-gray-100">
+        <Box class="flex justify-between">
+          <Typography>
+            ₩{selectedRoomTypeData.price} x {totalNights}박
+          </Typography>
+          <Typography>₩{totalPrice}</Typography>
+        </Box>
+        <Box class="flex justify-between mt-4 font-bold">
+          <Typography>총 합계</Typography>
+          <Typography>₩{totalPrice}</Typography>
         </Box>
       </Box>
     </Box>

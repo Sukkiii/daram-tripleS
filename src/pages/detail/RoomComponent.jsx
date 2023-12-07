@@ -1,34 +1,47 @@
-// RoomComponent.js
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Chip } from '@mui/material'
 
 function RoomComponent({ room }) {
+  const colorPalette = ['#6495ED', '#6A5ACD', '#6B8E23', '#C0C0C0', '#BDB76B'] // 색상 팔레트
+
   return (
     <Box className="max-w-sm rounded overflow-hidden shadow-lg mb-6">
       <Box className="px-6 py-4">
-        <Box className="font-bold text-xl mb-2">{room.name}</Box>
-        <Box className="text-gray-700 text-base">
-          <Typography color="text.secondary">
-            {room.type} - {room.bedType}
-          </Typography>
-          <Typography variant="body2">Capacity: {room.capacity}</Typography>
-          <Typography variant="body2">
-            Size: {room.size} sqft, Floor: {room.floor}
-          </Typography>
-          <Typography variant="body2">1박 ${room.price}</Typography>
+        <Typography variant="h6" className="font-bold mb-2">
+          {room.roomTypeData.name}
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          {room.roomTypeData.types} - {room.roomTypeData.bedType}
+        </Typography>
+        <Typography variant="body2">
+          Capacity: {room.roomTypeData.capacity}
+        </Typography>
+        <Typography variant="body2">
+          Size: {room.roomTypeData.size}, Floor: {room.roomDummyData.floor}
+        </Typography>
+        <Typography variant="body2">1박 ${room.roomTypeData.price}</Typography>
+        <Chip
+          label={
+            room.roomDummyData.roomBooking.status ? '예약 가능' : '예약 불가'
+          }
+          color={room.roomDummyData.roomBooking.status ? 'success' : 'error'}
+          variant="outlined"
+        />
+        <Box className="mt-2">
+          {room.roomTypeData.amenities.map((amenity, index) => (
+            <Chip
+              key={index}
+              label={amenity}
+              className="mr-2 mb-2"
+              style={{
+                backgroundColor: colorPalette[index % colorPalette.length],
+                color: 'white', // 흰색 글자
+              }}
+            />
+          ))}
         </Box>
       </Box>
-      <Box className="px-6 pt-4 pb-2">
-        {room.status ? (
-          <Box className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-            예약 가능
-          </Box>
-        ) : (
-          <Box className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-            예약 불가
-          </Box>
-        )}
-      </Box>
+      <img src={room.roomTypeData.image[0]} alt="Room" className="w-full" />
     </Box>
   )
 }
