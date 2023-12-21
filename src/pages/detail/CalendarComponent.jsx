@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import dayjs from 'dayjs'
-import { Grid, Box, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Swal from 'sweetalert2'
 import { debounce } from 'lodash'
 
-const CalendarComponent = ({
+function CalendarComponent({
   lodgingData,
   setRooms,
   setSelectedDates,
@@ -15,7 +15,7 @@ const CalendarComponent = ({
   endDate,
   onStartDateChange,
   onEndDateChange,
-}) => {
+}) {
   const [currentMonth, setCurrentMonth] = useState(dayjs())
   const [selecting, setSelecting] = useState(true)
 
@@ -33,9 +33,8 @@ const CalendarComponent = ({
   const calendarValue = useMemo(() => {
     if (selecting) {
       return startDate ? dayjs(startDate) : null
-    } else {
-      return endDate ? dayjs(endDate) : null
     }
+    return endDate ? dayjs(endDate) : null
   }, [selecting, startDate, endDate])
 
   const resetCalendar = () => {
@@ -51,20 +50,18 @@ const CalendarComponent = ({
       // 시작 날짜 선택
       onStartDateChange(formattedDate)
       setSelecting(false)
+    } else if (!startDate || dayjs(formattedDate).isAfter(dayjs(startDate))) {
+      onEndDateChange(formattedDate)
+      setSelecting(true)
     } else {
-      if (!startDate || dayjs(formattedDate).isAfter(dayjs(startDate))) {
-        onEndDateChange(formattedDate)
-        setSelecting(true)
-      } else {
-        Swal.fire({
-          title: '잘못된 날짜 선택',
-          text: '시작 날짜는 종료 날짜보다 이전이어야 합니다.',
-          icon: 'error',
-          confirmButtonText: '확인',
-        }).then(() => {
-          resetCalendar()
-        })
-      }
+      Swal.fire({
+        title: '잘못된 날짜 선택',
+        text: '시작 날짜는 종료 날짜보다 이전이어야 합니다.',
+        icon: 'error',
+        confirmButtonText: '확인',
+      }).then(() => {
+        resetCalendar()
+      })
     }
   }, 200)
 
@@ -96,33 +93,31 @@ const CalendarComponent = ({
   const nights = lodgingData ? calculateNights(startDate, endDate) : 0
 
   return (
-    <>
-      <Box className="flex justify-center items-center w-full h-full">
-        <Box className="flex flex-col justify-center items-center w-full max-w-md p-4">
-          <Box class="container mx-auto px-4 py-2">
-            <Box class="border-b border-gray-300 py-4">
-              <Typography class="text-xl font-semibold text-gray-800">
-                {startDate && endDate
-                  ? `${lodgingData.lodging.address}에서 ${nights}박`
-                  : '숙박 일정을 선택하세요'}
-              </Typography>
-              {startDate && endDate && (
-                <Typography class="text-sm text-gray-500">{`${startDate}~${endDate}`}</Typography>
-              )}
-            </Box>
+    <Box className="flex items-center justify-center w-full h-full">
+      <Box className="flex flex-col items-center justify-center w-full max-w-md p-4">
+        <Box class="container mx-auto px-4 py-2">
+          <Box class="border-b border-gray-300 py-4">
+            <Typography class="text-xl font-semibold text-gray-800">
+              {startDate && endDate
+                ? `${lodgingData.lodging.address}에서 ${nights}박`
+                : '숙박 일정을 선택하세요'}
+            </Typography>
+            {startDate && endDate && (
+              <Typography class="text-sm text-gray-500">{`${startDate}~${endDate}`}</Typography>
+            )}
           </Box>
-
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateCalendar
-              value={calendarValue}
-              onChange={(newValue) => debouncedHandleDateChange(newValue)}
-              onMonthChange={handleMonthChange}
-              className="shadow-lg"
-            />
-          </LocalizationProvider>
         </Box>
+
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DateCalendar
+            value={calendarValue}
+            onChange={(newValue) => debouncedHandleDateChange(newValue)}
+            onMonthChange={handleMonthChange}
+            className="shadow-lg"
+          />
+        </LocalizationProvider>
       </Box>
-    </>
+    </Box>
   )
 }
 

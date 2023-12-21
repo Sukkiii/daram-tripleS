@@ -24,64 +24,58 @@ function TrainTicket() {
           <Typography className="text-sm">유럽</Typography>
         </Box>
       </Box>
-
       <Box className="flex">
-        <Box className="rounded-l w-2/12">
-          <Box className="flex text-grey-700 p-3">
+        <Box className="w-2/12 rounded-l">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">출발지</Typography>
           </Box>
           <Box>
             <TextField
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
               placeholder="서울"
             />
           </Box>
         </Box>
-
         <Box className="flex items-center mx-2.5 mt-12">
-          <IoMdTrain className="text-2xl text-blue-600 border-2 border-blue-600 rounded-full p-1" />
+          <IoMdTrain className="p-1 text-2xl text-blue-600 border-2 border-blue-600 rounded-full" />
         </Box>
-
         <Box className="w-2/12">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">도착지</Typography>
           </Box>
           <Box>
             <TextField
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
               placeholder="부산"
             />
           </Box>
         </Box>
-
         <Box className="w-2/12 mx-2">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">출발 시간</Typography>
           </Box>
           <Box>
             <TextField
               type="date"
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
             />
           </Box>
         </Box>
-
         <Box className="w-2/12">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">승객</Typography>
           </Box>
           <Box>
             <TextField
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
               placeholder="5명"
             />
           </Box>
         </Box>
-
         <Box className="mt-12 ml-1">
           <Button
             variant="contained"
-            className="flex items-center text-white bg-blue-600 w-auto h-14 text-xl rounded-r-lg p-2 transition duration-300 ease-in-out hover:bg-opacity-70"
+            className="flex items-center w-auto p-2 text-xl text-white transition duration-300 ease-in-out bg-blue-600 rounded-r-lg h-14 hover:bg-opacity-70"
           >
             <IoSearch className="text-2xl" />
           </Button>

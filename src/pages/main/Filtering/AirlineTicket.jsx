@@ -22,7 +22,7 @@ function AirlineTicket() {
             일반석
           </Box>
         </Box>
-        <Box className="flex items-center mr-5 text-sm w-2/5">
+        <Box className="flex items-center w-2/5 mr-5 text-sm">
           <Checkbox type="checkBox" />
           <Typography className="ml-2">항공 + 호텔</Typography>
         </Box>
@@ -34,7 +34,7 @@ function AirlineTicket() {
         </Box>
 
         <Box className="flex items-center mx-2">
-          <IoAirplane className="text-2xl text-blue-600 border-2 border-blue-600 rounded-full p-1" />
+          <IoAirplane className="p-1 text-2xl text-blue-600 border-2 border-blue-600 rounded-full" />
         </Box>
 
         <Box className="w-3/12">
@@ -42,7 +42,7 @@ function AirlineTicket() {
         </Box>
 
         <Box className="w-3/12 mx-3">
-          <TextField type="date" className="ml-4 w-full" />
+          <TextField type="date" className="w-full ml-4" />
         </Box>
 
         <Box className="flex items-center">
@@ -50,7 +50,7 @@ function AirlineTicket() {
         </Box>
 
         <Box className="w-3/12 ml-2">
-          <TextField type="date" className="ml-2 w-full" />
+          <TextField type="date" className="w-full ml-2" />
         </Box>
 
         <Box className="flex items-center w-3/12 ml-2">

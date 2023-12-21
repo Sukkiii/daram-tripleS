@@ -1,16 +1,5 @@
-import { useState, useEffect } from 'react'
-import {
-  Typography,
-  Grid,
-  Box,
-  Chip,
-  Link,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from '@mui/material'
-import LodgingHeader from '../detail/LodgingHeader'
+import { Box } from '@mui/material'
+import LodgingHeader from './LodgingHeader'
 import GalleryComponent from './GalleryComponent'
 import DescriptionComponent from './DescriptionComponent'
 import AmenitiesComponent from './AmenitiesComponent'
@@ -22,7 +11,7 @@ function LodgingComponent({
   setSelectedRoomType,
 }) {
   return (
-    <Box className="mt-8 container mx-auto px-4">
+    <Box className="container px-4 mx-auto mt-8">
       <LodgingHeader lodgingData={lodgingData} />
       <GalleryComponent lodgingData={lodgingData} />
       <DescriptionComponent lodgingData={lodgingData} />

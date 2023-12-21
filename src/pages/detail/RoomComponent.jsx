@@ -1,13 +1,12 @@
-import React from 'react'
 import { Box, Typography, Chip } from '@mui/material'
 
 function RoomComponent({ room }) {
   const colorPalette = ['#6495ED', '#6A5ACD', '#6B8E23', '#C0C0C0', '#BDB76B'] // 색상 팔레트
 
   return (
-    <Box className="max-w-sm rounded overflow-hidden shadow-lg mb-6">
+    <Box className="max-w-sm mb-6 overflow-hidden rounded shadow-lg">
       <Box className="px-6 py-4">
-        <Typography variant="h6" className="font-bold mb-2">
+        <Typography variant="h6" className="mb-2 font-bold">
           {room.roomTypeData.name}
         </Typography>
         <Typography variant="body1" color="text.secondary">
@@ -32,7 +31,7 @@ function RoomComponent({ room }) {
             <Chip
               key={index}
               label={amenity}
-              className="mr-2 mb-2"
+              className="mb-2 mr-2"
               style={{
                 backgroundColor: colorPalette[index % colorPalette.length],
                 color: 'white', // 흰색 글자

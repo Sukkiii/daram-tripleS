@@ -1,27 +1,16 @@
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
-import {
-  Modal,
-  Box,
-  Typography,
-  Button,
-  TextField,
-  FormControl,
-  Select,
-  MenuItem,
-  TextareaAutosize,
-} from '@mui/material'
-import { makeReservation } from '../../fetch/fetchLodging'
-import { getUser } from '../../fetch/fetchLodging'
+import { Box, Typography } from '@mui/material'
 import Swal from 'sweetalert2'
+import { makeReservation, getUser } from '../../fetch/fetchLodging'
 
-const ReservationModal = ({
+function ReservationModal({
   lodgingData,
   selectedRoom,
   selectedRoomType,
   startDate,
   endDate,
-}) => {
+}) {
   const checkInDate = dayjs(startDate || new Date())
   const checkOutDate = dayjs(endDate || new Date())
   const totalNights = checkOutDate.diff(checkInDate, 'day')
@@ -81,8 +70,8 @@ const ReservationModal = ({
         status: false,
         checkInDate: startDate,
         checkOutDate: endDate,
-        adults: adults,
-        children: children,
+        adults,
+        children,
         request: specialRequest,
       }
 
@@ -137,14 +126,14 @@ const ReservationModal = ({
         </Box>
 
         <Box class="mt-4">
-          <label for="adults" class="text-sm text-gray-600">
+          <label htmlFor="adults" className="text-sm text-gray-600">
             아이
           </label>
           <select
             id="adults"
             value={adults}
             onChange={handleAdultsChange}
-            class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           >
             <option value={0}>0 어른</option>
             <option value={1}>1 어른</option>
@@ -156,14 +145,14 @@ const ReservationModal = ({
         </Box>
 
         <Box class="mt-4">
-          <label for="children" class="text-sm text-gray-600">
+          <label htmlFor="children" className="text-sm text-gray-600">
             아이
           </label>
           <select
             id="children"
             value={children}
             onChange={handleChildrenChange}
-            class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           >
             <option value={0}>0 아이</option>
             <option value={1}>1 아이</option>
@@ -184,7 +173,7 @@ const ReservationModal = ({
             className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             rows="4"
             placeholder="특별한 요청사항을 입력하세요"
-          ></textarea>
+          />
         </Box>
         <button
           onClick={handleReservation}
@@ -193,7 +182,7 @@ const ReservationModal = ({
           예약하기
         </button>
 
-        <p class="mt-4 text-xs text-center text-gray-600">
+        <p className="mt-4 text-xs text-center text-gray-600">
           예약 확정 전에는 요금이 청구되지 않습니다.
         </p>
       </Box>

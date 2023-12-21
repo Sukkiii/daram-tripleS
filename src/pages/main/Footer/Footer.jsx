@@ -14,37 +14,34 @@ import second2 from '../../../assets/img/FooterImg/second2.png'
 function Footer() {
   return (
     <Box className="text-blue-950">
-      <Box className="flex border w-4/5 mx-auto" />
-      <Box className="flex justify-center text-sm gap-40 px-8 py-12">
+      <Box className="flex w-4/5 mx-auto border" />
+      <Box className="flex justify-center gap-40 px-8 py-12 text-sm">
         <FooterItem Links={CUSTOMER} title="고객문의" />
         <FooterItem Links={COMPANY} title="회사소개" />
         <FooterItem Links={SERVICE} title="기타 서비스" />
         <FooterItem Links={PAYMENT} title="결제 방법" />
       </Box>
 
-      <Box className="flex border w-4/5 mx-auto" />
-      <Box className="flex justify-center text-sm p-2 text-center">
-        <Box className="flex mx-10 items-center my-5">
-          <Avatar src={second1} alt="affiliate1" className="w-9 h-9 mr-2" />
-          <Typography className="text-center text-xs">
+      <Box className="flex w-4/5 mx-auto border" />
+      <Box className="flex justify-center p-2 text-sm text-center">
+        <Box className="flex items-center mx-10 my-5">
+          <Avatar src={second1} alt="affiliate1" className="mr-2 w-9 h-9" />
+          <Typography className="text-xs text-center">
             Contact Center of the year 2022
           </Typography>
         </Box>
-        <Box className="flex mx-10 items-center">
-          <Avatar src={second2} alt="affiliate2" className="w-50 h-10 mr-2" />
-          <Typography className="text-center text-xs">
+        <Box className="flex items-center mx-10">
+          <Avatar src={second2} alt="affiliate2" className="h-10 mr-2 w-50" />
+          <Typography className="text-xs text-center">
             Google Material Design Awards 2019
           </Typography>
         </Box>
       </Box>
 
-      <Box className="flex border w-4/5 mx-auto" />
-      <Box
-        className="flex w-4/5 mx-auto p-2
-      mt-5 mb-5"
-      >
+      <Box className="flex w-4/5 mx-auto border" />
+      <Box className="flex w-4/5 p-2 mx-auto mt-5 mb-5">
         <Box
-          className="flex items-center mx-auto text-sm p-3 text-center flex-col"
+          className="flex flex-col items-center p-3 mx-auto text-sm text-center"
           container
           spacing={2}
         >

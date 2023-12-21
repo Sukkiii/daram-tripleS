@@ -6,7 +6,6 @@ function ItemFooter({ Links, title }) {
       <Typography style={{ marginBottom: '1rem', fontWeight: 'bold' }}>
         {title}
       </Typography>
-
       {Links.map((link) => (
         <ListItem key={link.name || link.image}>
           <Link
