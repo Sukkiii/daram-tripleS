@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import TextField from '@mui/material/TextField'
-import Autocomplete from '@mui/material/Autocomplete'
+import { TextField, Autocomplete, InputLabel, List } from '@mui/material'
 import { styled, lighten, darken } from '@mui/system'
 import { FormControl } from '@mui/base'
-import { InputLabel, List } from '@mui/material'
 import FetchLocation from '../../../../fetch/fetchLocation'
 
 const GroupHeader = styled('div')(({ theme }) => ({
@@ -44,7 +42,7 @@ export default function RenderGroup({ filterLocationId }) {
           filterLocationId(value.locationId)
         }
       }}
-      className="mr-10 mt-3"
+      className="mt-3 mr-10"
       id="grouped-demo"
       options={locationList}
       groupBy={(option) => option.country}

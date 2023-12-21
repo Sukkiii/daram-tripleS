@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
-import {
-  CheckCircleIcon,
-  InformationCircleIcon,
-  QuestionMarkCircleIcon,
-  XIcon,
-} from '@heroicons/react/solid'
+import { useState } from 'react'
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
+import InfoIcon from '@mui/icons-material/Info'
+import HelpIcon from '@mui/icons-material/Help'
+import DangerousIcon from '@mui/icons-material/Dangerous'
 import { Box, Typography, Button } from '@mui/material'
 
-const DescriptionComponent = ({ lodgingData }) => {
+function DescriptionComponent({ lodgingData }) {
   const [showModal, setShowModal] = useState(false)
 
   const getIcon = (optionType) => {
     switch (optionType) {
       case '프론트서비스':
-        return <CheckCircleIcon className="h-5 w-5 text-green-500" />
+        return <CheckCircleOutlineIcon className="h-5 w-5 text-green-500" />
       case 'info':
-        return <InformationCircleIcon className="h-5 w-5 text-blue-500" />
+        return <InfoIcon className="h-5 w-5 text-blue-500" />
       case 'question':
       default:
-        return <QuestionMarkCircleIcon className="h-5 w-5 text-yellow-500" />
+        return <HelpIcon className="h-5 w-5 text-yellow-500" />
     }
   }
 
@@ -35,7 +33,7 @@ const DescriptionComponent = ({ lodgingData }) => {
         </Box>
         <Box className="rounded-full bg-pink-600 h-12 w-12 flex items-center justify-center">
           {/* Replace with logo */}
-          <span className="text-white text-lg">dd</span>
+          <Typography className="text-white text-lg">dd</Typography>
         </Box>
       </Box>
 
@@ -92,7 +90,7 @@ const DescriptionComponent = ({ lodgingData }) => {
                 size="small"
                 onClick={() => setShowModal(false)}
               >
-                <XIcon className="h-6 w-6" />
+                <DangerousIcon className="h-6 w-6" />
               </Button>
             </Box>
             <Typography variant="body2" className="mb-4">

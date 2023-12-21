@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import DetailHeader from './detail/DetailHeader'
+// import DetailHeader from './detail/DetailHeader'
+import { useParams } from 'react-router'
+import { Box, Grid } from '@mui/material'
 import LodgingComponent from './detail/LodgingComponent'
 import CalendarComponent from './detail/CalendarComponent'
 import ReservationModal from './detail/ReservationModal'
-import { useParams } from 'react-router'
-import Kakao from './detail/Kakao'
-import Grid from '@mui/material/Grid'
+// import Kakao from './detail/Kakao'
 import { getLodgingData } from '../fetch/fetchLodging'
 import CommonHeader from './main/CommonHeader'
-import { Box } from '@mui/material'
 
 function App() {
   const [lodging, setLodging] = useState(null)
@@ -89,7 +88,7 @@ function App() {
             </Grid>
           </Grid>
 
-          <Kakao lodgingData={lodging} />
+          {/* <Kakao lodgingData={lodging} /> */}
         </>
       ) : (
         <p>Loading...</p>

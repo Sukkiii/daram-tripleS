@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faUsers, faExpand } from '@fortawesome/free-solid-svg-icons'
-import { faMoneyBill } from '@fortawesome/free-solid-svg-icons'
+import {
+  faBed,
+  faUsers,
+  faExpand,
+  faMoneyBill,
+} from '@fortawesome/free-solid-svg-icons'
 import { Box, Typography } from '@mui/material'
 
-const HotelRoomComponent = ({
+function HotelRoomComponent({
   roomData,
   roomType,
   setSelectedRoom,
   setSelectedRoomType,
-}) => {
+}) {
   useEffect(() => {
     handleSelectRoom()
   }, [roomData, roomType])
@@ -19,14 +23,14 @@ const HotelRoomComponent = ({
     setSelectedRoomType(roomType)
   }
   return (
-    <Box className="bg-white p-6 shadow-md mb-4">
+    <Box className="p-6 mb-4 bg-white shadow-md">
       <Typography variant="h4" fontWeight="bold" mb={2}>
         {roomType.types}
       </Typography>
-      <Box className="flex space-x-4 mb-4">
+      <Box className="flex mb-4 space-x-4">
         <Box className="w-1/3">
           {/* Image container */}
-          <Box className="bg-gray-200 aspect-w-1 aspect-h-1 overflow-hidden">
+          <Box className="overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1">
             {roomType.image.map((image) => (
               <Box key={roomType.id} className="relative">
                 {roomType.image ? (
@@ -38,7 +42,7 @@ const HotelRoomComponent = ({
                 ) : (
                   <FontAwesomeIcon
                     icon={faCamera}
-                    className="text-gray-400 h-12 w-12 mx-auto absolute inset-0"
+                    className="absolute inset-0 w-12 h-12 mx-auto text-gray-400"
                   />
                 )}
               </Box>
@@ -50,7 +54,7 @@ const HotelRoomComponent = ({
             <FontAwesomeIcon
               icon={faBed}
               size="lg"
-              className="text-blue-500 mr-2"
+              className="mr-2 text-blue-500"
             />
             <Typography className="text-sm">
               Bed Type: {roomType.bedType}
@@ -60,7 +64,7 @@ const HotelRoomComponent = ({
             <FontAwesomeIcon
               icon={faUsers}
               size="lg"
-              className="text-green-500 mr-2 mt-2 mb-2"
+              className="mt-2 mb-2 mr-2 text-green-500"
             />
             <Typography className="text-sm">
               Capacity: {roomType.capacity}
@@ -70,7 +74,7 @@ const HotelRoomComponent = ({
             <FontAwesomeIcon
               icon={faExpand}
               size="lg"
-              className="text-yellow-500 mr-2 mt-2 mb-2"
+              className="mt-2 mb-2 mr-2 text-yellow-500"
             />
             <Typography className="text-sm">Size: {roomType.size}㎡</Typography>
           </Box>
@@ -78,7 +82,7 @@ const HotelRoomComponent = ({
             <FontAwesomeIcon
               icon={faMoneyBill}
               size="lg"
-              className="text-red-500 mr-2"
+              className="mr-2 text-red-500"
             />
             <Typography className="text-sm">
               Price: {roomType.price.toLocaleString()}원
@@ -89,7 +93,7 @@ const HotelRoomComponent = ({
       <Box className="flex justify-end mt-auto">
         <button
           onClick={handleSelectRoom}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
         >
           객실 선택하기
         </button>

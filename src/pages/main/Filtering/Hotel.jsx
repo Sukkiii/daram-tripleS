@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import dayjs from 'dayjs'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
+import { Box, Button } from '@mui/material'
 import { IoSearch } from 'react-icons/io5'
 import Travel from './FilteringFuc/Travel'
 import CheckInOut from './FilteringFuc/CheckInOut'
@@ -52,7 +51,7 @@ function Hotel() {
         />
       </Box>
 
-      <Box className="flex w-full h-14 border rounded m-auto mt-9 mx-2">
+      <Box className="flex w-full m-auto mx-2 border rounded h-14 mt-9">
         <RoomCount
           filterGuestChange={(type, value) =>
             setSearchData((_) => ({ ..._, [type]: value }))
@@ -60,7 +59,7 @@ function Hotel() {
         />
       </Box>
 
-      <Box className="flex justify-center items-center m-auto mt-9">
+      <Box className="flex items-center justify-center m-auto mt-9">
         <Button variant="contained" className="h-14" onClick={handleSearch}>
           <IoSearch className="text-xl" />
         </Button>

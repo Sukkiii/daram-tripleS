@@ -22,15 +22,12 @@ function AirHotel() {
 
       <Box className="flex">
         <Box className="mt-12">
-          <Typography
-            className="flex w-auto
-          h-14 items-center justify-center text-white bg-blue-600 w-10 h-full rounded-l p-2"
-          >
+          <Typography className="flex items-center justify-center w-10 h-full p-2 text-white bg-blue-600 rounded-l">
             <PiAirplaneTiltFill className="text-xs" />
           </Typography>
         </Box>
         <Box className="w-1/4">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">출발지</Typography>
           </Box>
           <Box>
@@ -39,11 +36,11 @@ function AirHotel() {
         </Box>
 
         <Box className="flex items-center mt-12 ml-[-4rem] mr-2">
-          <IoAirplane className="text-2xl text-blue-600 border-2 border-blue-600 rounded-full p-1" />
+          <IoAirplane className="p-1 text-2xl text-blue-600 border-2 border-blue-600 rounded-full" />
         </Box>
 
         <Box className="w-1/4">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">도착지</Typography>
           </Box>
           <Box>
@@ -52,29 +49,29 @@ function AirHotel() {
         </Box>
 
         <Box className="w-1/5 ml-[-3rem]">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">가는편</Typography>
           </Box>
           <Box>
             <TextField
               type="date"
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
             />
           </Box>
         </Box>
 
-        <Box className="flex items-center mt-12 mx-1">
+        <Box className="flex items-center mx-1 mt-12">
           <IoRemoveOutline />
         </Box>
 
         <Box className="w-1/5">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">오는편</Typography>
           </Box>
           <Box>
             <TextField
               type="date"
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
             />
           </Box>
         </Box>
@@ -82,48 +79,48 @@ function AirHotel() {
 
       <Box className="flex mt-3">
         <Box className="mt-12">
-          <Typography className="flex w-auto h-14 items-center justify-center text-white bg-blue-600 w-10 h-full rounded-l p-2">
+          <Typography className="flex items-center justify-center w-auto p-2 text-white bg-blue-600 rounded-l h-14">
             <FaHotel className="text-xs" />
           </Typography>
         </Box>
         <Box className="w-7/12">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">도착지</Typography>
           </Box>
           <Box>
             <TextField
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
               placeholder="도시"
             />
           </Box>
         </Box>
 
-        <Box className="ml-4 w-1/4">
-          <Box className="flex text-grey-700 p-3">
+        <Box className="w-1/4 ml-4">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">체크인</Typography>
           </Box>
           <Box>
             <TextField
               type="date"
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
             />
           </Box>
         </Box>
 
         <Box className="flex items-center mx-6 mt-12">
-          <Typography className="text-xs flex items-center text-center">
+          <Typography className="flex items-center text-xs text-center">
             박
           </Typography>
         </Box>
 
         <Box className="w-1/4">
-          <Box className="flex text-grey-700 p-3">
+          <Box className="flex p-3 text-grey-700">
             <Typography className="text-xs">체크아웃</Typography>
           </Box>
           <Box>
             <TextField
               type="date"
-              className="focus:border-b-2 focus:border-blue-500 p-3 w-full outline-none text-sm"
+              className="w-full p-3 text-sm outline-none focus:border-b-2 focus:border-blue-500"
             />
           </Box>
         </Box>

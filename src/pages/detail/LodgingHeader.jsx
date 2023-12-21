@@ -1,10 +1,9 @@
-import React from 'react'
 import { Box, Typography, IconButton } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder' // HeartIcon 대체
 import ShareIcon from '@mui/icons-material/Share'
 
-const LodgingHeader = ({ lodgingData }) => {
+function LodgingHeader({ lodgingData }) {
   return (
     <Box className="flex items-center justify-between">
       <Box className="flex items-center space-x-2">
@@ -17,9 +16,9 @@ const LodgingHeader = ({ lodgingData }) => {
         </Typography>
         <Box className="flex items-center text-yellow-400">
           {[...Array(5)].map((_, i) => (
-            <StarIcon key={i} className="h-5 w-5" />
+            <StarIcon key={i} className="w-5 h-5" />
           ))}
-          <span className="text-gray-600 ml-1">
+          <span className="ml-1 text-gray-600">
             {lodgingData.lodging.avgRating}
           </span>
         </Box>
@@ -33,15 +32,15 @@ const LodgingHeader = ({ lodgingData }) => {
       <Box className="flex items-center space-x-4">
         <IconButton
           aria-label="Save"
-          className="p-2 hover:bg-gray-100 rounded-full"
+          className="p-2 rounded-full hover:bg-gray-100"
         >
-          <FavoriteBorderIcon className="h-6 w-6" />
+          <FavoriteBorderIcon className="w-6 h-6" />
         </IconButton>
         <IconButton
           aria-label="Share"
-          className="p-2 hover:bg-gray-100 rounded-full"
+          className="p-2 rounded-full hover:bg-gray-100"
         >
-          <ShareIcon className="h-6 w-6" />
+          <ShareIcon className="w-6 h-6" />
         </IconButton>
       </Box>
     </Box>

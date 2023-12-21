@@ -48,7 +48,7 @@ export default function CheckInOut({ filterCheckInOutDate }) {
             </DemoItem>
           </Box>
 
-          <Box className="flex mt-10 whitespace-nowrap mx-4">
+          <Box className="flex mx-4 mt-10 whitespace-nowrap">
             <Typography className="text-xs">
               {nightCount} 박 {nightCount + 1} 일
             </Typography>

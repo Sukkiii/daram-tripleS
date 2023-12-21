@@ -40,7 +40,7 @@ function MyHeader({ filterGuestChange }) {
 
   return (
     <>
-      <Button className="flex m-auto w-full" onClick={handleButtonClick}>
+      <Button className="flex w-full m-auto" onClick={handleButtonClick}>
         {`객실 ${quantityRoom}개, 성인 ${quantityAdult}명, 어린이 ${quantityChild}명`}
       </Button>
       <Popover
@@ -98,7 +98,7 @@ function MyHeader({ filterGuestChange }) {
             <Button
               onClick={handleClose}
               variant="contained"
-              className="text-white bg-blue-600 text-base rounded-md transition duration-300 ease-in-out hover:bg-opacity-80 px-4 py-2"
+              className="px-4 py-2 text-base text-white transition duration-300 ease-in-out bg-blue-600 rounded-md hover:bg-opacity-80"
             >
               확인
             </Button>

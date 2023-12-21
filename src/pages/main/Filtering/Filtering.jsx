@@ -57,7 +57,7 @@ export default function Filtering() {
   }
 
   return (
-    <Box className="flex mx-auto p-2 bg-white w-4/5 h-2/4 rounded-xl mt-4 mb-12">
+    <Box className="flex w-4/5 p-2 mx-auto mt-4 mb-12 bg-white h-2/4 rounded-xl">
       <Box className="w-full">
         <Tabs
           value={value}
