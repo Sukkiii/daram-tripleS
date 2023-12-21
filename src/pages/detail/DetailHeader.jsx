@@ -1,17 +1,6 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import HeaderLogo from '../main/Header/HeaderLogo'
 
 function DetailHeader() {
-  const navigate = useNavigate() // 필요한 경우 주석 해제
-
-  const handleBack = () => {
-    navigate('/') // 필요한 경우 주석 해제
-  }
-
   return (
     <header className="bg-blue-500 flex justify-between items-center py-6">
       <a href="/" className="text-white text-xl font-bold ml-4">

@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import TextField from '@mui/material/TextField'
-import Autocomplete from '@mui/material/Autocomplete'
+import { TextField, Autocomplete, InputLabel, List } from '@mui/material'
 import { styled, lighten, darken } from '@mui/system'
 import { FormControl } from '@mui/base'
-import { InputLabel, List } from '@mui/material'
 import FetchLocation from '../../../../fetch/fetchLocation'
 
 const GroupHeader = styled('div')(({ theme }) => ({
