@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import fetchSearchTour from '../../fetch/fetchSearchTour'
 import fetchTourDetail from '../../fetch/fetchTourDetail'
 import TourMap from '../../components/tour/TourMap'
@@ -69,7 +69,7 @@ function TourDetail() {
       <Box className="container flex flex-col items-center gap-3">
         <Box className="w-[70rem]">
           <TourDetailHeader mainAttraction={mainAttraction} city={city} />
-          <Box className="flex w-full p-3 gap-3">
+          <Box className="flex w-full gap-3 p-3">
             <TourDetailCard
               attractionName={mainAttraction.name}
               attractionDescription={mainAttraction.description}
@@ -86,7 +86,7 @@ function TourDetail() {
           />
         </Box>
       </Box>
-      <Footer />
+      <Footer container="true" />
     </Box>
   )
 }

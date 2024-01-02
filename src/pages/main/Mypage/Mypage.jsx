@@ -8,7 +8,7 @@ function MyPage() {
     <Box className="w-full">
       <MypageHeader />
       <MypageBody />
-      <Footer />
+      <Footer container="true" />
     </Box>
   )
 }

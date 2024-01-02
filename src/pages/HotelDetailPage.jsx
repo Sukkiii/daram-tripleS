@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import DetailHeader from './detail/DetailHeader'
 import { useParams } from 'react-router'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import LodgingComponent from './detail/LodgingComponent'
 import CalendarComponent from './detail/CalendarComponent'
 import ReservationModal from './detail/ReservationModal'
@@ -91,7 +91,7 @@ function App() {
           {/* <Kakao lodgingData={lodging} /> */}
         </>
       ) : (
-        <p>Loading...</p>
+        <Typography>Loading...</Typography>
       )}
     </Box>
   )

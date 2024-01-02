@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState, useRef } from 'react'
 import { Box } from '@mui/material'
 import HeaderLogo from '../../Header/HeaderLogo'

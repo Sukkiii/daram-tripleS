@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/prop-types */
 import { useMemo } from 'react'
 import { Box, Typography, Button, Link } from '@mui/material'
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded'
@@ -9,26 +11,26 @@ function HotLodgingList({ data }) {
   )
 
   return (
-    <Box className="hot-container mt-4 relative text-center flex gap-4">
+    <Box className="relative flex gap-4 mt-4 text-center hot-container">
       {lodgings.map((lodging) => (
         <Link
           key={lodging.lodgingId}
           color="inherit"
           underline="none"
-          className="hot-hotel-item w-1/4 rounded-md shadow-md overflow-hidden flex flex-col cursor-pointer bg-slate-50 h-fit"
+          className="flex flex-col w-1/4 overflow-hidden rounded-md shadow-md cursor-pointer hot-hotel-item bg-slate-50 h-fit"
           href={`/hotelDetail/${lodging.lodgingId}`}
         >
-          <Box className="rounded-md overflow-hidden h-80">
+          <Box className="overflow-hidden rounded-md h-80">
             <img
               className="hot-hotel-img -w-webkit -h-webkit"
               src={`src/assets/img/hotel/${lodging.mainImage}`}
               alt={`Lodging ${lodging.lodgingId}`}
             />
           </Box>
-          <Box className="hot-hotel-content p-4 flex flex-col gap-2">
-            <Box className="hot-hotel-content-label w-full box-border flex gap-2">
+          <Box className="flex flex-col gap-2 p-4 hot-hotel-content">
+            <Box className="box-border flex w-full gap-2 hot-hotel-content-label">
               <Typography
-                className="hot-hotel-name overflow-hidden text-left"
+                className="overflow-hidden text-left hot-hotel-name"
                 variant="h6"
               >
                 {lodging.name}
@@ -42,21 +44,21 @@ function HotLodgingList({ data }) {
                 ))}
               </Box>
             </Box>
-            <Box className="hot-hotel-content-review align-middle my-auto text-left">
+            <Box className="my-auto text-left align-middle hot-hotel-content-review">
               <Box className="hot-hotel-content-score bg-blue-800 rounded-xl rounded-tr-none text-white py-0.5 px-1.5 inline-block">
-                <Typography className="leading-4 flex">
+                <Typography className="flex leading-4">
                   {lodging.avgRating}
-                  <Typography
-                    style={{
-                      fontSize: '0.9rem',
-                      opacity: '50%',
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      alignContent: 'flex-end',
-                    }}
-                  >
-                    /5
-                  </Typography>
+                </Typography>
+                <Typography
+                  style={{
+                    fontSize: '0.9rem',
+                    opacity: '50%',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignContent: 'flex-end',
+                  }}
+                >
+                  /5
                 </Typography>
               </Box>
               <Typography
@@ -74,18 +76,18 @@ function HotLodgingList({ data }) {
             <Box className="hot-hotel-content-tag">
               <Typography
                 style={{ fontSize: '0.8rem' }}
-                className="tag-txt text-left"
+                className="text-left tag-txt"
               >
                 무료 취소
               </Typography>
             </Box>
-            <Box className="hot-hotel-content-price text-right mt-auto">
+            <Box className="mt-auto text-right hot-hotel-content-price">
               <Typography
                 style={{
                   color: '#8592a6',
                   verticalAlign: 'middle',
                 }}
-                className="price-from inline-block"
+                className="inline-block price-from"
               >
                 최저가
               </Typography>
@@ -96,7 +98,7 @@ function HotLodgingList({ data }) {
                   marginLeft: '0.25rem',
                 }}
                 variant="h6"
-                className="price-content inline-block"
+                className="inline-block price-content"
               >
                 {lodging.minPrice.toLocaleString()}원
               </Typography>

@@ -65,7 +65,7 @@ function Reservation() {
 
       {showButton && (
         <Button
-          className="w-full bg-blue-600 text-white my-[1rem] rounded-md p-2 w-1/5"
+          className="bg-blue-600 text-white my-[1rem] rounded-md p-2 w-1/5"
           onClick={handleReservationList}
         >
           예약확인

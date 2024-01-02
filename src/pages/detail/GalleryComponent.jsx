@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import { useState } from 'react'
 
 function GalleryComponent({ lodgingData }) {
@@ -31,12 +31,12 @@ function GalleryComponent({ lodgingData }) {
 
         {/* View all photos button */}
         <Box className="flex items-center justify-center md:col-start-5 md:row-start-2">
-          <button
+          <Button
             className="px-4 py-2 text-lg font-semibold bg-white rounded-lg shadow-lg hover:bg-gray-100 whitespace-nowrap"
             onClick={() => setShowModal(true)}
           >
             사진 모두보기
-          </button>
+          </Button>
         </Box>
 
         {/* Modal for all photos */}
@@ -49,13 +49,13 @@ function GalleryComponent({ lodgingData }) {
               <Box className="mt-3 text-center">
                 <Box className="flex items-center justify-center w-12 h-12 mx-auto bg-green-100 rounded-full">
                   {/* Close button */}
-                  <button
+                  <Button
                     onClick={() => setShowModal(false)}
                     className="w-6 h-6 text-green-600"
                     aria-label="Close"
                   >
                     X
-                  </button>
+                  </Button>
                 </Box>
                 {/* All images */}
                 <Box className="py-3 mt-2 px-7">

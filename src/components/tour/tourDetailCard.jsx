@@ -1,4 +1,11 @@
-import { Box, Card, CardActions, CardContent, Button, Typography} from '@mui/material'
+import {
+  Box,
+  Card,
+  CardActions,
+  CardContent,
+  Button,
+  Typography,
+} from '@mui/material'
 import { FaRegClock } from 'react-icons/fa'
 
 const bull = (
@@ -31,7 +38,7 @@ export default function TourDetailCard({
           </Button>
         </CardActions>
       ) : (
-        <Box />
+        ''
       )}
     </Card>
   )

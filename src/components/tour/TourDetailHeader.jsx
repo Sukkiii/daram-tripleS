@@ -3,9 +3,7 @@ import { FiChevronRight } from 'react-icons/fi'
 import { FaCircle, FaCircleHalfStroke, FaRegCircle } from 'react-icons/fa6'
 import { CiHeart } from 'react-icons/ci'
 import { FaHeart } from 'react-icons/fa'
-import { Box, fontWeight } from '@mui/system'
-import { Typography } from '@mui/material'
-import { Button } from '@mui/base'
+import { Box, Typography, Button } from '@mui/material'
 import moment from 'moment/moment'
 import { shallow } from 'zustand/shallow'
 import { useEffect, useState } from 'react'
@@ -76,14 +74,14 @@ export default function TourDetailHeader({ mainAttraction, city }) {
     <Box className="flex flex-col gap-2 p-3">
       <Typography className="text-gray-900" variant="body2" component="span">
         {mainAttraction.location}
-        <FiChevronRight className="w-10 inline" />
+        <FiChevronRight className="inline w-10" />
         <Link to={`/searchList/${city}`}>{city}</Link>
-        <FiChevronRight className="w-10 inline" />
+        <FiChevronRight className="inline w-10" />
         {mainAttraction.name}
       </Typography>
       <Box className="flex mt-10">
         <Typography
-          className="text-gray-900 w-full ml-2"
+          className="w-full ml-2 text-gray-900"
           style={{
             display: 'inline',
             fontWeight: 600,
@@ -100,7 +98,7 @@ export default function TourDetailHeader({ mainAttraction, city }) {
               onClick={() => {
                 handleLikedAttraction()
               }}
-              className="w-7 h-7 mr-1 text-blue-700"
+              className="mr-1 text-blue-700 w-7 h-7"
             />
           ) : (
             <CiHeart
@@ -113,7 +111,7 @@ export default function TourDetailHeader({ mainAttraction, city }) {
         </Button>
       </Box>
 
-      <Box className="text-gray-900 flex gap-2">
+      <Box className="flex gap-2 text-gray-900">
         <Typography
           variant="body2"
           component="span"
@@ -131,7 +129,7 @@ export default function TourDetailHeader({ mainAttraction, city }) {
         </Typography>
       </Box>
 
-      <Box className="text-gray-900 flex gap-2">
+      <Box className="flex gap-2 text-gray-900">
         <Typography
           className="text-blue-500"
           variant="body2"

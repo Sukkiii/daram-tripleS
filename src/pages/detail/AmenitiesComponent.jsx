@@ -3,7 +3,7 @@ import WifiIcon from '@mui/icons-material/Wifi'
 import CropIcon from '@mui/icons-material/Crop'
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo'
 import Face3Icon from '@mui/icons-material/Face3'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 
 function AmenitiesComponent({ lodgingData }) {
   const [expanded, setExpanded] = useState(false)
@@ -36,12 +36,12 @@ function AmenitiesComponent({ lodgingData }) {
             </li>
           ))}
       </ul>
-      <button
+      <Button
         className="w-full py-2 mt-4 text-center text-gray-700 bg-gray-100 rounded-md"
         onClick={() => setExpanded(!expanded)}
       >
         {expanded ? '숨기기' : '편의시설 모두 보기'}
-      </button>
+      </Button>
     </Box>
   )
 }

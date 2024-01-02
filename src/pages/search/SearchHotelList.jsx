@@ -59,9 +59,9 @@ function SearchHotelList() {
       >
         <Box className="max-w-[calc(100vw - 64px)] flex w-[1350px] overflow-x-auto sm:flex-col md:flex-col lg:flex-row">
           <SideBar keyword={keyword} />
-          <Box className="tour-container flex-auto px-4">
+          <Box className="flex-auto px-4 tour-container">
             <Typography
-              className="text-gray-900 my-5"
+              className="my-5 text-gray-900"
               style={{
                 display: 'inline',
                 fontWeight: 600,
@@ -100,7 +100,7 @@ function SearchHotelList() {
           </Box>
         </Box>
       </Box>
-      <Footer />
+      <Footer container="true" />
     </Box>
   )
 }

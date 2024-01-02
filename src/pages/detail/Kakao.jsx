@@ -1,6 +1,6 @@
 // import { Map, MapMarker } from 'react-kakao-maps-sdk'
 // import React from 'react'
-// import { Box, Typography } from '@mui/material'
+// import { Box, Typography, Button } from '@mui/material'
 
 // function Kakao({ lodgingData }) {
 //   return (
@@ -39,12 +39,12 @@
 //             <Box className="flex justify-between">
 //               <Box className="text-xl">{lodgingData.lodging.name}</Box>
 //               <Box className="flex">
-//                 <button className="py-2 px-4 rounded-md bg-gray-500 text-white">
+//                 <Button className="px-4 py-2 text-white bg-gray-500 rounded-md">
 //                   +
-//                 </button>
-//                 <button className="py-2 px-4 rounded-md bg-gray-500 text-white">
+//                 </Button>
+//                 <Button className="px-4 py-2 text-white bg-gray-500 rounded-md">
 //                   -
-//                 </button>
+//                 </Button>
 //               </Box>
 //             </Box>
 //             <Box className="text-gray-500">

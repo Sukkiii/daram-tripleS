@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Box, Typography } from '@mui/material'
 
 function TourPopupItem({ attraction }) {
@@ -9,18 +9,18 @@ function TourPopupItem({ attraction }) {
   )
 
   return (
-    <Link>
+    <Box>
       <Box className="w-full">
         <img
           src={`/src/assets/img/attraction/${attraction.mainImage}`}
-          className="w-full h-1/2 object-cover"
+          className="object-cover w-full h-1/2"
           alt={`attraction ${attraction.attractionId}`}
         />
       </Box>
       <Box className=" flex flex-col items-start justify-start gap-0.5 px-2 py-1.5 text-gray-500">
         <Typography
           variant="body2"
-          className=" text-gray-900"
+          className="text-gray-900 "
           style={{ fontWeight: 600 }}
         >
           {attraction.name}
@@ -30,14 +30,14 @@ function TourPopupItem({ attraction }) {
         <Box>
           <Typography
             variant="body2"
-            className=" text-blue-500"
+            className="text-blue-500 "
             style={{ display: 'inline' }}
           >
             {attraction.avgRating}
           </Typography>
           <Typography
             variant="body2"
-            className=" text-gray-500"
+            className="text-gray-500 "
             style={{ display: 'inline' }}
           >
             /5
@@ -51,7 +51,7 @@ function TourPopupItem({ attraction }) {
           </Typography>
         </Box>
       </Box>
-    </Link>
+    </Box>
   )
 }
 

@@ -1,9 +1,9 @@
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 function DetailFooter({ roomTypeData, reservations, openModal }) {
   return (
     <Box>
-      <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
+      <Box className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
         <Box className="flex flex-col text-sm md:flex-row dark:text-gray-400">
           <Box style={{ whiteSpace: 'nowrap' }}>
             <Box className="mb-2 text-xl font-bold">
@@ -18,14 +18,14 @@ function DetailFooter({ roomTypeData, reservations, openModal }) {
         </Box>
 
         <Box className="flex justify-end w-full">
-          <button
+          <Button
             className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
             onClick={openModal}
           >
             예약하기
-          </button>
+          </Button>
         </Box>
-      </footer>
+      </Box>
     </Box>
   )
 }

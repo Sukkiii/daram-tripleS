@@ -55,7 +55,7 @@ function SearchPage() {
     <Box>
       <CommonHeader />
       <SearchCard hotels={hotels} attractions={attractions} keyword={keyword} />
-      <Footer />
+      <Footer container="true" />
     </Box>
   )
 }

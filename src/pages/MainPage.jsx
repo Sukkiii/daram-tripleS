@@ -9,7 +9,7 @@ function MainPage() {
       <MainHeader />
       <HomeSideBar />
       <HomeBody />
-      <Footer />
+      <Footer container="true" />
     </>
   )
 }

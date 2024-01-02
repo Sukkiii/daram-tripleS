@@ -6,7 +6,7 @@ import {
   faExpand,
   faMoneyBill,
 } from '@fortawesome/free-solid-svg-icons'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 
 function HotelRoomComponent({
   roomData,
@@ -91,12 +91,12 @@ function HotelRoomComponent({
         </Box>
       </Box>
       <Box className="flex justify-end mt-auto">
-        <button
+        <Button
           onClick={handleSelectRoom}
           className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
         >
           객실 선택하기
-        </button>
+        </Button>
       </Box>
     </Box>
   )

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 import Swal from 'sweetalert2'
 import { makeReservation, getUser } from '../../fetch/fetchLodging'
 
@@ -143,7 +143,6 @@ function ReservationModal({
             <option value={5}>5 어른</option>
           </select>
         </Box>
-
         <Box class="mt-4">
           <label htmlFor="children" className="text-sm text-gray-600">
             아이
@@ -175,16 +174,16 @@ function ReservationModal({
             placeholder="특별한 요청사항을 입력하세요"
           />
         </Box>
-        <button
+        <Button
           onClick={handleReservation}
           className="w-full px-4 py-3 mt-8 text-sm font-bold text-white uppercase bg-blue-500 rounded"
         >
           예약하기
-        </button>
+        </Button>
 
-        <p className="mt-4 text-xs text-center text-gray-600">
+        <Typography className="mt-4 text-xs text-center text-gray-600">
           예약 확정 전에는 요금이 청구되지 않습니다.
-        </p>
+        </Typography>
       </Box>
       <Box class="px-5 py-4 bg-gray-100">
         <Box class="flex justify-between">

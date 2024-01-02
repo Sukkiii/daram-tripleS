@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { Button } from '@mui/base'
 
 function SideBar({ keyword }) {
@@ -42,7 +42,7 @@ function SideBar({ keyword }) {
   }, [path])
 
   return (
-    <nav className="min-w-[250px] relative flex gap-1 overflow-x-auto p-2 font-sans text-base font-normal text-gray-700 sm:flex-row md:flex-row lg:flex-col">
+    <Box className="min-w-[250px] relative flex gap-1 overflow-x-auto p-2 font-sans text-base font-normal text-gray-700 sm:flex-row md:flex-row lg:flex-col">
       <Link to={`/searchList/${keyword}`}>
         <Button tabIndex={-1} className={btnClasses.all}>
           <Typography
@@ -76,7 +76,7 @@ function SideBar({ keyword }) {
           </Typography>
         </Button>
       </Link>
-    </nav>
+    </Box>
   )
 }
 
