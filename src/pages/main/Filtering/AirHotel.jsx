@@ -8,7 +8,7 @@ function AirHotel() {
   return (
     <>
       <Box className="flex mb-5 text-blue-900">
-        <Box className="flex w-3/5">
+        <Box className="flex w-3/4">
           <Box className="flex items-center mr-5 text-sm">
             <PiAirplaneTiltFill />
             <Typography>왕복</Typography>

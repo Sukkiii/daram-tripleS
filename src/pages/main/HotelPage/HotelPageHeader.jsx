@@ -31,7 +31,7 @@ function HotelPageHeader() {
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className="flex flex-col w-3/5 mx-auto my-12">
+      <Box className="flex flex-col w-3/4 mx-auto my-12">
         <Box className="flex">
           <Typography
             variant="h3"

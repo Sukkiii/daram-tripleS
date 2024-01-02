@@ -32,7 +32,7 @@ function HotelSearchHeader({ searchData, setSearchData, handleSearch }) {
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className="flex flex-col w-3/5 mx-auto my-2">
+      <Box className="flex flex-col w-3/4 mx-auto my-2">
         <Box
           ref={scrollTarget}
           className={`p-5 py-2 bg-white z-[9999] shadow-lg ${

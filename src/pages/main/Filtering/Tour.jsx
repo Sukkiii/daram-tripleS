@@ -15,7 +15,7 @@ function Tour() {
           />
         </Box>
       </Box>
-      <Box className="w-3/5">
+      <Box className="w-3/4">
         <Box className="flex p-3 text-grey-700">
           <Typography className="text-xs">키워드 (선택 사항)</Typography>
         </Box>
@@ -26,7 +26,7 @@ function Tour() {
           />
         </Box>
       </Box>
-      <Box className="w-3/5 mt-12 ml-2">
+      <Box className="w-3/4 mt-12 ml-2">
         <Button
           variant="contained"
           className="flex items-center justify-center w-auto p-2 text-2xl text-white transition duration-300 ease-in-out bg-blue-600 rounded-r-lg h-14 hover:bg-blue-700"
