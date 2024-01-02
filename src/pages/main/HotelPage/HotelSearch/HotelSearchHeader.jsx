@@ -23,15 +23,15 @@ function HotelSearchHeader({ searchData, setSearchData, handleSearch }) {
   }, [])
 
   return (
-    <Box className="main-hd-container relative bg-blue-600 py-1">
-      <Box className="main-hd-flex-icon px-8 flex">
+    <Box className="relative py-1 bg-blue-600 main-hd-container">
+      <Box className="flex px-8 main-hd-flex-icon">
         <HeaderLogo />
         <Box className="flex items-center ml-4">
           <NavigationBar />
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className="flex flex-col w-4/5 mx-auto my-2">
+      <Box className="flex flex-col w-3/5 mx-auto my-2">
         <Box
           ref={scrollTarget}
           className={`p-5 py-2 bg-white z-[9999] shadow-lg ${

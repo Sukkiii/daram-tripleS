@@ -24,14 +24,14 @@ function HotelPageHeader() {
 
   return (
     <Box className="main-hd-container relative bg-hotel-bg bg-cover h-[30rem] pb-20">
-      <Box className="main-hd-flex-icon px-8 flex">
+      <Box className="flex px-8 main-hd-flex-icon">
         <HeaderLogo />
         <Box className="flex items-center ml-4">
           <NavigationBar />
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className="flex flex-col w-4/5 mx-auto my-12">
+      <Box className="flex flex-col w-3/5 mx-auto my-12">
         <Box className="flex">
           <Typography
             variant="h3"

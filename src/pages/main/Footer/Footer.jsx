@@ -14,7 +14,7 @@ import second2 from '../../../assets/img/FooterImg/second2.png'
 function Footer() {
   return (
     <Box className="text-blue-950">
-      <Box className="flex w-4/5 mx-auto border" />
+      <Box className="flex w-3/5 mx-auto border" />
       <Box className="flex justify-center gap-40 px-8 py-12 text-sm">
         <FooterItem Links={CUSTOMER} title="고객문의" />
         <FooterItem Links={COMPANY} title="회사소개" />
@@ -22,7 +22,7 @@ function Footer() {
         <FooterItem Links={PAYMENT} title="결제 방법" />
       </Box>
 
-      <Box className="flex w-4/5 mx-auto border" />
+      <Box className="flex w-3/5 mx-auto border" />
       <Box className="flex justify-center p-2 text-sm text-center">
         <Box className="flex items-center mx-10 my-5">
           <Avatar src={second1} alt="affiliate1" className="mr-2 w-9 h-9" />
@@ -38,8 +38,8 @@ function Footer() {
         </Box>
       </Box>
 
-      <Box className="flex w-4/5 mx-auto border" />
-      <Box className="flex w-4/5 p-2 mx-auto mt-5 mb-5">
+      <Box className="flex w-3/5 mx-auto border" />
+      <Box className="flex w-3/5 p-2 mx-auto mt-5 mb-5">
         <Box
           className="flex flex-col items-center p-3 mx-auto text-sm text-center"
           container

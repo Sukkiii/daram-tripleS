@@ -11,7 +11,7 @@ function PickUp() {
         </Box>
         <Box>
           <TextField
-            className="w-4/5"
+            className="w-3/5"
             placeholder="공항, 도시, 역, 지역, 상권으로 검색"
           />
         </Box>
