@@ -49,7 +49,7 @@ function HeaderSearchBox() {
   return (
     <Box className="main-hd-search-con w-96 max-w-xs relative float-left top-4 ml-2 pr-8 bg-white rounded-md flex">
       <ClickAwayListener onClickAway={handleClickAway}>
-        <Box className="tripSearchBox-content border-solid border pr-8 flex rounded-md w-full">
+        <Box className="tripSearchBox-content pr-8 flex rounded-md w-full ml-1">
           <Input
             onClick={handleClick}
             className="tripSearchBox-input px-2 pt-1 w-full ml-0.5"

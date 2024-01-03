@@ -44,8 +44,8 @@ function HotLodgingList({ data }) {
                 ))}
               </Box>
             </Box>
-            <Box className="my-auto text-left align-middle hot-hotel-content-review">
-              <Box className="hot-hotel-content-score bg-blue-800 rounded-xl rounded-tr-none text-white py-0.5 px-1.5 inline-block">
+            <Box className="my-auto text-left align-middle hot-hotel-content-review flex">
+              <Box className="hot-hotel-content-score bg-blue-800 rounded-xl rounded-tr-none text-white py-0.5 px-1.5 flex w-fit">
                 <Typography className="flex leading-4">
                   {lodging.avgRating}
                 </Typography>

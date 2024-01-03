@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 import { Box, Typography, TextField, Button, Divider } from '@mui/material'
 import { RiKakaoTalkFill } from 'react-icons/ri'
@@ -14,7 +15,7 @@ import FetchGetUserInfo from '../../../fetch/fetchGetUserInfo'
 import showSwal from '../../../assets/util/showSwal'
 import { useStore } from '../../../components/store/store'
 
-function AuthLogin() {
+function AuthLogin({ onClose }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isValidEmail, setIsValidEmail] = useState(true)
@@ -28,6 +29,7 @@ function AuthLogin() {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
+    onClose()
   }
 
   const handleEmailChange = (e) => {
@@ -51,7 +53,7 @@ function AuthLogin() {
     document.cookie = `${name}=${value}; expires=${expires}; path=/`
   }
 
-  const { likedAttractions, setLikedAttraction } = useStore()
+  const { setLikedAttraction } = useStore()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -67,11 +69,9 @@ function AuthLogin() {
           showSwal('반갑습니다 :)', 'success')
 
           const fetchGetIUserInfo = await FetchGetUserInfo()
-          setLikedAttraction(fetchGetIUserInfo.data.favorites.attractions)
-
-          if (fetchGetIUserInfo) {
-            navigate('/hotel')
-          }
+          setLikedAttraction(fetchGetIUserInfo.data.favorites.attractions || [])
+          onClose()
+          navigate('/hotel')
         }
       } else {
         showSwal('이메일, 비밀번호를 확인해주세요!', 'error')
@@ -82,67 +82,70 @@ function AuthLogin() {
   }
 
   return (
-    <Box className="flex flex-col absolute p-6 rounded h-fit gap-2">
+    <Box className='flex flex-col p-6 rounded h-fit gap-2 m-auto w-4/5'>
       <Typography
-        display="flex"
-        alignItems="flex-start"
-        id="modal-modal-title"
-        variant="h5"
-        fontWeight="bold"
+        display='flex'
+        alignItems='flex-start'
+        id='modal-modal-title'
+        variant='h5'
+        fontWeight='bold'
       >
         로그인
       </Typography>
-      <Typography variant="caption" color="textSecondary">
+      <Typography variant='caption' color='textSecondary'>
         간편하게 예약을 관리하고 회원 전용 혜택도 누려보세요
       </Typography>
       <Box
-        className="mt-6 w-full flex flex-col gap-2"
-        component="form"
+        className='mt-6 w-full flex flex-col gap-2'
+        component='form'
         noValidate
-        autoComplete="off"
+        autoComplete='off'
       >
         <TextField
-          type="email"
+          type='email'
           value={email}
           className={`w-full ${isValidEmail ? 'valid' : 'invalid'}`}
-          id="outlined-basic"
-          label="이메일"
-          placeholder="이메일을 입력해주세요"
-          variant="outlined"
+          id='outlined-basic'
+          label='이메일'
+          placeholder='이메일을 입력해주세요'
+          variant='outlined'
           onChange={handleEmailChange}
         />
         {!isValidEmail && email.length > 0 && (
-          <Box className="text-red-500">유효하지 않은 이메일 형식입니다.</Box>
+          <Box className='text-red-500 text-xs'>
+            유효하지 않은 이메일 형식입니다. <br /> ex) triples@gamil.com과 같은
+            형식으로 입력해주세요.
+          </Box>
         )}
         <TextField
-          type="password"
+          type='password'
           value={password}
-          className="w-full"
-          id="outlined-basic"
-          label="비밀번호"
-          placeholder="비밀번호를 입력해주세요"
-          variant="outlined"
+          className='w-full'
+          id='outlined-basic'
+          label='비밀번호'
+          placeholder='비밀번호를 입력해주세요'
+          variant='outlined'
           onChange={handlePasswordChange}
         />
         {!isValidPassword && password.length > 0 && (
-          <Box className="text-red-500">
-            비밀번호는 6자 이상이어야 하며, 대문자, 소문자, 숫자, 특수 문자를
-            모두 포함해야 합니다.
+          <Box className='text-red-500 text-xs'>
+            비밀번호는 6자 이상이어야 하며, <br />
+            대문자, 소문자, 숫자, 특수 문자를 모두 포함해야 합니다.
           </Box>
         )}
         <Button
-          type="submit"
+          type='submit'
           onClick={handleSubmit}
-          variant="contained"
-          className="w-full h-12"
+          variant='contained'
+          className='w-full h-12'
           sx={{ backgroundColor: 'rgba(0, 0, 255, 0.5)' }}
         >
           로그인
         </Button>
       </Box>
       <Typography
-        variant="body2"
-        color="textSecondary"
+        variant='body2'
+        color='textSecondary'
         sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -154,9 +157,9 @@ function AuthLogin() {
         비밀번호 찾기
       </Typography>
       <AuthFindPwd open={isModalOpen} onClose={handleCloseModal} />
-      <Box className="flex justify-center mt-6 relative">
+      <Box className='flex justify-center mt-6 relative'>
         <Divider
-          orientation="horizontal"
+          orientation='horizontal'
           flexItem
           sx={{
             width: '100%',
@@ -165,8 +168,8 @@ function AuthLogin() {
           }}
         />
         <Typography
-          variant="body2"
-          color="textSecondary"
+          variant='body2'
+          color='textSecondary'
           sx={{
             position: 'relative',
             zIndex: 1,
@@ -177,15 +180,15 @@ function AuthLogin() {
           다른 로그인 방식
         </Typography>
       </Box>
-      <Box className="flex justify-center m-6">
-        <SiNaver className="text-4xl text-white rounded-full bg-green-500 p-2.5 cursor-pointer" />
-        <RiKakaoTalkFill className="text-4xl rounded-full bg-yellow-300 p-2 ml-6 cursor-pointer" />
-        <FcGoogle className="text-4xl ml-6 rounded-full bg-white-500 p-2 border cursor-pointer" />
+      <Box className='flex justify-center m-6'>
+        <SiNaver className='text-4xl text-white rounded-full bg-green-500 p-2.5 cursor-pointer' />
+        <RiKakaoTalkFill className='text-4xl rounded-full bg-yellow-300 p-2 ml-6 cursor-pointer' />
+        <FcGoogle className='text-4xl ml-6 rounded-full bg-white-500 p-2 border cursor-pointer' />
       </Box>
       <Typography
         sx={{ marginTop: '3rem' }}
-        variant="caption"
-        color="textSecondary"
+        variant='caption'
+        color='textSecondary'
       >
         로그인 또는 회원가입 시, TripleS 이용약관 및 개인정보 정책에 동의한
         것으로 간주합니다.

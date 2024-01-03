@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Dialog, DialogContent } from '@mui/material'
 
 function AuthModal({ open, onClose, children }) {
@@ -7,8 +8,8 @@ function AuthModal({ open, onClose, children }) {
       onClose={onClose}
       PaperProps={{
         sx: {
-          width: '100%',
-          height: '90%',
+          width: '90%',
+          height: '65%',
         },
       }}
     >

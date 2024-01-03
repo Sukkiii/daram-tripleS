@@ -19,8 +19,8 @@ export default {
         '-webkit': '-webkit-fill-available',
       },
       screens: {
-        tablet: '768px',
-        // => @media (min-width: 768px)
+        phone: '430px',
+        // => @media (min-width: 430px)
         'chat-screen': '1024px',
         // => @media (min-width: 768px)
         desktop: '1120px',

@@ -14,28 +14,22 @@ function HomeSideBar() {
     window.scrollTo({ top: documentH - windowH, behavior: 'smooth' })
   }
   return (
-    <Box className="flex flex-col fixed right-12 z-50 bottom-24 gap-2">
+    <Box className='flex flex-col fixed right-12 z-50 bottom-24 gap-2'>
       <Button
-        variant="contained"
+        variant='contained'
         style={{ height: '60px', backgroundColor: '#3264ff' }}
         onClick={handleScrollToTop}
       >
         <KeyboardArrowUpRoundedIcon />
       </Button>
       <Button
-        variant="contained"
+        variant='contained'
         style={{ height: '60px', backgroundColor: '#3264ff' }}
       >
         <AccountCircleIcon />
       </Button>
       <Button
-        variant="contained"
-        style={{ height: '60px', backgroundColor: '#3264ff' }}
-      >
-        <AccountCircleIcon />
-      </Button>
-      <Button
-        variant="contained"
+        variant='contained'
         style={{ height: '60px', backgroundColor: '#3264ff' }}
         onClick={handleScrollToBottom}
       >
