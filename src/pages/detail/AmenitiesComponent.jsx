@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 import WifiIcon from '@mui/icons-material/Wifi'
 import CropIcon from '@mui/icons-material/Crop'
@@ -11,33 +12,33 @@ function AmenitiesComponent({ lodgingData }) {
   const getIconComponent = (amenityName) => {
     switch (amenityName) {
       case '와이파이':
-        return <WifiIcon className="w-5 h-5 text-blue-500" /> // Blue color
+        return <WifiIcon className='w-5 h-5 text-blue-500' /> // Blue color
       case '에어컨':
-        return <CropIcon className="w-5 h-5 text-red-500" /> // Red color
+        return <CropIcon className='w-5 h-5 text-red-500' /> // Red color
       case 'TV':
-        return <PersonalVideoIcon className="w-5 h-5 text-green-500" />
+        return <PersonalVideoIcon className='w-5 h-5 text-green-500' />
       default:
-        return <Face3Icon className="w-5 h-5 text-gray-500" />
+        return <Face3Icon className='w-5 h-5 text-gray-500' />
     }
   }
 
   return (
-    <Box className="p-6 mt-4 mb-4 bg-white shadow-md">
-      <Typography variant="h4" fontWeight="bold" mb={2}>
+    <Box className='w-full p-6 mt-4 mb-4 bg-white shadow-md rounded-xl'>
+      <Typography variant='h4' fontWeight='bold' mb={2}>
         숙소 편의시설
       </Typography>
       <ul className={`${expanded ? '' : 'max-h-24 overflow-hidden'}`}>
         {lodgingData.roomType
           .flatMap((room) => room.amenities)
-          .map((amenity, index) => (
-            <li key={index} className="flex items-center mb-3 space-x-2">
+          .map((amenity) => (
+            <li key={amenity.id} className='flex items-center mb-3 space-x-2'>
               {getIconComponent(amenity)}
-              <span className="text-sm">{amenity}</span>
+              <span className='text-sm'>{amenity}</span>
             </li>
           ))}
       </ul>
       <Button
-        className="w-full py-2 mt-4 text-center text-gray-700 bg-gray-100 rounded-md"
+        className='w-full py-2 mt-4 text-center text-gray-700 bg-gray-100 rounded-md'
         onClick={() => setExpanded(!expanded)}
       >
         {expanded ? '숨기기' : '편의시설 모두 보기'}

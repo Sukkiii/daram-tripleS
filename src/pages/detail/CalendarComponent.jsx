@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect, useMemo } from 'react'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
@@ -93,17 +94,17 @@ function CalendarComponent({
   const nights = lodgingData ? calculateNights(startDate, endDate) : 0
 
   return (
-    <Box className="flex items-center justify-center w-full h-full">
-      <Box className="flex flex-col items-center justify-center w-full max-w-md p-4">
-        <Box class="container mx-auto px-4 py-2">
-          <Box class="border-b border-gray-300 py-4">
-            <Typography class="text-xl font-semibold text-gray-800">
+    <Box className='flex items-center justify-center w-full h-full'>
+      <Box className='flex flex-col items-center justify-center w-full max-w-md p-4'>
+        <Box class='container mx-auto px-4 py-2'>
+          <Box class='border-b border-gray-300 py-4'>
+            <Typography class='text-xl font-semibold text-gray-800'>
               {startDate && endDate
                 ? `${lodgingData.lodging.address}에서 ${nights}박`
                 : '숙박 일정을 선택하세요'}
             </Typography>
             {startDate && endDate && (
-              <Typography class="text-sm text-gray-500">{`${startDate}~${endDate}`}</Typography>
+              <Typography class='text-sm text-gray-500'>{`${startDate}~${endDate}`}</Typography>
             )}
           </Box>
         </Box>
@@ -113,7 +114,7 @@ function CalendarComponent({
             value={calendarValue}
             onChange={(newValue) => debouncedHandleDateChange(newValue)}
             onMonthChange={handleMonthChange}
-            className="shadow-lg"
+            className='shadow-lg'
           />
         </LocalizationProvider>
       </Box>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 // import DetailHeader from './detail/DetailHeader'
 import { useParams } from 'react-router'
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import LodgingComponent from './detail/LodgingComponent'
 import CalendarComponent from './detail/CalendarComponent'
+import LodgingHeader from './detail/LodgingHeader'
+import GalleryComponent from './detail/GalleryComponent'
 import ReservationModal from './detail/ReservationModal'
-// import Kakao from './detail/Kakao'
+import Kakao from './detail/Kakao'
 import { getLodgingData } from '../fetch/fetchLodging'
 import CommonHeader from './main/CommonHeader'
 
@@ -53,42 +55,41 @@ function App() {
       {lodging ? (
         <>
           <CommonHeader />
-          <LodgingComponent
-            lodgingData={lodging}
-            setSelectedRoomType={setSelectedRoomType}
-            setSelectedRoom={setSelectedRoom}
-          />
-
-          <Grid
-            container
-            spacing={4}
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Grid item xs={6}>
-              <CalendarComponent
+          <Box className='max-w-[1120px] mx-auto'>
+            <LodgingHeader lodgingData={lodging} />
+            <GalleryComponent lodgingData={lodging} />
+            <Box className='w-3/5'>
+              <LodgingComponent
                 lodgingData={lodging}
-                setRooms={setRooms}
-                setSelectedDates={setSelectedDates}
-                startDate={startDate}
-                endDate={endDate}
-                onStartDateChange={handleStartDateChange}
-                onEndDateChange={handleEndDateChange}
+                setSelectedRoomType={setSelectedRoomType}
+                setSelectedRoom={setSelectedRoom}
               />
-            </Grid>
-            <Grid item xs={6}>
-              <ReservationModal
-                lodgingData={lodging}
-                selectedRoom={selectedRoom}
-                selectedRoomType={selectedRoomType}
-                selectedDates={selectedDates}
-                startDate={startDate}
-                endDate={endDate}
-              />
-            </Grid>
-          </Grid>
-
-          {/* <Kakao lodgingData={lodging} /> */}
+            </Box>
+            <Box className='justify-center w-2/5 mx-auto flex-end'>
+              <Box item xs={6}>
+                <CalendarComponent
+                  lodgingData={lodging}
+                  setRooms={setRooms}
+                  setSelectedDates={setSelectedDates}
+                  startDate={startDate}
+                  endDate={endDate}
+                  onStartDateChange={handleStartDateChange}
+                  onEndDateChange={handleEndDateChange}
+                />
+              </Box>
+              <Box item xs={6}>
+                <ReservationModal
+                  lodgingData={lodging}
+                  selectedRoom={selectedRoom}
+                  selectedRoomType={selectedRoomType}
+                  selectedDates={selectedDates}
+                  startDate={startDate}
+                  endDate={endDate}
+                />
+              </Box>
+            </Box>
+          </Box>
+          <Kakao lodgingData={lodging} />
         </>
       ) : (
         <Typography>Loading...</Typography>
