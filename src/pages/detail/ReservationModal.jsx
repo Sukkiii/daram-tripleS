@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-underscore-dangle */
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { Box, Typography, Button } from '@mui/material'
@@ -24,11 +26,11 @@ function ReservationModal({
   const [children, setChildren] = useState(0)
 
   const handleAdultsChange = (e) => {
-    setAdults(parseInt(e.target.value))
+    setAdults(parseInt(e.target.value, 10))
   }
 
   const handleChildrenChange = (e) => {
-    setChildren(parseInt(e.target.value))
+    setChildren(parseInt(e.target.value, 10))
   }
 
   const fetchUserData = async () => {
@@ -72,7 +74,6 @@ function ReservationModal({
         checkOutDate: endDate,
         adults,
         children,
-        request: specialRequest,
       }
 
       try {
@@ -101,100 +102,103 @@ function ReservationModal({
   const [specialRequest, setSpecialRequest] = useState('')
 
   return (
-    <Box
-      class="max-w-sm mx-auto overflow-hidden bg-white shadow-md"
-      style={{ marginTop: '20px', marginBottom: '20px' }}
-    >
-      <Box class="p-5">
-        <Box class="flex justify-between items-center">
-          <Typography class="text-3xl font-bold text-gray-900">
-            ₩{selectedRoomTypeData.price}
-          </Typography>
-          <Typography class="text-xl font-semibold text-gray-800">
-            {selectedRoomTypeData.types}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography class="block text-sm text-gray-600">체크인</Typography>
-          <Typography class="block text-lg text-gray-800">
-            {startDate}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography class="block text-sm text-gray-600">체크아웃</Typography>
-          <Typography class="block text-lg text-gray-800">{endDate}</Typography>
-        </Box>
+    <Box className='sticky z-10 inline-block w-full mb-4 top-4'>
+      <Box class='mx-auto overflow-hidden bg-white shadow-md rounded-xl mt-8'>
+        <Box class='p-5'>
+          <Box class='flex justify-between items-center'>
+            <Typography class='text-3xl font-bold text-gray-900'>
+              ₩{selectedRoomTypeData.price}
+            </Typography>
+            <Typography class='text-xl font-semibold text-gray-800'>
+              {selectedRoomTypeData.types}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography class='block text-sm text-gray-600'>체크인</Typography>
+            <Typography class='block text-lg text-gray-800'>
+              {startDate}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography class='block text-sm text-gray-600'>
+              체크아웃
+            </Typography>
+            <Typography class='block text-lg text-gray-800'>
+              {endDate}
+            </Typography>
+          </Box>
 
-        <Box class="mt-4">
-          <label htmlFor="adults" className="text-sm text-gray-600">
-            아이
-          </label>
-          <select
-            id="adults"
-            value={adults}
-            onChange={handleAdultsChange}
-            className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          <Box class='mt-4'>
+            <label htmlFor='adults' className='text-sm text-gray-600'>
+              아이
+            </label>
+            <select
+              id='adults'
+              value={adults}
+              onChange={handleAdultsChange}
+              className='block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'
+            >
+              <option value={0}>0 어른</option>
+              <option value={1}>1 어른</option>
+              <option value={2}>2 어른</option>
+              <option value={3}>3 어른</option>
+              <option value={4}>4 어른</option>
+              <option value={5}>5 어른</option>
+            </select>
+          </Box>
+          <Box class='mt-4'>
+            <label htmlFor='children' className='text-sm text-gray-600'>
+              아이
+            </label>
+            <select
+              id='children'
+              value={children}
+              onChange={handleChildrenChange}
+              className='block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'
+            >
+              <option value={0}>0 아이</option>
+              <option value={1}>1 아이</option>
+              <option value={2}>2 아이</option>
+              <option value={3}>3 아이</option>
+              <option value={4}>4 아이</option>
+              <option value={5}>5 아이</option>
+            </select>
+          </Box>
+          <Box className='mt-4'>
+            <label htmlFor='specialRequest' className='text-sm text-gray-600'>
+              요청사항
+            </label>
+            <textarea
+              id='specialRequest'
+              value={specialRequest}
+              onChange={(e) => setSpecialRequest(e.target.value)}
+              className='block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'
+              rows='4'
+              placeholder='특별한 요청사항을 입력하세요'
+            />
+          </Box>
+          <Button
+            onClick={handleReservation}
+            className='w-full px-4 py-3 mt-8 text-sm font-bold text-white uppercase bg-blue-500 rounded'
           >
-            <option value={0}>0 어른</option>
-            <option value={1}>1 어른</option>
-            <option value={2}>2 어른</option>
-            <option value={3}>3 어른</option>
-            <option value={4}>4 어른</option>
-            <option value={5}>5 어른</option>
-          </select>
-        </Box>
-        <Box class="mt-4">
-          <label htmlFor="children" className="text-sm text-gray-600">
-            아이
-          </label>
-          <select
-            id="children"
-            value={children}
-            onChange={handleChildrenChange}
-            className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          >
-            <option value={0}>0 아이</option>
-            <option value={1}>1 아이</option>
-            <option value={2}>2 아이</option>
-            <option value={3}>3 아이</option>
-            <option value={4}>4 아이</option>
-            <option value={5}>5 아이</option>
-          </select>
-        </Box>
-        <Box className="mt-4">
-          <label htmlFor="specialRequest" className="text-sm text-gray-600">
-            요청사항
-          </label>
-          <textarea
-            id="specialRequest"
-            value={specialRequest}
-            onChange={(e) => setSpecialRequest(e.target.value)}
-            className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            rows="4"
-            placeholder="특별한 요청사항을 입력하세요"
-          />
-        </Box>
-        <Button
-          onClick={handleReservation}
-          className="w-full px-4 py-3 mt-8 text-sm font-bold text-white uppercase bg-blue-500 rounded"
-        >
-          예약하기
-        </Button>
+            예약하기
+          </Button>
 
-        <Typography className="mt-4 text-xs text-center text-gray-600">
-          예약 확정 전에는 요금이 청구되지 않습니다.
-        </Typography>
-      </Box>
-      <Box class="px-5 py-4 bg-gray-100">
-        <Box class="flex justify-between">
-          <Typography>
-            ₩{selectedRoomTypeData.price} x {totalNights}박
+          <Typography className='mt-4 text-xs text-center text-gray-600'>
+            예약 확정 전에는 요금이 청구되지 않습니다.
           </Typography>
-          <Typography>₩{totalPrice}</Typography>
         </Box>
-        <Box class="flex justify-between mt-4 font-bold">
-          <Typography>총 합계</Typography>
-          <Typography>₩{totalPrice}</Typography>
+        <Box class='px-5 py-4 bg-gray-100'>
+          <Box class='flex justify-between'>
+            <Typography>
+              ₩{selectedRoomTypeData.price} x {totalNights}박
+            </Typography>
+            <Typography>₩{totalPrice}</Typography>
+          </Box>
+          <Box class='flex justify-between mt-4 font-bold'>
+            <Typography>총 합계</Typography>
+            <Typography>₩{totalPrice}</Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

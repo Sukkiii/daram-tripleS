@@ -27,10 +27,10 @@ function DescriptionComponent({ lodgingData }) {
       <Box className='flex items-center justify-between mb-4'>
         <Box>
           <Typography variant='h4' fontWeight='bold' mb={2}>
-            {hostId}, 호스팅하는 펜션
+            {hostId}, 호스팅하는 호텔
           </Typography>
           <Typography variant='body2' color='textSecondary'>
-            차대 일명 · 체험 1개 · 손님 1명
+            차량 주차 1대 · 손님 최대 3명 가능
           </Typography>
         </Box>
         <Box className='flex items-center justify-center w-12 h-12 bg-pink-600 rounded-full'>
@@ -50,7 +50,7 @@ function DescriptionComponent({ lodgingData }) {
         ))}
       </Box>
 
-      <Box className='p-4 bg-gray-100 shadow-md rounded-xl'>
+      <Box className='p-4 shadow-md bg-gray-50 rounded-xl'>
         <Typography variant='body2' className='mb-2'>
           특별한 정보는 자동 번역되었습니다.
         </Typography>
@@ -65,11 +65,11 @@ function DescriptionComponent({ lodgingData }) {
         </Typography>
         <Box className='mt-4'>
           <Button
-            variant='outlined'
+            variant='contained'
             size='small'
             onClick={() => setShowModal(true)}
           >
-            더 보기
+            더보기
           </Button>
         </Box>
       </Box>
@@ -77,44 +77,57 @@ function DescriptionComponent({ lodgingData }) {
       {/* Modal for more information */}
       {showModal && (
         <Box
-          className='fixed inset-0 flex items-start justify-center w-full h-full overflow-y-auto bg-black bg-opacity-50'
+          className='fixed inset-0 flex z-[10000] items-start justify-center w-full h-full overflow-y-auto bg-black bg-opacity-50'
           onClick={() => setShowModal(false)}
         >
           <Box
-            className='relative top-0 w-11/12 p-5 mx-auto mt-10 bg-white border rounded-md shadow-lg md:max-w-2xl'
+            className='relative flex flex-row-reverse gap-5 p-5 m-auto bg-white border rounded-md shadow-lg'
             onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
           >
-            <Box className='flex items-center justify-between mb-4'>
-              <Typography variant='h5' className='mb-2 text-xl font-semibold'>
-                숙소 설명
-              </Typography>
-              <Button
-                variant='text'
+            <Box className='flex items-start justify-end cursor-pointer'>
+              <DangerousIcon
+                className='w-6 h-6 fill-blue-700'
                 color='primary'
-                size='small'
                 onClick={() => setShowModal(false)}
-              >
-                <DangerousIcon className='w-6 h-6' />
-              </Button>
+              />
             </Box>
-            <Typography variant='body2' className='mb-4'>
-              {lodgingData.lodging.description}
-            </Typography>
-            <Box mb={4}>
-              <Typography variant='h5' className='mb-2 text-xl font-semibold'>
-                숙소
-              </Typography>
-              <Typography variant='body2' className='mb-2'>
-                {lodgingData.lodging.theme}
-              </Typography>
-            </Box>
-            <Box mb={4}>
-              <Typography variant='h5' className='mb-2 text-xl font-semibold'>
-                운영 시간
-              </Typography>
-              <Typography variant='body2' className='mb-2'>
-                {lodgingData.lodging.rule}
-              </Typography>
+            <Box className='flex flex-col gap-4'>
+              <Box className='box1'>
+                <Typography
+                  variant='h6'
+                  className='mb-2 text-xl font-semibold'
+                  color='primary'
+                >
+                  숙소 설명
+                </Typography>
+                <Typography variant='body2' className='mb-4'>
+                  {lodgingData.lodging.description}
+                </Typography>
+              </Box>
+              <Box className='box2'>
+                <Typography
+                  variant='h6'
+                  className='mb-2 text-xl font-semibold'
+                  color='primary'
+                >
+                  숙소
+                </Typography>
+                <Typography variant='body2' className='mb-2'>
+                  {lodgingData.lodging.theme}
+                </Typography>
+              </Box>
+              <Box className='box3'>
+                <Typography
+                  variant='h6'
+                  className='mb-2 text-xl font-semibold'
+                  color='primary'
+                >
+                  운영 시간
+                </Typography>
+                <Typography variant='body2' className='mb-2'>
+                  {lodgingData.lodging.rule}
+                </Typography>
+              </Box>
             </Box>
           </Box>
         </Box>

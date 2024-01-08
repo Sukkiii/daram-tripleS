@@ -72,7 +72,8 @@ function HotelRoomComponent({
       <Box className='flex justify-end mt-auto'>
         <Button
           onClick={handleSelectRoom}
-          className='px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700'
+          variant='contained'
+          className='px-4 py-2 font-bold rounded'
         >
           객실 선택하기
         </Button>

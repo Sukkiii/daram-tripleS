@@ -34,6 +34,7 @@ function GalleryComponent({ lodgingData }) {
         <Box className='flex items-center justify-end md:col-start-4'>
           <Button
             className='px-4 py-2 text-lg font-semibold bg-white rounded-lg shadow-lg hover:bg-gray-100 whitespace-nowrap'
+            variant='outlined'
             onClick={() => setShowModal(true)}
           >
             사진 모두보기

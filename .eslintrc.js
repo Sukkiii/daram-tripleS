@@ -22,6 +22,15 @@ module.exports = {
     'react/jsx-indent': ['error', 2],
     'react/require-default-props': 'off',
     'react/jsx-indent-props': ['warn', 'first'],
+    'no-console': 'off',
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector:
+          'CallExpression[callee.object.name="console"][callee.property.name!=/^(log|warn|error|info|trace)$/]',
+        message: 'Unexpected property on console object was called',
+      },
+    ],
     'no-multi-spaces': ['error', { ignoreEOLComments: true }],
     'no-trailing-spaces': ['error', { ignoreComments: true }],
     'no-plusplus': [2, { allowForLoopAfterthoughts: true }],

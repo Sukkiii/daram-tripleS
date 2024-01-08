@@ -58,15 +58,13 @@ function App() {
           <Box className='max-w-[1120px] mx-auto'>
             <LodgingHeader lodgingData={lodging} />
             <GalleryComponent lodgingData={lodging} />
-            <Box className='w-3/5'>
-              <LodgingComponent
-                lodgingData={lodging}
-                setSelectedRoomType={setSelectedRoomType}
-                setSelectedRoom={setSelectedRoom}
-              />
-            </Box>
-            <Box className='justify-center w-2/5 mx-auto flex-end'>
-              <Box item xs={6}>
+            <Box className='relative flex gap-12'>
+              <Box className='w-3/5'>
+                <LodgingComponent
+                  lodgingData={lodging}
+                  setSelectedRoomType={setSelectedRoomType}
+                  setSelectedRoom={setSelectedRoom}
+                />
                 <CalendarComponent
                   lodgingData={lodging}
                   setRooms={setRooms}
@@ -77,7 +75,7 @@ function App() {
                   onEndDateChange={handleEndDateChange}
                 />
               </Box>
-              <Box item xs={6}>
+              <Box className='relative w-2/5'>
                 <ReservationModal
                   lodgingData={lodging}
                   selectedRoom={selectedRoom}

@@ -43,7 +43,6 @@ function CalendarComponent({
     onEndDateChange(null)
     setSelecting(true)
   }
-
   const debouncedHandleDateChange = debounce((newValue) => {
     const formattedDate = newValue ? newValue.format('YYYY-MM-DD') : ''
 
@@ -94,13 +93,13 @@ function CalendarComponent({
   const nights = lodgingData ? calculateNights(startDate, endDate) : 0
 
   return (
-    <Box className='flex items-center justify-center w-full h-full'>
-      <Box className='flex flex-col items-center justify-center w-full max-w-md p-4'>
+    <Box className='flex items-center justify-center w-full'>
+      <Box className='flex flex-col items-center justify-center w-full p-4'>
         <Box class='container mx-auto px-4 py-2'>
           <Box class='border-b border-gray-300 py-4'>
             <Typography class='text-xl font-semibold text-gray-800'>
               {startDate && endDate
-                ? `${lodgingData.lodging.address}에서 ${nights}박`
+                ? `${lodgingData.lodging.name}에서 ${nights}박`
                 : '숙박 일정을 선택하세요'}
             </Typography>
             {startDate && endDate && (
@@ -111,6 +110,8 @@ function CalendarComponent({
 
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar
+            defaultValue={dayjs()}
+            disableDates={(date) => date.isBefore(dayjs(), 'day')}
             value={calendarValue}
             onChange={(newValue) => debouncedHandleDateChange(newValue)}
             onMonthChange={handleMonthChange}
