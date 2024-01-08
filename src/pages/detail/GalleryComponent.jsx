@@ -44,29 +44,37 @@ function GalleryComponent({ lodgingData }) {
         {/* Modal for all photos */}
         {showModal && (
           <Box
-            className='fixed inset-0 w-full h-full overflow-y-auto bg-black bg-opacity-50'
+            className='z-[999999] fixed inset-0 w-full h-full overflow-y-auto bg-black bg-opacity-50'
             onClick={() => setShowModal(false)}
           >
-            <Box className='absolute top-0 w-11/12 p-5 mx-auto bg-white border rounded-md shadow-lg'>
-              <Box className='mt-3 text-center'>
-                <Box className='flex items-center justify-center w-12 h-12 mx-auto bg-green-100 rounded-full'>
-                  {/* Close button */}
-                  <Button
-                    onClick={() => setShowModal(false)}
-                    className='w-6 h-6 text-green-600'
-                    aria-label='Close'
-                  >
-                    X
-                  </Button>
+            <Box className='p-5 mx-auto bg-white shadow-lg w-fit'>
+              <Box className='flex flex-col text-center'>
+                <Box className='relative right-0 flex justify-end mb-3'>
+                  <Box className='flex justify-end bg-blue-100 rounded-full'>
+                    {/* Close button */}
+                    <Button
+                      onClick={() => setShowModal(false)}
+                      className='w-6 h-6 text-blue-600'
+                      aria-label='Close'
+                    >
+                      X
+                    </Button>
+                  </Box>
                 </Box>
                 {/* All images */}
-                <Box className='py-3 mt-2 px-7'>
-                  <Box className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4'>
+                <Box className='flex flex-col mx-auto max-w-[560px] gap-3'>
+                  <Box className='mainImage w-[560px] h-[560px]'>
+                    <img
+                      src={`/src/assets/img/hotel/${lodgingData.lodging.mainImage}`}
+                      alt={`Gallery ${lodgingData.lodging.id}`}
+                    />
+                  </Box>
+                  <Box className='elseImage w-[560px] flex flex-col gap-3'>
                     {lodgingData.lodging.image.map((image) => (
                       <img
                         key={image.id}
-                        className='object-cover'
-                        src={image}
+                        className='object-cover h-[560px]'
+                        src={`/src/assets/img/hotel/${image}`}
                         alt={`Gallery ${image.id}`}
                       />
                     ))}
