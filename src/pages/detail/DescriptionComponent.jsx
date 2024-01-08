@@ -33,7 +33,7 @@ function DescriptionComponent({ lodgingData }) {
             차량 주차 1대 · 손님 최대 3명 가능
           </Typography>
         </Box>
-        <Box className='flex items-center justify-center w-12 h-12 bg-pink-600 rounded-full'>
+        <Box className='flex items-center justify-center w-12 h-12 bg-blue-700 rounded-full'>
           {/* Replace with logo */}
           <Typography className='text-lg text-white'>
             {hostId.substring(0, 2).toLowerCase()}

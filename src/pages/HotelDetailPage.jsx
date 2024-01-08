@@ -13,7 +13,7 @@ import CommonHeader from './main/CommonHeader'
 
 function App() {
   const [lodging, setLodging] = useState(null)
-  const [rooms, setRooms] = useState([])
+  const [, setRooms] = useState([])
   const { lodgingId } = useParams()
   useEffect(() => {
     const fetchLodgingData = async () => {
@@ -75,7 +75,7 @@ function App() {
                   onEndDateChange={handleEndDateChange}
                 />
               </Box>
-              <Box className='relative w-2/5'>
+              <Box className='relative w-2/6'>
                 <ReservationModal
                   lodgingData={lodging}
                   selectedRoom={selectedRoom}
