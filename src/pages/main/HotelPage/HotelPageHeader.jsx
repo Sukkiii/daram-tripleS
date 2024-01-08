@@ -23,27 +23,27 @@ function HotelPageHeader() {
   }, [])
 
   return (
-    <Box className="main-hd-container relative bg-hotel-bg bg-cover h-[30rem] pb-20">
-      <Box className="flex px-8 main-hd-flex-icon">
+    <Box className='main-hd-container relative bg-hotel-bg bg-cover h-[30rem] pb-20'>
+      <Box className='flex px-8 main-hd-flex-icon'>
         <HeaderLogo />
-        <Box className="flex items-center ml-4">
+        <Box className='flex items-center ml-4'>
           <NavigationBar />
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className="flex flex-col w-3/4 mx-auto my-12">
-        <Box className="flex">
+      <Box className='flex flex-col w-[1120px] mx-auto my-12'>
+        <Box className='flex'>
           <Typography
-            variant="h3"
+            variant='h3'
             sx={{ fontWeight: 'bold' }}
-            className="mx-auto my-0 text-white"
+            className='mx-auto my-0 text-white'
           >
             호텔
           </Typography>
           <Typography
-            variant="h3"
+            variant='h3'
             sx={{ fontWeight: 'bold' }}
-            className="text-yellow-300"
+            className='text-yellow-300'
           >
             .
           </Typography>
@@ -52,7 +52,7 @@ function HotelPageHeader() {
           ref={scrollTarget}
           className={`p-5 bg-white ${
             scrolled
-              ? 'fixed top-0 right-0 left-0 rounded-none z-[9999] h-30 shadow-sm px-[10%]'
+              ? 'fixed top-0 right-0 left-0 rounded-none z-[9999] h-30 shadow-sm px-[16%]'
               : 'h-2/4 p-5 rounded-xl'
           }`}
         >

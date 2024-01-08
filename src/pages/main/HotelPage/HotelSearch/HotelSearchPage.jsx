@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import HotelSearchHeader from './HotelSearchHeader'
 import HomeSideBar from '../../HomeBody/HomeSideBar'
 import HotelSearchBody from './HotelSearchBody'
+import Footer from '../../Footer/Footer'
 import { fetchData } from '../../../../fetch/lodgingSearch'
 
 function HotelSearchPage() {
@@ -49,6 +50,7 @@ function HotelSearchPage() {
       <HotelSearchHeader />
       <HomeSideBar />
       <HotelSearchBody searchResults={searchResults} />
+      <Footer />
     </>
   )
 }

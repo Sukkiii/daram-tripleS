@@ -1,6 +1,7 @@
 import HotelPageHeader from './HotelPageHeader'
 import HomeSideBar from '../HomeBody/HomeSideBar'
 import HotelBody from './HotelBody'
+import Footer from '../Footer/Footer'
 
 function HotelPage() {
   return (
@@ -8,6 +9,7 @@ function HotelPage() {
       <HotelPageHeader />
       <HomeSideBar />
       <HotelBody />
+      <Footer />
     </>
   )
 }

@@ -21,15 +21,15 @@ function CustomTabPanel(props) {
 
   return (
     <Box
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
       {value === index && (
-        <Box className="p-4">
-          <Typography component="Box">{children}</Typography>
+        <Box className='p-4'>
+          <Typography component='Box'>{children}</Typography>
         </Box>
       )}
     </Box>
@@ -57,13 +57,13 @@ export default function Filtering() {
   }
 
   return (
-    <Box className="flex w-3/4 p-2 mx-auto mt-4 mb-12 bg-white h-2/4 rounded-xl">
-      <Box className="w-full">
+    <Box className='flex w-[1120px] p-2 mx-auto mt-4 mb-12 bg-white h-2/4 rounded-xl'>
+      <Box className='w-full'>
         <Tabs
           value={value}
           centered
           onChange={handleChange}
-          aria-label="basic tabs example"
+          aria-label='basic tabs example'
         >
           <Tab
             label={

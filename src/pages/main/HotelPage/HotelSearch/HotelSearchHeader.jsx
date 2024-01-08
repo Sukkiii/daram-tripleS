@@ -24,20 +24,20 @@ function HotelSearchHeader({ searchData, setSearchData, handleSearch }) {
   }, [])
 
   return (
-    <Box className="relative py-1 bg-blue-600 main-hd-container">
-      <Box className="flex px-8 main-hd-flex-icon">
+    <Box className='relative py-1 bg-blue-600 main-hd-container'>
+      <Box className='flex px-8 main-hd-flex-icon'>
         <HeaderLogo />
-        <Box className="flex items-center ml-4">
+        <Box className='flex items-center ml-4'>
           <NavigationBar />
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className="flex flex-col w-3/4 mx-auto my-2">
+      <Box className='flex flex-col w-[1120px] mx-auto my-2'>
         <Box
           ref={scrollTarget}
           className={`p-5 py-2 bg-white z-[9999] shadow-lg ${
             scrolled
-              ? 'fixed top-0 right-0 left-0 rounded-none h-30 px-[10%]'
+              ? 'fixed top-0 right-0 left-0 rounded-none h-30 px-[16%]'
               : 'h-2/4 p-5 rounded-xl'
           }`}
         >
