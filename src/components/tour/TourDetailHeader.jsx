@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
 import { FiChevronRight } from 'react-icons/fi'
 import { FaCircle, FaCircleHalfStroke, FaRegCircle } from 'react-icons/fa6'
@@ -71,24 +72,34 @@ export default function TourDetailHeader({ mainAttraction, city }) {
   }, [likedAttractions, mainAttraction])
 
   return (
-    <Box className="flex flex-col gap-2 p-3">
-      <Typography className="text-gray-900" variant="body2" component="span">
-        {mainAttraction.location}
-        <FiChevronRight className="inline w-10" />
-        <Link to={`/searchList/${city}`}>{city}</Link>
-        <FiChevronRight className="inline w-10" />
-        {mainAttraction.name}
-      </Typography>
-      <Box className="flex mt-10">
+    <Box className='flex flex-col gap-2 pt-8'>
+      <Box className='flex'>
+        <Typography className='text-gray-900' variant='body1' component='span'>
+          <Link to='/'>홈</Link>
+        </Typography>
+        <FiChevronRight className='inline w-10 mt-1' />
+        <Typography className='text-gray-900' variant='body1' component='span'>
+          <Link to='/tour'>투어&티켓</Link>
+        </Typography>
+        <FiChevronRight className='inline w-10 mt-1' />
+        <Typography className='text-gray-900' variant='body1' component='span'>
+          <Link to={`/searchList/${city}`}>{city}</Link>
+        </Typography>
+        <FiChevronRight className='inline w-10 mt-1' />
+        <Typography className='text-gray-900' variant='body1' component='span'>
+          {mainAttraction.name}
+        </Typography>
+      </Box>
+      <Box className='flex mt-10'>
         <Typography
-          className="w-full ml-2 text-gray-900"
+          className='w-full ml-2 text-gray-900'
           style={{
             display: 'inline',
             fontWeight: 600,
             fontSize: '2rem',
           }}
-          variant="body1"
-          component="span"
+          variant='body1'
+          component='span'
         >
           {mainAttraction.name}
         </Typography>
@@ -98,42 +109,42 @@ export default function TourDetailHeader({ mainAttraction, city }) {
               onClick={() => {
                 handleLikedAttraction()
               }}
-              className="mr-1 text-blue-700 w-7 h-7"
+              className='mr-1 text-blue-700 w-7 h-7'
             />
           ) : (
             <CiHeart
               onClick={() => {
                 handleLikedAttraction()
               }}
-              className="w-9 h-9"
+              className='w-9 h-9'
             />
           )}
         </Button>
       </Box>
 
-      <Box className="flex gap-2 text-gray-900">
+      <Box className='flex gap-2 text-gray-900'>
         <Typography
-          variant="body2"
-          component="span"
-          className="flex gap-[0.1rem] text-blue-600"
+          variant='body1'
+          component='span'
+          className='flex gap-[0.1rem] text-blue-600'
           style={{ fontSize: '1rem' }}
         >
           {starRating}
         </Typography>
-        <Typography variant="body2" component="span">
+        <Typography variant='body1' component='span'>
           {mainAttraction.review?.length} 개의 리뷰
         </Typography>
-        <Box component="span">•</Box>
-        <Typography variant="body2" component="span">
+        <Box component='span'>•</Box>
+        <Typography variant='body1' component='span'>
           {mainAttraction.theme?.join(' & ')}
         </Typography>
       </Box>
 
-      <Box className="flex gap-2 text-gray-900">
+      <Box className='flex gap-2 text-gray-900'>
         <Typography
-          className="text-blue-500"
-          variant="body2"
-          component="span"
+          className='text-blue-600'
+          variant='body1'
+          component='span'
           style={{ fontWeight: '600' }}
         >
           {isOpen({
@@ -141,10 +152,10 @@ export default function TourDetailHeader({ mainAttraction, city }) {
             close: mainAttraction.operatingTime?.close,
           })}
         </Typography>
-        <Box component="span">•</Box>
+        <Box component='span'>•</Box>
         <Typography
-          variant="body2"
-          component="span"
+          variant='body1'
+          component='span'
           style={{ fontWeight: '600' }}
         >
           {formattedHour(mainAttraction.operatingTime?.open)} ~

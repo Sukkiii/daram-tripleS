@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Box } from '@mui/system'
+// eslint-disable-next-line no-unused-vars
 import styles from './TourPhoto.module.css'
 
 function TourPhoto({ images }) {
   const [mainSlider, setMainSlider] = useState(null)
-  const [thumbnaulSlider, setThumbnailSlider] = useState(null)
+  const [thumbnailSlider, setThumbnailSlider] = useState(null)
 
   const settingsMain = {
     slidesToShow: 1,
@@ -33,33 +35,33 @@ function TourPhoto({ images }) {
   }))
 
   return (
-    <Box className="w-[43rem]">
-      <Box className="slider-wrapper">
+    <Box className='w-[43rem]'>
+      <Box className='slider-wrapper'>
         <Slider
           {...settingsMain}
-          asNavFor={thumbnaulSlider}
+          asNavFor={thumbnailSlider}
           ref={(slider) => setMainSlider(slider)}
         >
           {slidesData.map((slide) => (
-            <Box className="slick-slide" key={slide.id}>
+            <Box className='slick-slide' key={slide.id}>
               <img
-                className="slick-slide-image"
+                className='slick-slide-image'
                 src={slide.url}
                 alt={`Attraction ${slide.url}`}
               />
             </Box>
           ))}
         </Slider>
-        <Box className="thumbnail-slider-wrap">
+        <Box className='thumbnail-slider-wrap'>
           <Slider
             {...settingsThumbs}
             asNavFor={mainSlider}
             ref={(slider) => setThumbnailSlider(slider)}
           >
             {slidesData.map((slide) => (
-              <Box className="slick-slide" key={slide.id}>
+              <Box className='slick-slide' key={slide.id}>
                 <img
-                  className="slick-slide-image"
+                  className='slick-slide-image'
                   src={slide.url}
                   alt={`Attraction ${slide.url}`}
                 />

@@ -62,14 +62,14 @@ function TourDetail() {
   }
 
   return (
-    <Box className="flex flex-col items-center">
-      <Box className="w-full">
+    <Box className='flex flex-col items-center'>
+      <Box className='w-full'>
         <CommonHeader />
       </Box>
-      <Box className="container flex flex-col items-center gap-3">
-        <Box className="w-[70rem]">
+      <Box className='container flex flex-col items-center gap-3'>
+        <Box className='w-[1120px] flex flex-col gap-4'>
           <TourDetailHeader mainAttraction={mainAttraction} city={city} />
-          <Box className="flex w-full gap-3 p-3">
+          <Box className='flex w-full gap-3'>
             <TourDetailCard
               attractionName={mainAttraction.name}
               attractionDescription={mainAttraction.description}
@@ -86,7 +86,7 @@ function TourDetail() {
           />
         </Box>
       </Box>
-      <Footer container="true" />
+      <Footer container='true' />
     </Box>
   )
 }

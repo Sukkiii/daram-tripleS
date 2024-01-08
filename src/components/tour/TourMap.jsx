@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useRef, useState, useEffect } from 'react'
@@ -12,29 +13,29 @@ import markerOthers from '../../assets/img/attraction/markerOthers.png'
 
 export default function TourMap({ attractions, mainAttraction }) {
   const markerRef = useRef(null)
-  const [hoveredattractionId, setHoveredattractionId] = useState(null)
+  const [hoverAttractionId, setHoverAttractionId] = useState(null)
 
-  const hoverattraction = (attractionId) => {
-    if (attractionId !== hoverattraction) setHoveredattractionId(attractionId)
-    else setHoveredattractionId(null)
+  const hoverAttraction = (attractionId) => {
+    if (attractionId !== hoverAttraction) setHoverAttractionId(attractionId)
+    else setHoverAttractionId(null)
   }
   useEffect(() => {
     if (markerRef.current) {
       markerRef.current.openPopup()
     }
-  }, [hoveredattractionId])
+  }, [hoverAttractionId])
 
   return (
-    <Box className="flex gap-2 max-h-145 w-full p-3 border shadow-md shadow-gray-200">
+    <Box className='flex w-full gap-2 p-3 border shadow-md max-h-145 shadow-gray-200'>
       <MapContainer
         style={{ width: 750, height: 650 }}
         center={[mainAttraction.map?.latitude, mainAttraction.map?.longitude]}
-        zoom={11}
+        zoom={12}
         className={styles.map}
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
         <Marker
           key={mainAttraction.attractionId}
@@ -56,14 +57,14 @@ export default function TourMap({ attractions, mainAttraction }) {
             key={attraction.attractionId}
             position={[attraction.map?.latitude, attraction.map?.longitude]}
             ref={
-              hoveredattractionId === attraction.attractionId ? markerRef : null
+              hoverAttractionId === attraction.attractionId ? markerRef : null
             }
             eventHandlers={{
-              mouseover: () => hoverattraction(attraction.attractionId),
-              mouseout: () => hoverattraction(attraction.attractionId),
+              mouseover: () => hoverAttraction(attraction.attractionId),
+              mouseout: () => hoverAttraction(attraction.attractionId),
             }}
             icon={
-              attraction.attractionId === hoveredattractionId
+              attraction.attractionId === hoverAttractionId
                 ? new L.Icon({
                     iconUrl: markerOthers,
                     iconSize: [35, 35],
@@ -80,7 +81,7 @@ export default function TourMap({ attractions, mainAttraction }) {
           >
             <Popup
               offset={[0, -1]}
-              className="w-40 group m-0 p-0 flex flex-col overflow-hidden bg-white"
+              className='flex flex-col w-40 p-0 m-0 overflow-hidden bg-white group'
             >
               <TourPopupItem attraction={attraction} />
             </Popup>
@@ -88,16 +89,16 @@ export default function TourMap({ attractions, mainAttraction }) {
         ))}
       </MapContainer>
 
-      <Box className="flex flex-col gap-3 overflow-y-auto">
+      <Box className='flex flex-col w-1/3 gap-3 overflow-y-auto'>
         <Typography
-          className="text-gray-900"
+          className='text-gray-900'
           style={{
             display: 'inline',
             fontWeight: 600,
             fontSize: '1.1rem',
           }}
-          variant="body1"
-          component="span"
+          variant='body1'
+          component='span'
         >
           {mainAttraction.name} 주변에서 인기있는 추천명소
         </Typography>
@@ -105,10 +106,10 @@ export default function TourMap({ attractions, mainAttraction }) {
           {attractions.map((attraction) => (
             <li
               key={attraction.attractionId}
-              onMouseEnter={() => hoverattraction(attraction.attractionId)}
-              onMouseLeave={() => hoverattraction(attraction.attractionId)}
+              onMouseEnter={() => hoverAttraction(attraction.attractionId)}
+              onMouseLeave={() => hoverAttraction(attraction.attractionId)}
             >
-              <TourItem attraction={attraction} smallCard="small" />
+              <TourItem attraction={attraction} smallCard='small' />
             </li>
           ))}
         </ul>

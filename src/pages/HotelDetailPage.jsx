@@ -7,6 +7,7 @@ import CalendarComponent from './detail/CalendarComponent'
 import LodgingHeader from './detail/LodgingHeader'
 import GalleryComponent from './detail/GalleryComponent'
 import ReservationModal from './detail/ReservationModal'
+import Review from './detail/Review'
 import Kakao from './detail/Kakao'
 import { getLodgingData } from '../fetch/fetchLodging'
 import CommonHeader from './main/CommonHeader'
@@ -86,6 +87,7 @@ function App() {
                 />
               </Box>
             </Box>
+            <Review lodgingData={lodging} />
           </Box>
           <Kakao lodgingData={lodging} />
         </>
