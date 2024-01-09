@@ -82,7 +82,7 @@ function AuthLogin({ onClose }) {
   }
 
   return (
-    <Box className='flex flex-col p-6 rounded h-fit gap-2 m-auto w-4/5'>
+    <Box className='flex flex-col w-4/5 gap-2 p-6 m-auto rounded h-fit'>
       <Typography
         display='flex'
         alignItems='flex-start'
@@ -96,7 +96,7 @@ function AuthLogin({ onClose }) {
         간편하게 예약을 관리하고 회원 전용 혜택도 누려보세요
       </Typography>
       <Box
-        className='mt-6 w-full flex flex-col gap-2'
+        className='flex flex-col w-full gap-2 mt-6'
         component='form'
         noValidate
         autoComplete='off'
@@ -112,7 +112,7 @@ function AuthLogin({ onClose }) {
           onChange={handleEmailChange}
         />
         {!isValidEmail && email.length > 0 && (
-          <Box className='text-red-500 text-xs'>
+          <Box className='text-xs text-red-500'>
             유효하지 않은 이메일 형식입니다. <br /> ex) triples@gamil.com과 같은
             형식으로 입력해주세요.
           </Box>
@@ -128,7 +128,7 @@ function AuthLogin({ onClose }) {
           onChange={handlePasswordChange}
         />
         {!isValidPassword && password.length > 0 && (
-          <Box className='text-red-500 text-xs'>
+          <Box className='text-xs text-red-500'>
             비밀번호는 6자 이상이어야 하며, <br />
             대문자, 소문자, 숫자, 특수 문자를 모두 포함해야 합니다.
           </Box>
@@ -138,7 +138,7 @@ function AuthLogin({ onClose }) {
           onClick={handleSubmit}
           variant='contained'
           className='w-full h-12'
-          sx={{ backgroundColor: 'rgba(0, 0, 255, 0.5)' }}
+          // sx={{ backgroundColor: 'rgba(0, 0, 255, 0.5)' }}
         >
           로그인
         </Button>
@@ -157,7 +157,7 @@ function AuthLogin({ onClose }) {
         비밀번호 찾기
       </Typography>
       <AuthFindPwd open={isModalOpen} onClose={handleCloseModal} />
-      <Box className='flex justify-center mt-6 relative'>
+      <Box className='relative flex justify-center mt-6'>
         <Divider
           orientation='horizontal'
           flexItem
@@ -182,8 +182,8 @@ function AuthLogin({ onClose }) {
       </Box>
       <Box className='flex justify-center m-6'>
         <SiNaver className='text-4xl text-white rounded-full bg-green-500 p-2.5 cursor-pointer' />
-        <RiKakaoTalkFill className='text-4xl rounded-full bg-yellow-300 p-2 ml-6 cursor-pointer' />
-        <FcGoogle className='text-4xl ml-6 rounded-full bg-white-500 p-2 border cursor-pointer' />
+        <RiKakaoTalkFill className='p-2 ml-6 text-4xl bg-yellow-300 rounded-full cursor-pointer' />
+        <FcGoogle className='p-2 ml-6 text-4xl border rounded-full cursor-pointer bg-white-500' />
       </Box>
       <Typography
         sx={{ marginTop: '3rem' }}

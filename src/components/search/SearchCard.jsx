@@ -8,9 +8,9 @@ import TourItem from './TourItem'
 
 function SearchCard({ hotels, attractions, keyword }) {
   return (
-    <Box className='flex flex-col items-center gap-3 mt-5'>
+    <Box className='flex flex-col items-start gap-3 mt-5 h-[1000px]'>
       <Typography
-        className='text-gray-900 w-[84rem]'
+        className='text-gray-900'
         style={{
           display: 'inline',
           marginLeft: '1rem',
@@ -22,50 +22,50 @@ function SearchCard({ hotels, attractions, keyword }) {
         <FiChevronRight className='inline w-10' />
         검색
       </Typography>
+      <Box className='ml-2 text-gray-900'>
+        <Typography
+          style={{
+            display: 'inline',
+            fontWeight: 600,
+            fontSize: '1.7rem',
+          }}
+          variant='body1'
+          component='span'
+        >
+          검색결과
+        </Typography>
+        <Typography
+          className='text-orange-600'
+          style={{
+            display: 'inline',
+            fontWeight: 600,
+            fontSize: '1.7rem',
+            marginLeft: '1rem',
+          }}
+          variant='body1'
+          component='span'
+        >
+          {keyword}
+        </Typography>
+        <Typography
+          style={{
+            display: 'inline',
+            fontWeight: 600,
+            fontSize: '1.7rem',
+            marginLeft: '1rem',
+          }}
+          variant='body1'
+          component='span'
+        >
+          : {hotels.length + attractions.length}개
+        </Typography>
+      </Box>
       <Box className='flex'>
-        <Box className='text-gray-900 w-[84rem] ml-2'>
-          <Typography
-            style={{
-              display: 'inline',
-              fontWeight: 600,
-              fontSize: '1.7rem',
-            }}
-            variant='body1'
-            component='span'
-          >
-            검색결과
-          </Typography>
-          <Typography
-            className='text-orange-600'
-            style={{
-              display: 'inline',
-              fontWeight: 600,
-              fontSize: '1.7rem',
-              marginLeft: '1rem',
-            }}
-            variant='body1'
-            component='span'
-          >
-            "{keyword}"
-          </Typography>
-          <Typography
-            style={{
-              display: 'inline',
-              fontWeight: 600,
-              fontSize: '1.7rem',
-              marginLeft: '1rem',
-            }}
-            variant='body1'
-            component='span'
-          >
-            : {hotels.length + attractions.length}개
-          </Typography>
-        </Box>
         <Box className='flex justify-center w-full' style={{ width: '100%' }}>
-          <Box className='max-w-[calc(100vw - 64px)] flex  w-[84rem] overflow-x-auto sm:flex-col md:flex-col lg:flex-row'>
+          <Box className='max-w-[calc(100vw - 64px)] mb-4 flex w-[1220px] overflow-x-auto sm:flex-col md:flex-col lg:flex-row'>
             <SideBar keyword={keyword} />
-            <Box className='flex flex-col flex-auto px-4'>
-              <Box className='flex-auto px-4'>
+            <Box className='flex flex-col flex-auto'>
+              <Box className='flex-auto px-1'>
                 <Typography
                   className='my-5 text-gray-900'
                   style={{
@@ -79,7 +79,7 @@ function SearchCard({ hotels, attractions, keyword }) {
                   호텔
                 </Typography>
 
-                <Box className='grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 xl:grid-cols-3'>
+                <Box className='grid w-full max-w-6xl mr-1 sm:grid-cols-1 sm:gap-x-3 md:grid-cols-2 xl:grid-cols-3'>
                   {hotels.length ? (
                     hotels.map((hotel) => (
                       <HotelItem key={hotel.lodgingId} hotel={hotel} />
@@ -99,7 +99,7 @@ function SearchCard({ hotels, attractions, keyword }) {
                     </Typography>
                   )}
                 </Box>
-                <Box className='flex items-end justify-end'>
+                <Box className='flex items-end justify-end mr-1'>
                   <Link to={`/searchHotelList/${keyword}`}>
                     <Typography
                       variant='body1'
@@ -110,7 +110,7 @@ function SearchCard({ hotels, attractions, keyword }) {
                   </Link>
                 </Box>
               </Box>
-              <Box className='flex-auto px-4 tour-container'>
+              <Box className='flex-auto px-1 tour-container'>
                 <Typography
                   className='my-5 text-gray-900'
                   style={{
@@ -124,7 +124,7 @@ function SearchCard({ hotels, attractions, keyword }) {
                   여행지
                 </Typography>
 
-                <Box className='grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 xl:grid-cols-3'>
+                <Box className='grid w-full max-w-6xl mr-1 sm:grid-cols-1 sm:gap-x-3 md:grid-cols-2 xl:grid-cols-3'>
                   {attractions.length ? (
                     attractions.map((attraction) => (
                       <TourItem
@@ -147,7 +147,7 @@ function SearchCard({ hotels, attractions, keyword }) {
                     </Typography>
                   )}
                 </Box>
-                <Box className='flex items-end justify-end'>
+                <Box className='flex items-end justify-end mr-1'>
                   <Link to={`/searchTourList/${keyword}`}>
                     <Typography
                       variant='body1'

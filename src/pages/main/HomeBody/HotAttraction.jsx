@@ -22,24 +22,28 @@ function HotAttraction() {
   }
 
   return (
-    <Box className="recommend-modules p-8 rounded-3xl overflow-hidden bg-blue-50 mb-8">
-      <Typography
-        sx={{
-          fontSize: '28px',
-          fontWeight: 'bold',
-          color: '#0f294d',
-          lineHeight: '34px',
-          textAlign: 'left',
-        }}
-      >
-        추천 여행지
-      </Typography>
-      <Box className="recommend-module-things">
-        <HotTab selectedLocale={handleLocaleChange} subject={subject} />
-        <HotAttractionList
-          selectedLocale={selectedLocale}
-          data={attractionData}
-        />
+    <Box className='bg-[url("src/assets/img/Sky.jpeg")] bg-cover rounded-3xl mb-8'>
+      <Box className='bg-white bg-opacity-60 rounded-3xl'>
+        <Box className='p-8 overflow-hidden bg-opacity-60 recommend-modules rounded-3xl bg-blue-50'>
+          <Typography
+            sx={{
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: '#0f294d',
+              lineHeight: '34px',
+              textAlign: 'left',
+            }}
+          >
+            추천 여행지
+          </Typography>
+          <Box className='recommend-module-things'>
+            <HotTab selectedLocale={handleLocaleChange} subject={subject} />
+            <HotAttractionList
+              selectedLocale={selectedLocale}
+              data={attractionData}
+            />
+          </Box>
+        </Box>
       </Box>
     </Box>
   )

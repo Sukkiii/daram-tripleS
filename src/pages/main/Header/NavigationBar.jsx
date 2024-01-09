@@ -8,14 +8,14 @@ function NavigationBar() {
   const location = useLocation()
 
   return (
-    <ul className="main-hd-nav flex whitespace-nowrap h-full flex-row">
+    <ul className='flex flex-row h-full main-hd-nav whitespace-nowrap'>
       {navCategories.map((category) => (
         <li
           key={category.categoryCode}
-          className="main-hd-nav-item flex items-center float-none relative pr-6"
+          className='relative flex items-center float-none pr-6 main-hd-nav-item'
         >
           <Link
-            underline="none"
+            underline='none'
             sx={{
               display: 'flex',
               flexDirection: 'column',
@@ -26,18 +26,18 @@ function NavigationBar() {
               fontSize: '1rem',
               textDecoration: 'none',
             }}
-            href={`/${category.categoryName}`}
-            title="{category.title}"
+            href={`/${category.categoryName[0]}`}
+            title='{category.title}'
           >
             {category.title}
-            {location.pathname.includes(`/${category.categoryName}`) && (
-              <Box className="w-full h-0.5 bg-white bottom-0" />
-            )}
+            {category.categoryName.some((name) =>
+              location.pathname.includes(`/${name}`),
+            ) && <Box className='w-full h-0.5 bg-white bottom-0' />}
           </Link>
           {category.newCategory === 'true' && (
             <Typography
               style={{ fontSize: '0.75rem ' }}
-              className="new-category-add inline-block bg-red-500 text-white py-0.5 px-1 ml-2 relative rounded-sm h-5"
+              className='new-category-add inline-block bg-red-500 text-white py-0.5 px-1 ml-2 relative rounded-sm h-5'
             >
               신규
             </Typography>

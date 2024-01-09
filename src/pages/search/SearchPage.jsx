@@ -54,8 +54,14 @@ function SearchPage() {
   return (
     <Box>
       <CommonHeader />
-      <SearchCard hotels={hotels} attractions={attractions} keyword={keyword} />
-      <Footer container="true" />
+      <Box className='w-[1220px] mx-auto'>
+        <SearchCard
+          hotels={hotels}
+          attractions={attractions}
+          keyword={keyword}
+        />
+      </Box>
+      <Footer container='true' />
     </Box>
   )
 }

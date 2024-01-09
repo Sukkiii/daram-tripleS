@@ -67,7 +67,7 @@ function AuthSignUp() {
   }
 
   return (
-    <Box className='flex flex-col w-4/5 m-auto p-6 rounded h-fit gap-2'>
+    <Box className='flex flex-col w-4/5 gap-2 p-6 m-auto rounded h-fit'>
       <Typography
         display='flex'
         alignItems='flex-start'
@@ -81,7 +81,7 @@ function AuthSignUp() {
         간편하게 예약을 관리하고 회원 전용 혜택도 누려보세요
       </Typography>
       <Box
-        className='mt-6 w-full flex flex-col gap-2'
+        className='flex flex-col w-full gap-2 mt-6'
         component='form'
         noValidate
         autoComplete='off'
@@ -97,7 +97,7 @@ function AuthSignUp() {
           onChange={handleEmailChange}
         />
         {!isValidEmail && email.length > 0 && (
-          <Box className='text-red-500 text-xs'>
+          <Box className='text-xs text-red-500'>
             유효하지 않은 이메일 형식입니다. <br /> ex) triples@gamil.com과 같은
             형식으로 입력해주세요.
           </Box>
@@ -113,7 +113,7 @@ function AuthSignUp() {
           onChange={handleNameChange}
         />
         {!isValidName && name.length > 0 && (
-          <Box className='text-red-500 text-xs'>
+          <Box className='text-xs text-red-500'>
             이름은 2글자 이상이어야 합니다.
           </Box>
         )}
@@ -128,7 +128,7 @@ function AuthSignUp() {
           onChange={handlePasswordChange}
         />
         {!isValidPassword && password.length > 0 && (
-          <Box className='text-red-500 text-xs'>
+          <Box className='text-xs text-red-500'>
             비밀번호는 6자 이상이어야 하며, 대문자, 소문자, 숫자, 특수 문자를
             모두 포함해야 합니다.
           </Box>
@@ -144,7 +144,7 @@ function AuthSignUp() {
           onChange={handleConfirmPasswordChange}
         />
         {!isValidConfirmPassword && confirmPassword.length > 0 && (
-          <Box className='text-red-500 text-xs'>
+          <Box className='text-xs text-red-500'>
             비밀번호가 일치하지 않습니다.
           </Box>
         )}
@@ -164,7 +164,7 @@ function AuthSignUp() {
           onClick={handleSubmit}
           variant='contained'
           className='w-full h-12'
-          sx={{ backgroundColor: 'rgba(0, 0, 255, 0.5)' }}
+          // sx={{ backgroundColor: 'rgba(0, 0, 255, 0.5)' }}
         >
           회원가입
         </Button>

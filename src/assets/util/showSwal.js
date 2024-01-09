@@ -5,6 +5,8 @@ function showSwal(title, icon) {
     title,
     icon,
     confirmButtonText: '확인',
+    confirmButtonColor: '#3264ff',
+    cancelButtonColor: '#e2e8f0',
   })
 }
 

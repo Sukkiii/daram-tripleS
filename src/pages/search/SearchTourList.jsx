@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
+import { FiChevronRight } from 'react-icons/fi'
 import { Box, Typography } from '@mui/material'
 import fetchSearchTour from '../../fetch/fetchSearchTour'
 import useIntersect from '../../components/search/useIntersect'
@@ -55,26 +56,74 @@ function SearchTourList() {
   return (
     <Box>
       <CommonHeader />
-      <Box
-        className="flex justify-center w-full mt-3"
-        style={{ width: '100%' }}
-      >
-        <Box className="max-w-[calc(100vw - 64px)] flex w-[1350px] overflow-x-auto sm:flex-col md:flex-col lg:flex-row">
+      <Box className='flex flex-col items-start gap-3 mt-5 w-[1220px] h-[1000px] mx-auto'>
+        <Typography
+          className='text-gray-900'
+          style={{
+            display: 'inline',
+            marginLeft: '1rem',
+          }}
+          variant='body2'
+          component='span'
+        >
+          홈
+          <FiChevronRight className='inline w-10' />
+          검색
+        </Typography>
+        <Box className='ml-2 text-gray-900'>
+          <Typography
+            style={{
+              display: 'inline',
+              fontWeight: 600,
+              fontSize: '1.7rem',
+            }}
+            variant='body1'
+            component='span'
+          >
+            검색결과
+          </Typography>
+          <Typography
+            className='text-orange-600'
+            style={{
+              display: 'inline',
+              fontWeight: 600,
+              fontSize: '1.7rem',
+              marginLeft: '1rem',
+            }}
+            variant='body1'
+            component='span'
+          >
+            {keyword}
+          </Typography>
+          <Typography
+            style={{
+              display: 'inline',
+              fontWeight: 600,
+              fontSize: '1.7rem',
+              marginLeft: '1rem',
+            }}
+            variant='body1'
+            component='span'
+          >
+            : {attractions.length}개
+          </Typography>
+        </Box>
+        <Box className='max-w-[calc(100vw - 64px)] flex w-[1220px] overflow-x-auto sm:flex-col md:flex-col lg:flex-row'>
           <SideBar keyword={keyword} />
-          <Box className="flex-auto px-4 tour-container">
+          <Box className='flex-auto px-1 tour-container'>
             <Typography
-              className="my-5 text-gray-900"
+              className='my-5 text-gray-900'
               style={{
                 display: 'inline',
                 fontWeight: 600,
                 fontSize: '1.5rem',
               }}
-              variant="body1"
-              component="span"
+              variant='body1'
+              component='span'
             >
               여행지
             </Typography>
-            <Box className="grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6 md:grid-cols-2 lg:grid-cols-3">
+            <Box className='grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-3 md:grid-cols-2 lg:grid-cols-3'>
               {attractions.length ? (
                 attractions.map((attraction) => (
                   <TourItem
@@ -84,14 +133,14 @@ function SearchTourList() {
                 ))
               ) : (
                 <Typography
-                  className="text-gray-900"
+                  className='text-gray-900'
                   style={{
                     display: 'inline',
                     fontWeight: 600,
                     fontSize: '1.5rem',
                   }}
-                  variant="body1"
-                  component="span"
+                  variant='body1'
+                  component='span'
                 >
                   여행지 정보가 없습니다
                 </Typography>
@@ -105,7 +154,7 @@ function SearchTourList() {
           </Box>
         </Box>
       </Box>
-      <Footer container="true" />
+      <Footer container='true' />
     </Box>
   )
 }
