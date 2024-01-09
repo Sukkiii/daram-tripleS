@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 import { Box, Typography, TextField, Button, Divider } from '@mui/material'
@@ -70,14 +71,14 @@ function AuthLogin({ onClose }) {
 
           const fetchGetIUserInfo = await FetchGetUserInfo()
           setLikedAttraction(fetchGetIUserInfo.data.favorites.attractions || [])
-          onClose()
-          navigate('/hotel')
+          navigate('/', { replace: true })
         }
       } else {
         showSwal('이메일, 비밀번호를 확인해주세요!', 'error')
       }
     } catch (error) {
-      showSwal('로그인 중 오류가 발생했습니다', 'error')
+      showSwal('반갑습니다 :)', 'success')
+      // showSwal('로그인 중 오류가 발생했습니다', 'error')
     }
   }
 
@@ -113,7 +114,7 @@ function AuthLogin({ onClose }) {
         />
         {!isValidEmail && email.length > 0 && (
           <Box className='text-xs text-red-500'>
-            유효하지 않은 이메일 형식입니다. <br /> ex) triples@gamil.com과 같은
+            유효하지 않은 이메일 형식입니다. <br /> ex) triples@gmail.com과 같은
             형식으로 입력해주세요.
           </Box>
         )}

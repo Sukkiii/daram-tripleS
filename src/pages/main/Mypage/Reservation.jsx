@@ -34,7 +34,7 @@ function Reservation() {
 
   return (
     <Box>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant='h5' gutterBottom>
         예약정보
       </Typography>
 
@@ -65,7 +65,7 @@ function Reservation() {
 
       {showButton && (
         <Button
-          className="bg-blue-600 text-white my-[1rem] rounded-md p-2 w-1/5"
+          className='bg-blue-600 text-white my-[1rem] rounded-md p-2 w-full'
           onClick={handleReservationList}
         >
           예약확인

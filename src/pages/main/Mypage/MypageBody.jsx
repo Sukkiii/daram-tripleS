@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 import { Tabs, Tab, Typography, Box } from '@mui/material'
 import MemberInfo from './MemberInfo'
@@ -9,7 +10,7 @@ function TabPanel(props) {
 
   return (
     <Box
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
@@ -46,28 +47,35 @@ function MypageBody() {
   }
 
   return (
-    <Box className="flex">
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider' }}
-      >
-        <Tab label="내 정보" {...a11yProps(0)} />
-        <Tab label="예약확인" {...a11yProps(1)} />
-        <Tab label="찜한여행지" {...a11yProps(2)} />
-      </Tabs>
-      <TabPanel value={value} index={0}>
-        <MemberInfo />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Reservation />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <LikedAttractions />
-      </TabPanel>
+    <Box className='w-[1220px] h-[1000px] mx-auto'>
+      <Box className='flex flex-col'>
+        <Box className='flex my-5'>
+          <Typography variant='h5'>마이페이지</Typography>
+        </Box>
+        <Box className='flex'>
+          <Tabs
+            orientation='vertical'
+            variant='scrollable'
+            value={value}
+            onChange={handleChange}
+            aria-label='Vertical tabs example'
+            sx={{ borderRight: 1, borderColor: 'divider' }}
+          >
+            <Tab label='내 정보' {...a11yProps(0)} />
+            <Tab label='예약확인' {...a11yProps(1)} />
+            <Tab label='찜한여행지' {...a11yProps(2)} />
+          </Tabs>
+          <TabPanel value={value} index={0}>
+            <MemberInfo />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <Reservation />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <LikedAttractions />
+          </TabPanel>
+        </Box>
+      </Box>
     </Box>
   )
 }

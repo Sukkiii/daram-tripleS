@@ -60,7 +60,7 @@ function AuthSignUp() {
       await FetchSignUp(email, name, password, address, false)
 
       showSwal('환영합니다! 로그인을 해주세요!', 'success')
-      navigate('/hotel')
+      navigate('/')
     } catch (error) {
       showSwal('회원가입 중 오류가 발생했습니다', 'error')
     }
@@ -98,7 +98,7 @@ function AuthSignUp() {
         />
         {!isValidEmail && email.length > 0 && (
           <Box className='text-xs text-red-500'>
-            유효하지 않은 이메일 형식입니다. <br /> ex) triples@gamil.com과 같은
+            유효하지 않은 이메일 형식입니다. <br /> ex) triples@gmail.com과 같은
             형식으로 입력해주세요.
           </Box>
         )}
