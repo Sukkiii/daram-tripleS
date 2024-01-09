@@ -10,13 +10,13 @@ function MainHeader() {
   return (
     <Box
       sx={{ backgroundPositionY: '-15rem' }}
-      className="main-hd-container relative bg-cover bg-custom-bg pb-20"
+      className='relative pb-20 bg-cover main-hd-container bg-custom-bg'
     >
-      <Box className="main-hd-flex-icon px-8 clear-both flow-root">
+      <Box className='flow-root clear-both px-8 main-hd-flex-icon'>
         <HeaderLogo />
         <HeaderSearchBox />
         <FunctionOptions />
-        <Box className="main-hd-navbar-row w-full flex items-center overflow-visible float-left">
+        <Box className='flex items-center float-left w-full overflow-visible main-hd-navbar-row'>
           <NavigationBar />
         </Box>
       </Box>

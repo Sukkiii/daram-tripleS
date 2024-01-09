@@ -3,9 +3,9 @@ import { Link } from '@mui/material'
 
 function HeaderLogo() {
   return (
-    <Box className="main-hd-logo-icon p-4 float-left">
+    <Box className='float-left p-4 main-hd-logo-icon'>
       <Link
-        underline="none"
+        underline='none'
         sx={{
           display: 'contents',
           color: 'white',
@@ -14,7 +14,7 @@ function HeaderLogo() {
           fontSize: '1.5rem',
           fontWeight: 'bold',
         }}
-        href="/"
+        href='/'
       >
         TripleS
       </Link>

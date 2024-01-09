@@ -34,8 +34,8 @@ function Hotel() {
     navigateTo(url)
   }
   return (
-    <Box className="flex w-full">
-      <Box className="w-full h-fit">
+    <Box className='flex w-full'>
+      <Box className='w-full h-fit'>
         <Travel
           filterLocationId={(locationId) =>
             setSearchData((_) => ({ ..._, locationId }))
@@ -43,7 +43,7 @@ function Hotel() {
         />
       </Box>
 
-      <Box className="w-full h-fit">
+      <Box className='w-full h-fit'>
         <CheckInOut
           filterCheckInOutDate={(type, date) =>
             setSearchData((_) => ({ ..._, [type]: date }))
@@ -51,7 +51,7 @@ function Hotel() {
         />
       </Box>
 
-      <Box className="flex w-full m-auto mx-2 border rounded h-14 mt-9">
+      <Box className='flex w-full m-auto mx-2 border rounded h-14 mt-9'>
         <RoomCount
           filterGuestChange={(type, value) =>
             setSearchData((_) => ({ ..._, [type]: value }))
@@ -59,9 +59,9 @@ function Hotel() {
         />
       </Box>
 
-      <Box className="flex items-center justify-center m-auto mt-9">
-        <Button variant="contained" className="h-14" onClick={handleSearch}>
-          <IoSearch className="text-xl" />
+      <Box className='flex items-center justify-center m-auto mt-9'>
+        <Button variant='contained' className='h-14' onClick={handleSearch}>
+          <IoSearch className='text-xl' />
         </Button>
       </Box>
     </Box>

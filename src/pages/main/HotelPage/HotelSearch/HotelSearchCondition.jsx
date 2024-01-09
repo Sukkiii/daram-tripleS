@@ -46,8 +46,8 @@ function HotelSearchCondition() {
   }
 
   return (
-    <Box className='w-2/5 bg-slate-50 rounded-md shadow-md overflow-hidden flex flex-col p-4 h-fit'>
-      <Box className='price-slider m-2 p-2 flex flex-col border-b-2'>
+    <Box className='flex flex-col w-2/5 p-4 overflow-hidden rounded-md shadow-md bg-slate-50 h-fit'>
+      <Box className='flex flex-col p-2 m-2 border-b-2 price-slider'>
         <Typography variant='h6'>가격</Typography>
         <Typography variant='subtitle1' className='text-gray-500'>
           1박 기준 요금
@@ -76,7 +76,7 @@ function HotelSearchCondition() {
           <Typography>300,000원+</Typography>
         </Box>
       </Box>
-      <Box className='review-price-sorting m-2 p-2 border-b-2 flex flex-col'>
+      <Box className='flex flex-col p-2 m-2 border-b-2 review-price-sorting'>
         <Typography variant='h6'>정렬</Typography>
         <FormControl>
           <RadioGroup value={defaultSortValue(sortOption)}>
@@ -101,7 +101,7 @@ function HotelSearchCondition() {
           </RadioGroup>
         </FormControl>
       </Box>
-      <Box className='averageRating-click-floor m-2 p-2'>
+      <Box className='p-2 m-2 averageRating-click-floor'>
         <Typography variant='h6'>투숙객 평점</Typography>
         <FormControl>
           <RadioGroup defaultValue='all'>

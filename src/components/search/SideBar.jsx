@@ -42,12 +42,12 @@ function SideBar({ keyword }) {
   }, [path])
 
   return (
-    <Box className="min-w-[250px] relative flex gap-1 overflow-x-auto p-2 font-sans text-base font-normal text-gray-700 sm:flex-row md:flex-row lg:flex-col">
+    <Box className='min-w-[250px] relative flex gap-1 overflow-x-auto p-2 font-sans text-base font-normal text-gray-700 sm:flex-row md:flex-row lg:flex-col'>
       <Link to={`/searchList/${keyword}`}>
         <Button tabIndex={-1} className={btnClasses.all}>
           <Typography
-            variant="body1"
-            className="w-[200px] leading-5"
+            variant='body1'
+            className='w-[200px] leading-5'
             style={{ fontSize: '1.05rem' }}
           >
             전체
@@ -57,8 +57,8 @@ function SideBar({ keyword }) {
       <Link to={`/searchHotelList/${keyword}`}>
         <Button tabIndex={-1} className={btnClasses.hotel}>
           <Typography
-            variant="body1"
-            className="w-[200px] leading-5"
+            variant='body1'
+            className='w-[200px] leading-5'
             style={{ fontSize: '1.05rem' }}
           >
             호텔
@@ -68,8 +68,8 @@ function SideBar({ keyword }) {
       <Link to={`/searchTourList/${keyword}`}>
         <Button tabIndex={-1} className={btnClasses.tour}>
           <Typography
-            variant="body1"
-            className="w-[200px] leading-5"
+            variant='body1'
+            className='w-[200px] leading-5'
             style={{ fontSize: '1.05rem' }}
           >
             여행지

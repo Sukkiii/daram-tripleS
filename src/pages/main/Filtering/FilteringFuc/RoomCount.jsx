@@ -40,7 +40,7 @@ function MyHeader({ filterGuestChange }) {
 
   return (
     <>
-      <Button className="flex w-full m-auto" onClick={handleButtonClick}>
+      <Button className='flex w-full m-auto' onClick={handleButtonClick}>
         {`객실 ${quantityRoom}개, 성인 ${quantityAdult}명, 어린이 ${quantityChild}명`}
       </Button>
       <Popover
@@ -64,7 +64,7 @@ function MyHeader({ filterGuestChange }) {
               />
             </ListItem>
             <ListItem>
-              <ListItemText primary="객실" />
+              <ListItemText primary='객실' />
               <Button onClick={() => decreaseQuantity(setQuantityRoom)}>
                 -
               </Button>
@@ -74,7 +74,7 @@ function MyHeader({ filterGuestChange }) {
               </Button>
             </ListItem>
             <ListItem>
-              <ListItemText primary="성인" />
+              <ListItemText primary='성인' />
               <Button onClick={() => decreaseQuantity(setQuantityAdult)}>
                 -
               </Button>
@@ -84,7 +84,7 @@ function MyHeader({ filterGuestChange }) {
               </Button>
             </ListItem>
             <ListItem>
-              <ListItemText primary="어린이" />
+              <ListItemText primary='어린이' />
               <Button onClick={() => decreaseQuantity(setQuantityChild)}>
                 -
               </Button>
@@ -94,11 +94,11 @@ function MyHeader({ filterGuestChange }) {
               </Button>
             </ListItem>
           </List>
-          <Box className="flex justify-end mt-2">
+          <Box className='flex justify-end mt-2'>
             <Button
               onClick={handleClose}
-              variant="contained"
-              className="px-4 py-2 text-base text-white transition duration-300 ease-in-out bg-blue-600 rounded-md hover:bg-opacity-80"
+              variant='contained'
+              className='px-4 py-2 text-base text-white transition duration-300 ease-in-out bg-blue-600 rounded-md hover:bg-opacity-80'
             >
               확인
             </Button>

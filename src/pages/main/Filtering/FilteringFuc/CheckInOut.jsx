@@ -37,30 +37,30 @@ export default function CheckInOut({ filterCheckInOutDate }) {
           'StaticDatePicker',
         ]}
       >
-        <Box className="flex">
-          <Box className="w-2/6">
-            <DemoItem label="체크인">
+        <Box className='flex'>
+          <Box className='w-2/6'>
+            <DemoItem label='체크인'>
               <DatePicker
                 value={checkInDate}
                 onChange={(date) => setCheckInDate(date)}
-                className="w-32 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                className='w-32 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
               />
             </DemoItem>
           </Box>
 
-          <Box className="flex mx-4 mt-10 whitespace-nowrap">
-            <Typography className="text-xs">
+          <Box className='flex mx-4 mt-10 whitespace-nowrap'>
+            <Typography className='text-xs'>
               {nightCount} 박 {nightCount + 1} 일
             </Typography>
           </Box>
 
           <Box>
-            <DemoItem label="체크아웃">
+            <DemoItem label='체크아웃'>
               <DatePicker
                 value={checkOutDate}
                 onChange={(date) => setCheckOutDate(date)}
                 minDate={dayjs(checkInDate).add(1, 'day')}
-                className="w-32 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                className='w-32 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
               />
             </DemoItem>
           </Box>

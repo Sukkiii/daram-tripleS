@@ -42,18 +42,18 @@ export default function RenderGroup({ filterLocationId }) {
           filterLocationId(value.locationId)
         }
       }}
-      className="mt-3 mr-10"
-      id="grouped-demo"
+      className='mt-3 mr-10'
+      id='grouped-demo'
       options={locationList}
       groupBy={(option) => option.country}
       getOptionLabel={(option) => option.city}
       renderInput={(params) => (
         <FormControl>
-          <InputLabel htmlFor="travel-search">여행지</InputLabel>
+          <InputLabel htmlFor='travel-search'>여행지</InputLabel>
           <TextField
             {...params}
-            id="travel-search"
-            placeholder="도시, 공항, 지역, 랜드마크, 호텔 이름으로 검색"
+            id='travel-search'
+            placeholder='도시, 공항, 지역, 랜드마크, 호텔 이름으로 검색'
           />
         </FormControl>
       )}

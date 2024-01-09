@@ -13,8 +13,8 @@ function HotTab({ selectedLocale, subject }) {
     selectedLocale(locale)
   }
   return (
-    <Box className="recommend-tap-container mt-4">
-      <Stack spacing={2} direction="row">
+    <Box className='mt-4 recommend-tap-container'>
+      <Stack spacing={2} direction='row'>
         {HotLocales[subject].map((locale) => (
           <Button
             key={locale}

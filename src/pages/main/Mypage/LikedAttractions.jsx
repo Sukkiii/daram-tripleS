@@ -33,10 +33,10 @@ export default function LikedAttractions() {
 
   return (
     <Box
-      className="flex flex-col justify-center w-full"
+      className='flex flex-col justify-center w-full'
       style={{ width: '100%' }}
     >
-      <Box className="ml-2">
+      <Box className='ml-2'>
         <FormControlLabel
           control={
             <Checkbox
@@ -51,30 +51,30 @@ export default function LikedAttractions() {
           }
           label={
             <Typography
-              variant="body2"
-              component="span"
-              className="text-gray-900"
+              variant='body2'
+              component='span'
+              className='text-gray-900'
               style={{ fontWeight: 600 }}
             >
               전체선택
             </Typography>
           }
         />
-        <TbMinusVertical className="text-gray-400 my-5 -ml-2 inline text-[1.5rem]" />
+        <TbMinusVertical className='text-gray-400 my-5 -ml-2 inline text-[1.5rem]' />
         <Typography
           onClick={() => handelDelete()}
-          className="text-gray-900 my-5"
-          variant="body2"
-          component="span"
+          className='my-5 text-gray-900'
+          variant='body2'
+          component='span'
           style={{ fontWeight: 600 }}
         >
           선택삭제
         </Typography>
       </Box>
-      <Box className="grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6">
+      <Box className='grid w-full max-w-6xl sm:grid-cols-1 sm:gap-x-6'>
         {attractions.length ? (
           attractions.map((attraction) => (
-            <Box key={attraction.attractionId} className="felx">
+            <Box key={attraction.attractionId} className='felx'>
               <Checkbox
                 checked={!!checkItems.includes(attraction)}
                 onChange={(e) =>
@@ -88,25 +88,25 @@ export default function LikedAttractions() {
                   marginLeft: '1rem',
                 }}
               />
-              <Box className="w-full">
+              <Box className='w-full'>
                 <TourItem
                   key={attraction.attractionId}
                   attraction={attraction}
-                  likedPage="true"
+                  likedPage='true'
                 />
               </Box>
             </Box>
           ))
         ) : (
           <Typography
-            className="text-gray-900"
+            className='text-gray-900'
             style={{
               display: 'inline',
               fontWeight: 600,
               fontSize: '1.5rem',
             }}
-            variant="body1"
-            component="span"
+            variant='body1'
+            component='span'
           >
             여행지 정보가 없습니다
           </Typography>

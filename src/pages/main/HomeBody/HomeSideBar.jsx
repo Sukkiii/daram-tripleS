@@ -14,7 +14,7 @@ function HomeSideBar() {
     window.scrollTo({ top: documentH - windowH, behavior: 'smooth' })
   }
   return (
-    <Box className='flex flex-col fixed right-12 z-50 bottom-24 gap-2'>
+    <Box className='fixed z-50 flex flex-col gap-2 right-12 bottom-24'>
       <Button
         variant='contained'
         style={{ height: '60px', backgroundColor: '#3264ff' }}

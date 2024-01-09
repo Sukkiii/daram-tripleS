@@ -29,17 +29,14 @@ function getAccessToken() {
 
 const accessTokenValue = getAccessToken()
 
-export const getLodgingData = (lodgingId) => {
-  return axios
+export const getLodgingData = (lodgingId) =>
+  axios
     .get(`http://15.165.25.34:3000/api/lodgings/${lodgingId}`)
-    .then((response) => {
-      return response.data
-    })
+    .then((response) => response.data)
     .catch((error) => {
       console.error('호텔 상세 데이터를 불러오는 중 오류 발생:', error)
       throw new Error('호텔 상세 데이터를 불러오는 과정에서 에러 발생')
     })
-}
 
 export const makeReservation = async (reservationData) => {
   try {

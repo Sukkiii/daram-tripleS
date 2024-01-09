@@ -7,55 +7,55 @@ import { IoMdPerson } from 'react-icons/io'
 function AirlineTicket() {
   return (
     <>
-      <Box className="flex mb-5 text-blue-900">
-        <Box className="flex w-full">
-          <Box className="flex items-center mr-5 text-sm">
+      <Box className='flex mb-5 text-blue-900'>
+        <Box className='flex w-full'>
+          <Box className='flex items-center mr-5 text-sm'>
             <PiAirplaneTiltFill />
             왕복
           </Box>
-          <Box className="flex items-center mr-5 text-sm">
+          <Box className='flex items-center mr-5 text-sm'>
             <IoMdPerson />
             성인 1명
           </Box>
-          <Box className="flex items-center mr-5 text-sm">
+          <Box className='flex items-center mr-5 text-sm'>
             <MdAirlineSeatReclineNormal />
             일반석
           </Box>
         </Box>
-        <Box className="flex items-center w-2/5 mr-5 text-sm">
-          <Checkbox type="checkBox" />
-          <Typography className="ml-2">항공 + 호텔</Typography>
+        <Box className='flex items-center w-2/5 mr-5 text-sm'>
+          <Checkbox type='checkBox' />
+          <Typography className='ml-2'>항공 + 호텔</Typography>
         </Box>
       </Box>
 
-      <Box className="flex">
-        <Box className="w-3/12">
-          <TextField className="w-full" placeholder="출발지" />
+      <Box className='flex'>
+        <Box className='w-3/12'>
+          <TextField className='w-full' placeholder='출발지' />
         </Box>
 
-        <Box className="flex items-center mx-2">
-          <IoAirplane className="p-1 text-2xl text-blue-600 border-2 border-blue-600 rounded-full" />
+        <Box className='flex items-center mx-2'>
+          <IoAirplane className='p-1 text-2xl text-blue-600 border-2 border-blue-600 rounded-full' />
         </Box>
 
-        <Box className="w-3/12">
-          <TextField placeholder="도착지" />
+        <Box className='w-3/12'>
+          <TextField placeholder='도착지' />
         </Box>
 
-        <Box className="w-3/12 mx-3">
-          <TextField type="date" className="w-full ml-4" />
+        <Box className='w-3/12 mx-3'>
+          <TextField type='date' className='w-full ml-4' />
         </Box>
 
-        <Box className="flex items-center">
+        <Box className='flex items-center'>
           <IoRemoveOutline />
         </Box>
 
-        <Box className="w-3/12 ml-2">
-          <TextField type="date" className="w-full ml-2" />
+        <Box className='w-3/12 ml-2'>
+          <TextField type='date' className='w-full ml-2' />
         </Box>
 
-        <Box className="flex items-center w-3/12 ml-2">
-          <Button variant="contained" className="w-auto h-14">
-            <IoSearch className="text-2xl" />
+        <Box className='flex items-center w-3/12 ml-2'>
+          <Button variant='contained' className='w-auto h-14'>
+            <IoSearch className='text-2xl' />
           </Button>
         </Box>
       </Box>

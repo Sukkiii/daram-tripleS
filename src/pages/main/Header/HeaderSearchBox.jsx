@@ -47,21 +47,21 @@ function HeaderSearchBox() {
   }
 
   return (
-    <Box className="main-hd-search-con w-96 max-w-xs relative float-left top-4 ml-2 pr-8 bg-white rounded-md flex">
+    <Box className='relative flex float-left max-w-xs pr-8 ml-2 bg-white rounded-md main-hd-search-con w-96 top-4'>
       <ClickAwayListener onClickAway={handleClickAway}>
-        <Box className="tripSearchBox-content pr-8 flex rounded-md w-full ml-1">
+        <Box className='flex w-full pr-8 ml-1 rounded-md tripSearchBox-content'>
           <Input
             onClick={handleClick}
-            className="tripSearchBox-input px-2 pt-1 w-full ml-0.5"
-            placeholder="여행지, 명소, 호텔 등으로 검색"
+            className='tripSearchBox-input px-2 pt-1 w-full ml-0.5'
+            placeholder='여행지, 명소, 호텔 등으로 검색'
             value={keyword}
             onChange={handleInputChange}
             onKeyPress={handleEnterPress}
           />
           {open && (
-            <Box className="tripSearchBox-layer w-80 absolute top-8 mt-1 z-10 bg-white border border-solid border-slate-300">
+            <Box className='absolute z-10 mt-1 bg-white border border-solid tripSearchBox-layer w-80 top-8 border-slate-300'>
               <Box>
-                <Typography className="block bg-slate-200 text-slate-400 px-4 py-2">
+                <Typography className='block px-4 py-2 bg-slate-200 text-slate-400'>
                   인기 여행지
                 </Typography>
               </Box>
@@ -69,7 +69,7 @@ function HeaderSearchBox() {
                 {hotTripLocation.map((location) => (
                   <ListItemButton
                     key={location.id}
-                    className="gap-3"
+                    className='gap-3'
                     onClick={() => handleSearch(location.locale)}
                   >
                     <LocationOnIcon />
@@ -87,11 +87,11 @@ function HeaderSearchBox() {
             </Box>
           )}
           <Box
-            className="tripSearchBox-btn top-0 w-8 absolute right-0 cursor-pointer p-0.5 rounded-sm overflow-hidden box-border m-0 h-full"
+            className='tripSearchBox-btn top-0 w-8 absolute right-0 cursor-pointer p-0.5 rounded-sm overflow-hidden box-border m-0 h-full'
             onClick={handleSearchButton}
           >
-            <Box className="tripSearchBox-icon-wrapper bg-blue-600 rounded box-border m-0 p-0 h-full flex justify-center content-center flex-wrap">
-              <SearchIcon className="text-white" />
+            <Box className='box-border flex flex-wrap content-center justify-center h-full p-0 m-0 bg-blue-600 rounded tripSearchBox-icon-wrapper'>
+              <SearchIcon className='text-white' />
             </Box>
           </Box>
         </Box>

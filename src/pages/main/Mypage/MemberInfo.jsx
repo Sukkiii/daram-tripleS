@@ -53,33 +53,33 @@ export default function MemberInfo() {
   }
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h5" gutterBottom>
+    <Container maxWidth='sm'>
+      <Typography variant='h5' gutterBottom>
         My 계정
       </Typography>
-      <Box className="mt-[2rem]">
-        <InputLabel htmlFor="name">이름</InputLabel>
+      <Box className='mt-[2rem]'>
+        <InputLabel htmlFor='name'>이름</InputLabel>
         <TextField
           fullWidth
-          id="name"
-          variant="outlined"
-          margin="normal"
+          id='name'
+          variant='outlined'
+          margin='normal'
           value={userInfo.name}
           onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
         />
-        <InputLabel htmlFor="email">이메일</InputLabel>
+        <InputLabel htmlFor='email'>이메일</InputLabel>
         <TextField
           fullWidth
-          id="email"
-          variant="outlined"
-          margin="normal"
+          id='email'
+          variant='outlined'
+          margin='normal'
           value={userInfo.email}
           onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
         />
       </Box>
       <Button
         onClick={handleUpdateUserInfo}
-        className="bg-blue-600 text-white mt-[2rem] rounded-md p-2 w-full"
+        className='bg-blue-600 text-white mt-[2rem] rounded-md p-2 w-full'
       >
         수정
       </Button>

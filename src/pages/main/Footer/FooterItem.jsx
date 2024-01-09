@@ -14,7 +14,7 @@ function ItemFooter({ Links, title }) {
               textDecoration: 'none',
               fontSize: '0.875rem',
             }}
-            className="cursor-pointer"
+            className='cursor-pointer'
             href={link.link}
             onMouseOver={(e) => {
               e.currentTarget.style.color = '#2563eb'
@@ -27,8 +27,8 @@ function ItemFooter({ Links, title }) {
           >
             {link.image && (
               <Box
-                className="border
-              rounded-md px-0.5 border-blue-900 mt-3"
+                className='border
+              rounded-md px-0.5 border-blue-900 mt-3'
               >
                 <Avatar src={link.image} alt={link.name} />
               </Box>

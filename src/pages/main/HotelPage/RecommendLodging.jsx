@@ -21,7 +21,7 @@ function RecommendLodging() {
     setSelectedLocale(locale)
   }
   return (
-    <Box className="recommend-modules py-8 overflow-hidden mb-8">
+    <Box className='py-8 mb-8 overflow-hidden recommend-modules'>
       <Typography
         sx={{
           fontSize: '28px',
@@ -33,7 +33,7 @@ function RecommendLodging() {
       >
         대한민국 국내 호텔 추천
       </Typography>
-      <Box className="recommend-module-things">
+      <Box className='recommend-module-things'>
         <RecommendTab selectedLocale={handleLocaleChange} subject={subject} />
         <RecommendLodgingList
           selectedLocale={selectedLocale}

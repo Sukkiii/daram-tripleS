@@ -5,10 +5,10 @@ import NavigationBar from './Header/NavigationBar'
 
 function CommonHeader() {
   return (
-    <Box className="main-hd-container relative bg-blue-600 py-1">
-      <Box className="main-hd-flex-icon px-8 flex">
+    <Box className='relative py-1 bg-blue-600 main-hd-container'>
+      <Box className='flex px-8 main-hd-flex-icon'>
         <HeaderLogo />
-        <Box className="flex items-center ml-4">
+        <Box className='flex items-center ml-4'>
           <NavigationBar />
         </Box>
         <FunctionOptions />

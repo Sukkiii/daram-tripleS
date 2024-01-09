@@ -56,21 +56,21 @@ function TourItem({ attraction, smallCard, likedPage }) {
               alt={`attraction ${attraction.attractionId}`}
             />
           </Box>
-          <Box className=" flex flex-col items-start justify-start gap-1 px-2 py-1.5 text-gray-500">
+          <Box className=' flex flex-col items-start justify-start gap-1 px-2 py-1.5 text-gray-500'>
             <Typography
-              variant="body1"
-              className=" text-gray-900"
+              variant='body1'
+              className='text-gray-900 '
               style={{ fontWeight: 600 }}
             >
               {attraction.name}
             </Typography>
-            <Typography variant="body1" className="-mt-1">
+            <Typography variant='body1' className='-mt-1'>
               {city}
             </Typography>
-            <Box className="-mt-1.5">
+            <Box className='-mt-1.5'>
               <Typography
-                variant="body1"
-                className=" text-blue-500"
+                variant='body1'
+                className='text-blue-500 '
                 style={
                   smallCard ? { display: 'inline' } : { display: 'inline' }
                 }
@@ -78,15 +78,15 @@ function TourItem({ attraction, smallCard, likedPage }) {
                 {attraction.avgRating}
               </Typography>
               <Typography
-                variant="body2"
-                className=" text-gray-500"
+                variant='body2'
+                className='text-gray-500 '
                 style={{ display: 'inline' }}
               >
                 /5
               </Typography>
               <Typography
-                variant="body1"
-                className="ml-2"
+                variant='body1'
+                className='ml-2'
                 style={{ marginLeft: '0.5rem', display: 'inline' }}
               >
                 {attraction.reviewCount}건의 리뷰
@@ -108,14 +108,14 @@ function TourItem({ attraction, smallCard, likedPage }) {
             onClick={() => {
               handleLikedAttraction()
             }}
-            className="w-7 h-7 mt-1 text-blue-700"
+            className='mt-1 text-blue-700 w-7 h-7'
           />
         ) : (
           <CiHeart
             onClick={() => {
               handleLikedAttraction()
             }}
-            className="w-9 h-9"
+            className='w-9 h-9'
           />
         )}
       </Button>
