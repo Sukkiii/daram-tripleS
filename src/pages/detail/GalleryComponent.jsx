@@ -11,14 +11,14 @@ function GalleryComponent({ lodgingData }) {
         {/* Main image */}
         <Box className='md:col-span-2'>
           <img
-            className='object-cover w-[560px] h-[560px] overflow-hidden rounded shadow-lg'
+            className='object-cover w-[610px] h-[610px] overflow-hidden rounded shadow-lg'
             src={`/src/assets/img/hotel/${lodgingData.lodging.mainImage}`}
             alt='Main Gallery'
           />
         </Box>
 
         {/* Other images */}
-        <Box className='grid grid-cols-2 grid-rows-2 gap-2 md:col-span-2 h-[560px]'>
+        <Box className='grid grid-cols-2 grid-rows-2 gap-2 md:col-span-2 h-[610px]'>
           {lodgingData.lodging.image.slice(0, 4).map((image) => (
             <Box key={image.id} className='overflow-hidden rounded shadow-lg'>
               <img
@@ -62,18 +62,18 @@ function GalleryComponent({ lodgingData }) {
                   </Box>
                 </Box>
                 {/* All images */}
-                <Box className='flex flex-col mx-auto max-w-[560px] gap-3'>
-                  <Box className='mainImage w-[560px] h-[560px]'>
+                <Box className='flex flex-col mx-auto max-w-[610px] gap-3'>
+                  <Box className='mainImage w-[610px] h-[610px]'>
                     <img
                       src={`/src/assets/img/hotel/${lodgingData.lodging.mainImage}`}
                       alt={`Gallery ${lodgingData.lodging.id}`}
                     />
                   </Box>
-                  <Box className='elseImage w-[560px] flex flex-col gap-3'>
+                  <Box className='elseImage w-[610px] flex flex-col gap-3'>
                     {lodgingData.lodging.image.map((image) => (
                       <img
                         key={image.id}
-                        className='object-cover h-[560px]'
+                        className='object-cover h-[610px]'
                         src={`/src/assets/img/hotel/${image}`}
                         alt={`Gallery ${image.id}`}
                       />

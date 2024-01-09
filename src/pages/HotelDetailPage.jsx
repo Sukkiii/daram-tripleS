@@ -56,7 +56,7 @@ function App() {
       {lodging ? (
         <>
           <CommonHeader />
-          <Box className='max-w-[1120px] mx-auto'>
+          <Box className='max-w-[1220px] mx-auto'>
             <LodgingHeader lodgingData={lodging} />
             <GalleryComponent lodgingData={lodging} />
             <Box className='relative flex gap-12'>

@@ -32,10 +32,8 @@ function HotelSearchList({ searchResults }) {
           underline='none'
           to={`/hotelDetail/${lodging.lodgingId}`}
         >
-          <Box
-            className='flex gap-4 p-4 overflow-hidden rounded-md shadow-md cursor-pointer hot-hotel-item bg-slate-50'
-          >
-            <Box className='overflow-hidden rounded-md w-80 h-80'>
+          <Box className='flex gap-4 p-4 overflow-hidden rounded-md shadow-md cursor-pointer hot-hotel-item bg-slate-50'>
+            <Box className='overflow-hidden rounded-md h-72 w-80'>
               <img
                 className='hot-hotel-img -w-webkit -h-webkit'
                 src={`/src/assets/img/hotel/${lodging.mainImage}`}

@@ -64,7 +64,7 @@ function HotelItem({ hotel }) {
               variant='body1'
               component='span'
             >
-              {hotel.minPrice}원
+              {hotel.minPrice.toLocaleString()}원
             </Typography>
           </Box>
         </Box>

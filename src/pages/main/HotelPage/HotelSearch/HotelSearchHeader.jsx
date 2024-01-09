@@ -6,7 +6,7 @@ import FunctionOptions from '../../Header/FunctionOptions'
 import NavigationBar from '../../Header/NavigationBar'
 import Hotel from '../../Filtering/Hotel'
 
-function HotelSearchHeader({ searchData, setSearchData, handleSearch }) {
+function HotelSearchHeader() {
   const [scrolled, setScrolled] = useState(false)
   const scrollTarget = useRef(null)
 
@@ -32,7 +32,7 @@ function HotelSearchHeader({ searchData, setSearchData, handleSearch }) {
         </Box>
         <FunctionOptions />
       </Box>
-      <Box className='flex flex-col w-[1120px] mx-auto my-2'>
+      <Box className='flex flex-col w-[1220px] mx-auto my-2'>
         <Box
           ref={scrollTarget}
           className={`p-5 py-2 bg-white z-[9999] shadow-lg ${

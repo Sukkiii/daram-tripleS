@@ -4,9 +4,9 @@
 import { Box, Button, Typography } from '@mui/material'
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded'
 
-function Review({ lodgingData }) {
-  const hotelInfo = lodgingData.lodging
-  const hotelReview = hotelInfo.review
+function TourReview({ attractions }) {
+  const attractionReview = attractions.review
+  console.log(attractionReview)
 
   const personImg = (name) => {
     const lastName = name.slice(-1)
@@ -69,25 +69,25 @@ function Review({ lodgingData }) {
   }
 
   return (
-    <Box className='container flex flex-col mx-auto mt-4 border-t-2 border-gray-300'>
+    <Box className='container flex flex-col mx-auto my-4 mb-6'>
       <Box className='flex items-center justify-center gap-2 mt-8 reviewPoint'>
         <img className='w-20' src='/src/assets/img/roseLeft.png' alt='' />
         <Typography fontSize='5rem' fontWeight='700'>
-          {hotelInfo.avgRating}
+          {attractions.avgRating}
         </Typography>
         <img className='w-20' src='/src/assets/img/roseRight.png' alt='' />
       </Box>
       <Box className='flex flex-col items-center justify-center pb-12 border-b-2 border-gray-300'>
-        <Typography fontWeight='600'>게스트 선호</Typography>
+        <Typography fontWeight='600'>관광객 선호</Typography>
         <Typography color='gray'>평점, 후기, 신뢰도 기준</Typography>
-        <Typography color='gray'>TripleS에서 가장 사랑받는 숙소</Typography>
+        <Typography color='gray'>TripleS에서 가장 사랑받는 관광명소</Typography>
       </Box>
-      <Box className='grid grid-cols-2 gap-12 p-8 reviews'>
-        {hotelReview.map((review) => (
-          <Box key={review._id} className='flex flex-col w-full gap-2'>
+      <Box className='flex flex-col w-full gap-12 p-8 reviews'>
+        {attractionReview.map((review) => (
+          <Box key={review._id} className='flex w-full gap-5'>
             <Box className='flex gap-3'>
               <img
-                className='w-20 border-2 border-blue-700 rounded-full'
+                className='w-24 border-2 border-blue-700 rounded-full'
                 src={`/src/assets/img${personImg(review._id)}`}
                 alt={`User ${review.user}`}
               />
@@ -106,11 +106,11 @@ function Review({ lodgingData }) {
                     />
                   ))}
                 </Box>
+                <Typography fontSize='0.8rem' color='darkgray'>
+                  {personDate(review._id)}
+                </Typography>
               </Box>
             </Box>
-            <Typography fontSize='0.8rem' color='darkgray'>
-              {personDate(review._id)}
-            </Typography>
             <Typography fontWeight='500'>{review.content}</Typography>
           </Box>
         ))}
@@ -122,4 +122,4 @@ function Review({ lodgingData }) {
   )
 }
 
-export default Review
+export default TourReview

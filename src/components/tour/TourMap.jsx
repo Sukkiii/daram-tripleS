@@ -26,7 +26,7 @@ export default function TourMap({ attractions, mainAttraction }) {
   }, [hoverAttractionId])
 
   return (
-    <Box className='flex w-full gap-2 p-3 border shadow-md max-h-145 shadow-gray-200'>
+    <Box className='flex w-full gap-3 p-3 border shadow-md max-h-145 shadow-gray-200'>
       <MapContainer
         style={{ width: 750, height: 650 }}
         center={[mainAttraction.map?.latitude, mainAttraction.map?.longitude]}
@@ -89,7 +89,7 @@ export default function TourMap({ attractions, mainAttraction }) {
         ))}
       </MapContainer>
 
-      <Box className='flex flex-col w-1/3 gap-3 overflow-y-auto'>
+      <Box className='flex flex-col w-[27rem] gap-3 overflow-y-auto'>
         <Typography
           className='text-gray-900'
           style={{

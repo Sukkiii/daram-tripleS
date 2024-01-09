@@ -8,6 +8,7 @@ import TourMap from '../../components/tour/TourMap'
 import TourPhoto from '../../components/tour/TourPhoto'
 import TourDetailCard from '../../components/tour/tourDetailCard'
 import TourDetailHeader from '../../components/tour/TourDetailHeader'
+import TourReview from '../../components/tour/TourReview'
 import CommonHeader from '../main/CommonHeader'
 import Footer from '../main/Footer/Footer'
 
@@ -60,6 +61,8 @@ function TourDetail() {
   if (mainAttractionRes.isLoading || attractionRes.isLoading) {
     return <Box>Loading...</Box>
   }
+  // console.log(attractions)
+  // console.log('mainAttraction', mainAttraction)
 
   return (
     <Box className='flex flex-col items-center'>
@@ -67,7 +70,7 @@ function TourDetail() {
         <CommonHeader />
       </Box>
       <Box className='container flex flex-col items-center gap-3'>
-        <Box className='w-[1120px] flex flex-col gap-4'>
+        <Box className='w-[1220px] flex flex-col gap-4'>
           <TourDetailHeader mainAttraction={mainAttraction} city={city} />
           <Box className='flex w-full gap-3'>
             <TourDetailCard
@@ -84,6 +87,7 @@ function TourDetail() {
                 attraction.attractionId !== mainAttraction.attractionId,
             )}
           />
+          <TourReview attractions={mainAttraction} />
         </Box>
       </Box>
       <Footer container='true' />
