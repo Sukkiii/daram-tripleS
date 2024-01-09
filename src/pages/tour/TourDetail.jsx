@@ -10,6 +10,7 @@ import TourDetailCard from '../../components/tour/tourDetailCard'
 import TourDetailHeader from '../../components/tour/TourDetailHeader'
 import TourReview from '../../components/tour/TourReview'
 import CommonHeader from '../main/CommonHeader'
+import HomeSideBar from '../main/HomeBody/HomeSideBar'
 import Footer from '../main/Footer/Footer'
 
 function TourDetail() {
@@ -68,6 +69,7 @@ function TourDetail() {
     <Box className='flex flex-col items-center'>
       <Box className='w-full'>
         <CommonHeader />
+        <HomeSideBar />
       </Box>
       <Box className='container flex flex-col items-center gap-3'>
         <Box className='w-[1220px] flex flex-col gap-4'>

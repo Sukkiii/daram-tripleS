@@ -79,6 +79,7 @@ function FunctionOptions() {
 
   const openModal = () => {
     setIsModalOpen(true)
+    setIsLoginForm(true)
   }
 
   const closeModal = () => {
@@ -95,14 +96,14 @@ function FunctionOptions() {
   }
 
   return (
-    <Box className='float-right flex text-white cursor-pointer items-center m-3 mr-8 absolute right-0 gap-4'>
+    <Box className='absolute right-0 flex items-center float-right gap-4 m-3 mr-8 text-white cursor-pointer'>
       <Typography>앱</Typography>
       <Typography>고객센터</Typography>
       <Box className='main-hd-a-tag'>
         <img
           src={SouthKoreaFlag}
           alt='South Korea Flag'
-          className='flag-ko-KR block w-7 bg-no-repeat'
+          className='block bg-no-repeat flag-ko-KR w-7'
         />
       </Box>
       <Typography>KRW</Typography>
@@ -110,14 +111,14 @@ function FunctionOptions() {
         예약 검색
       </Typography>
       <Typography
-        className='relative p-2 rounded-md bg-slate-50 text-black'
+        className='relative p-2 text-black rounded-md bg-slate-50'
         onClick={isLoggedIn ? handleLogout : openModal}
       >
         {isLoggedIn ? '로그아웃' : '로그인 / 회원가입'}
       </Typography>
       {isLoggedIn && (
         <Typography
-          className='relative p-2 rounded-md bg-slate-50 text-black'
+          className='relative p-2 text-black rounded-md bg-slate-50'
           onClick={handleMyPage}
         >
           마이페이지

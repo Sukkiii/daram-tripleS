@@ -10,7 +10,7 @@ function SearchCard({ hotels, attractions, keyword }) {
   return (
     <Box className='flex flex-col items-start gap-3 mt-5 h-[1000px]'>
       <Typography
-        className='text-gray-900'
+        className='text-gray-900 cursor-pointer'
         style={{
           display: 'inline',
           marginLeft: '1rem',
@@ -19,6 +19,8 @@ function SearchCard({ hotels, attractions, keyword }) {
         component='span'
       >
         홈
+        <FiChevronRight className='inline w-10' />
+        트립 가이드
         <FiChevronRight className='inline w-10' />
         검색
       </Typography>

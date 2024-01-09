@@ -11,6 +11,7 @@ import Review from './detail/Review'
 import Kakao from './detail/Kakao'
 import { getLodgingData } from '../fetch/fetchLodging'
 import CommonHeader from './main/CommonHeader'
+import HomeSideBar from './main/HomeBody/HomeSideBar'
 
 function App() {
   const [lodging, setLodging] = useState(null)
@@ -56,6 +57,7 @@ function App() {
       {lodging ? (
         <>
           <CommonHeader />
+          <HomeSideBar />
           <Box className='max-w-[1220px] mx-auto'>
             <LodgingHeader lodgingData={lodging} />
             <GalleryComponent lodgingData={lodging} />

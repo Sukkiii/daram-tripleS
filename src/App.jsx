@@ -33,24 +33,24 @@ function App() {
           <QueryClientProvider client={queryClient}>
             <Routes>
               <Route element={<Outlet />}>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/hotel" element={<HotelPage />} />
-                <Route path="/hotel/search" element={<HotelSearchPage />} />
-                <Route path="/myPage" element={<MyPage />} />
-                <Route path="/searchList/:keyword" element={<SearchPage />} />
+                <Route path='/' element={<MainPage />} />
+                <Route path='/hotel' element={<HotelPage />} />
+                <Route path='/hotel/search' element={<HotelSearchPage />} />
+                <Route path='/myPage' element={<MyPage />} />
+                <Route path='/searchList/:keyword' element={<SearchPage />} />
                 <Route
-                  path="/searchHotelList/:keyword"
+                  path='/searchHotelList/:keyword'
                   element={<SearchHotelList />}
                 />
                 <Route
-                  path="/searchTourList/:keyword"
+                  path='/searchTourList/:keyword'
                   element={<SearchTourList />}
                 />
                 <Route
-                  path="/hotelDetail/:lodgingId"
+                  path='/hotelDetail/:lodgingId'
                   element={<HotelDetailPage />}
                 />
-                <Route path="/tourDetail/:tourId" element={<TourDetail />} />
+                <Route path='/tourDetail/:tourId' element={<TourDetail />} />
               </Route>
             </Routes>
           </QueryClientProvider>

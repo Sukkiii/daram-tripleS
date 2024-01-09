@@ -6,6 +6,7 @@ import SearchCard from '../../components/search/SearchCard'
 import fetchSearchTour from '../../fetch/fetchSearchTour'
 import fetchSearchHotel from '../../fetch/fetchSearchHotel'
 import CommonHeader from '../main/CommonHeader'
+import HomeSideBar from '../main/HomeBody/HomeSideBar'
 import Footer from '../main/Footer/Footer'
 
 function SearchPage() {
@@ -54,6 +55,7 @@ function SearchPage() {
   return (
     <Box>
       <CommonHeader />
+      <HomeSideBar />
       <Box className='w-[1220px] mx-auto'>
         <SearchCard
           hotels={hotels}

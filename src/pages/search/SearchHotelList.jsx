@@ -9,6 +9,7 @@ import useIntersect from '../../components/search/useIntersect'
 import HotelItem from '../../components/search/HotelItem'
 import SideBar from '../../components/search/SideBar'
 import CommonHeader from '../main/CommonHeader'
+import HomeSideBar from '../main/HomeBody/HomeSideBar'
 import Footer from '../main/Footer/Footer'
 
 function SearchHotelList() {
@@ -55,9 +56,10 @@ function SearchHotelList() {
   return (
     <Box>
       <CommonHeader />
+      <HomeSideBar />
       <Box className='flex flex-col items-start gap-3 mt-5 w-[1220px] h-[1000px] mx-auto'>
         <Typography
-          className='text-gray-900'
+          className='text-gray-900 cursor-pointer'
           style={{
             display: 'inline',
             marginLeft: '1rem',
@@ -66,6 +68,8 @@ function SearchHotelList() {
           component='span'
         >
           홈
+          <FiChevronRight className='inline w-10' />
+          트립 가이드
           <FiChevronRight className='inline w-10' />
           검색
         </Typography>

@@ -14,7 +14,7 @@ function AuthSignUp() {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [address, setAddress] = useState('')
+  // const [address, setAddress] = useState('')
   const [isValidEmail, setIsValidEmail] = useState(true)
   const [isValidName, setIsValidName] = useState(true)
   const [isValidPassword, setIsValidPassword] = useState(true)
@@ -57,7 +57,7 @@ function AuthSignUp() {
     e.preventDefault()
 
     try {
-      await FetchSignUp(email, name, password, address, false)
+      await FetchSignUp(email, name, password, false)
 
       showSwal('환영합니다! 로그인을 해주세요!', 'success')
       navigate('/')
@@ -148,7 +148,7 @@ function AuthSignUp() {
             비밀번호가 일치하지 않습니다.
           </Box>
         )}
-        <TextField
+        {/* <TextField
           type='text'
           value={address}
           className='w-full'
@@ -159,7 +159,7 @@ function AuthSignUp() {
           onChange={(e) => {
             setAddress(e.target.value)
           }}
-        />
+        /> */}
         <Button
           onClick={handleSubmit}
           variant='contained'
